@@ -1,0 +1,30 @@
+<div class="container">  
+
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1 col-sm-5 col-md-offset-1 col-xs-5 col-md-offset-1">
+      <%= image_tag(@gallery.thumbnail.url(:medium), class: "img-responsive") %>
+    </div>
+    <div class="col-md-5">
+      <h1 class="display-1"><%= @gallery.gallery_name %></h1>
+        <p class="lead-text"><em><%= @gallery.medium %></em></p><br>
+        <%= @gallery.address %><br>
+        <%= @gallery.phone %><br>
+        <%= markdown(@gallery.email) %>
+        <%= link_to @gallery.website, url_with_protocol(@gallery.website), :target => '_blank' %>
+        
+        <p><%= markdown(@gallery.description) %></p><br>
+
+        <p>Owner/Operator: <%= @gallery.owner_operator %></p>
+    </div>
+  </div>
+  <br>
+  <br>
+<p class="text-center">
+  <% if admin_signed_in? %>
+    <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+  <% end %>
+  <%= link_to 'All Galleries', galleries_path %>
+</p>
+<br>
+<br>
+</div>

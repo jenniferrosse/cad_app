@@ -1,0 +1,28 @@
+<div class="container">
+
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1 col-sm-5 col-md-offset-1 col-xs-5 col-md-offset-1">
+      <%= image_tag(@event.event_thumbnail.url(:medium), class: "img-responsive") %>
+      </div>
+
+      <div class="col-md-5">
+        <h1><%= @event.title %></h1>
+
+        <p><strong><%= @event.date_info %></strong></p>
+        <p><%= markdown(@event.description) %></p><br>
+        <br>
+        <p class="text-center">
+         <%= link_to "Download a Map of Participating Galleries", events_path, class: "btn btn-danger btn-lg" %></p>
+      </div>
+    </div>
+    <br>
+    <br>
+    <p class="text-center">
+      <% if admin_signed_in? %>
+        <%= link_to 'Edit', edit_event_path(@event) %> |
+      <% end %>
+      <%= link_to 'All Events', events_path %>
+    </p>
+    <br>
+    <br>
+</div>

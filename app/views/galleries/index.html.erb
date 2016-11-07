@@ -1,0 +1,111 @@
+<% content_for(:title, 'Galleries')%>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h1 class="text-center">galleries</h1>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="btn-group" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Search by Name
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dropdown link</a></li>
+            <li><a href="#">Dropdown link</a></li>
+          </ul>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Search by Medium
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Ceramics</a></li>
+            <li><a href="#">Jewelry</a></li>
+            <li><a href="#">Photography</a></li>
+            <li><a href="#">Performance</a></li>
+            <li><a href="#">Mixed Media</a></li>
+            <li><a href="#">Sculpture</a></li>
+          </ul>
+        </div>
+      </div>
+    </p>
+  </div>
+</div>
+
+  <br>
+  <br>
+  <div class="row gallery">
+    <div class="col-md-10 col-md-offset-1">
+      <% @galleries.each do |gallery| %>
+        <div class="col-md-3 col-sm-4 col-xs-6">
+          <div class="icon">
+            <div class="thumbnail">
+              <%= link_to image_tag(gallery.thumbnail.url(:medium), class: "img-responsive aspect"), gallery %>
+              <div class="caption">
+                <h5 class="text-center"><%= link_to gallery.gallery_name, gallery %></h5>
+                <hr>
+                <h6><%= gallery.address %></h6>
+                  <h6><em><%= gallery.medium %></em></h6>
+                </div>
+            </div> 
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+    <div class="map_container">
+      <div id="map_canvas" class="map_canvas"></div>
+    </div>
+  </div>
+</div>
+  <script type="text/javascript">
+    handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map_canvas'}}, function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+
+      // adds the users current location based on browser GPS
+        function addCurrentLocation() {
+
+          function displayOnMap(position){
+            var marker = handler.addMarker({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+              picture: {
+                url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+                width:  36,
+                height: 36
+              },
+              infowindow: "This is you!"
+            });
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            // handler.map.centerOn(marker);
+          };
+
+          if(navigator && navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(displayOnMap);  
+          }
+
+        }
+
+        addCurrentLocation();
+  </script>
+
+<p class="text-center">
+  <% if admin_signed_in? %>
+    <%= link_to 'New Gallery', new_gallery_path %></p>
+    <% end %>
+</div><!-- end container -->

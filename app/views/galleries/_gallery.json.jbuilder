@@ -1,0 +1,2 @@
+json.extract! gallery, :id, :gallery_name, :address, :latitude, :longitude, :phone, :website, :email, :owner_operator, :medium, :description, :created_at, :updated_at
+json.url gallery_url(gallery, format: :json)

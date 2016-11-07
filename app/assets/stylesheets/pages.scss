@@ -1,0 +1,11 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#background {
+     background-image: url('gallery5.jpg');
+     height: 100vh;
+     background-size: cover;
+
+     margin: -10px 0 0 -6px;
+}
