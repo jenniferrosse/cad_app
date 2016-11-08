@@ -50,10 +50,10 @@
             <div class="img">
               <%= link_to image_tag(gallery.thumbnail.url(:medium), class: "img-responsive aspect"), gallery %>
               <div class="caption">
-                <h5 class="text-center"><%= link_to gallery.gallery_name, gallery %></h5>
-                <hr>
-                <h6><%= gallery.address %></h6>
-                  <h6><em><%= gallery.medium %></em></h6>
+                <h4 class="text-center"><%= link_to gallery.gallery_name, gallery %></h4>
+                
+                <h6 class="text-center"><%= gallery.address %></h6>
+                  <h6 class="text-center"><em><%= gallery.medium %></em></h6><hr>
                 </div>
             </div> 
           </div>
