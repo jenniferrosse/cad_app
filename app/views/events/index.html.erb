@@ -38,8 +38,8 @@
         <strong><em><%= event.gallery.try(:gallery_name) %></em></strong><br>
           <%= event.date_info %><br>
           <br>
-          <p class="text-justify"><% if event.description.length > 250 %>
-                  <%= truncate(event.description, length: 250) %>
+          <p class="text-justify"><% if event.description.length > 275 %>
+                  <%= truncate(event.description, length: 275) %>
                   <%= link_to 'more...', '', class: "read-more-#{event.id}" %>
                   <script>
                     $('.read-more-<%= event.id %>').on('click', function(e) {
