@@ -35,6 +35,7 @@
       </div><!-- end md 1 -->
       <div class="col-md-4">
         <h3><%= link_to event.title, event %></h3>
+        <%= event.gallery.try(:gallery_name) %><br>
           <%= event.date_info %><br>
           <br>
           <p class="text-justify"><% if event.description.length > 300 %>
