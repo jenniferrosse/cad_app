@@ -11,7 +11,8 @@
         <%= @gallery.phone %><br>
         <%= markdown(@gallery.email) %>
         <%= link_to @gallery.website, url_with_protocol(@gallery.website), :target => '_blank' %>
-        
+        <br>
+        <br>
         <p><%= markdown(@gallery.description) %></p><br>
 
         <p>Owner/Operator: <%= @gallery.owner_operator %></p>
