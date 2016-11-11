@@ -44,6 +44,10 @@ body {
   }
 }
 
+.other-color{
+    background: green
+  }
+
 h1 {
   color: gray;
 }
@@ -71,7 +75,14 @@ p {
     background-repeat: no-repeat;
     color: white;
 }
-
+.jumbotron-home-second {
+    margin-bottom: 0px;
+    background-image: url(gallery5.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
 .jumbotron-contact {
     margin-bottom: 0px;
     background-image: url(gallery5.jpg);
