@@ -53,7 +53,7 @@ h1 {
 }
 
 h2 {
-  
+  color: gray;
 }
 
 h3 {
@@ -73,7 +73,9 @@ p {
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
+    h1, h2 {
+      color: white;
+    }
 }
 .jumbotron-home-second {
     margin-bottom: 0px;
