@@ -7,6 +7,7 @@
 
       <div class="col-md-5">
         <h1><%= @event.title %></h1>
+        <p><strong><%= @event.start_date.strftime("%e %B %Y") %> - <%= @event.start_date.strftime("%e %B %Y") %></strong></p>
         <p><strong><%= @event.date_info %></strong></p>
         <p><%= markdown(@event.description) %></p><br>
         <br>

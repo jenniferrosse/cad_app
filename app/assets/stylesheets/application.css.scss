@@ -60,7 +60,16 @@ h3 {
   color: #CC0000;
 }
 h4 {
-  color: #CC0000;
+  color: darkgray;
+}
+
+h4.uppercase {
+  text-transform: uppercase;
+}
+
+h5 {
+  color: dimgray;
+  text-transform: uppercase;
 }
 
 p {
@@ -99,10 +108,11 @@ p {
 }
 
 .footer {
-  background-color: gray;
+  background-size: cover;
+  background-color: white;
   padding: 5px;
 
   p {
-  color: #D8D8D8;
+  color: dimgray;
   }
 }

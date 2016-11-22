@@ -26,11 +26,10 @@
         </div><!-- end col -->
         <div class="col-xs-12 col-sm-9 col-md-9">
           <h3><%= link_to event.title, event %></h3>
-          <strong><em><%= event.gallery.try(:gallery_name) %></em></strong><br>
-            <em><%= event.gallery.try(:address) %></em><br>
+          <strong><%= event.gallery.try(:gallery_name) %></strong><br>
+            <%= event.gallery.try(:address) %><br>
             <br>
-            <%= event.date_info %><br>
-            <br>
+            <h5><%= event.start_date.strftime("%e %B %Y") %> - <%= event.start_date.strftime("%e %B %Y") %></h5>
             <p class="text-justify"><% if event.description.length > 255 %>
               <%= truncate(event.description, length: 255) %>
               <%= link_to 'more...', '', class: "read-more-#{event.id}" %>
