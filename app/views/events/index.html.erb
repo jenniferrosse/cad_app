@@ -29,7 +29,12 @@
           <strong><%= event.gallery.try(:gallery_name) %></strong><br>
             <%= event.gallery.try(:address) %><br>
             <br>
-            <h4 class="uppercase"><%= event.start_date.strftime("%e %B %Y") %> - <%= event.start_date.strftime("%e %B %Y") %></h4>
+            <h4 class="uppercase">
+              <%= event.start_date.strftime("%e %B %Y") %> 
+              <% if event.end_date > event.start_date %>
+                - <%= event.end_date.strftime("%e %B %Y") %>
+              <% end %>
+            </h4>
             <p class="text-justify"><% if event.description.length > 255 %>
               <%= truncate(event.description, length: 255) %>
               <%= link_to 'more...', '', class: "read-more-#{event.id}" %>

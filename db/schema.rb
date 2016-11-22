@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122172120) do
+ActiveRecord::Schema.define(version: 20161122180454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20161122172120) do
     t.integer  "event_thumbnail_file_size"
     t.datetime "event_thumbnail_updated_at"
     t.text     "date_info"
+    t.date     "end_date"
   end
 
   add_index "events", ["gallery_id"], name: "index_events_on_gallery_id", using: :btree
