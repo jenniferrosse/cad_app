@@ -84,6 +84,14 @@ p {
   color: gray;
 }
 
+.btn.btn-primary {
+  background: gray;
+  border: gray;
+}
+.btn.sharp {
+  border-radius:0;
+}
+
 .jumbotron-home {
     margin-bottom: 0px;
     background-image: url(artwalk2.jpg);

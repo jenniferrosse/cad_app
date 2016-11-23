@@ -11,25 +11,71 @@
    <br>
    <br>
     <div class="row">
-      <h1 class="text-center">Where People Meet Art</h1>
+      <h1 class="text-center">WHERE PEOPLE MEET ART</h1>
       <h2 class="text-center">Next 2nd Friday Art Walk <br>
-        Friday, November 11th, 2016</h2>
+        Friday, December 9th, 2016</h2>
       <p class="text-center">
-         <%= link_to "Learn more", events_path, class: "btn btn-danger btn-lg" %></p>
+         <%= link_to "Learn More", pages_second_fridays_path, class: "btn btn-danger btn-lg sharp" %></p>
          <br>
          <br>
     </div>
   </div> 
   <br>
+  <br>
+  <br>
   <div class="row">
-    <h1 class="text-center">Visiting This Month's Art Walk?</h1>
-    <br>
-    <div class="col-md-8 col-md-offset-2">
-      <p class="lead text-center">The Chicago Arts District encompasses several contiguous blocks of lofts, studios and retail spaces for artists, gallerists, and creative individuals. Every 2nd Friday of the month, the galleries of the Chicago Arts District invite the public to view new and exciting exhibitions. There is something for everyone here in the Chicago Arts District, from the traditional mediums of painting, photography, and sculpture to avant garde fashion, installation and video art, just to name a few!</p>
+    <div class="col-md-3 col-md-offset-2">
+      <%= image_tag("map-nov-16.jpg", class: "img-responsive") %>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+      <h2>Visiting this month's art walk?</h2>
+      <div class="row">
+        <div class="col-md-2">
+          <h1><span class="glyphicon glyphicon-home"></span></h1>
+        </div>
+        <div class="col-md-10">
+          <br>
+          <p class="lead">Stop by the <%= link_to "Information Center", pages_second_fridays_path %> at 1945 S Halsted in Chicago to get a map.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <h1><span class="glyphicon glyphicon-download"></span></h1>
+        </div>
+        <div class="col-md-10">
+          <br>
+          <p class="lead">Or download a map now by clicking the map image to the left.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <h1><span class="glyphicon glyphicon-envelope"></span></h1>
+        </div>
+        <div class="col-md-10">
+          <br>
+          <p class="lead">Sign up to be notified about future art walks and other upcoming events.</p>
+        </div>
+      </div>
     </div>
   </div>
-  
+  <br>
+  <br>
 
+  <div class="jumbotron home-second">
+    <div class="container">
+      <div class="row">
+        <h2 class="text-center">About the Chicago Arts District</h2>
+        <br>
+        <div class="col-md-8 col-md-offset-2">
+          <p class="lead text-center">The Chicago Arts District encompasses several contiguous blocks of lofts, studios and retail spaces for artists, gallerists, and creative individuals. Every 2nd Friday of the month, the galleries of the Chicago Arts District invite the public to view new and exciting exhibitions. There is something for everyone here in the Chicago Arts District, from the traditional mediums of painting, photography, and sculpture to avant garde fashion, installation and video art, just to name a few!</p>
+         
+        <p class="lead text-center">
+          <%= link_to "List of Galleries", galleries_path, class: "btn btn-primary btn-lg sharp" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="row">
     <div class="col-md-4 col-md-offset-0 col-xs-8 col-xs-offset-2">
       <h2 class="text-center"><u>01</u><h2>
@@ -75,13 +121,6 @@
         </p>
     </div>
   </div>
-
-  <div class="jumbotron home-second">
-    <div class="container">
-      ...
-    </div>
-  </div>
-</div>
 
 
 
