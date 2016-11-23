@@ -7,6 +7,9 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.order('start_date DESC')
+    @events = @events.current_events if params[:current_events]
+    @events = @events.upcoming_events if params[:upcoming_events]
+    @events = @events.past_events if params[:past_events]
   end
 
   # GET /events/1

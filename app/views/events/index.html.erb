@@ -9,17 +9,21 @@
 
   <div class="row">
     <div class="col-sm-2 col-sm-offset-0 col-md-2 col-md-offset-1 ">
-      <%= link_to 'Current', new_event_path %><br>
-      <%= link_to 'Upcoming', new_event_path %><br>
-      <%= link_to 'Past', new_event_path %><br>
-      <%= link_to 'All', new_event_path %><br>
+      <%= link_to 'Current', events_path(current_events: true) %><br>
+      <%= link_to 'Upcoming', events_path(upcoming_events: true) %><br>
+      <%= link_to 'Past', events_path(past_events: true) %>
+      <hr>
+      <%= link_to 'All', events_path %><br>
+
+
+
       <br>
       <% if admin_signed_in? %>
-        <%= link_to 'New Event', new_event_path %>
-      <% end %>
+      <%= link_to 'New Event', new_event_path, class: "btn btn-default" %>
+    <% end %>
     </div>
     <div class="col-sm-10 col-md-8">
-      <div class="row">
+      <div class="row event">
         <% @events.each do |event| %>
         <div class="col-xs-12 col-sm-3 col-md-3">
               <%= link_to image_tag(event.event_thumbnail.url(:small), class: "img-responsive aspect"), event %>
