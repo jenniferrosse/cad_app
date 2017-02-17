@@ -74,7 +74,7 @@ h3 {
   text-transform: uppercase;
 }
 h4 {
-  color: dimgray;
+  color: #4d4d4d;
   text-transform: uppercase;
 }
 
@@ -83,7 +83,7 @@ h4.uppercase {
 }
 
 h5 {
-  color: dimgray;
+  color: #4d4d4d;
   text-transform: uppercase;
 }
 
@@ -92,7 +92,7 @@ p {
 }
 
 .gallery-info {
-  color: dimgray;
+  color: #4d4d4d;
   text-transform: uppercase;
 }
 
@@ -101,25 +101,34 @@ p {
   border: gray;
 }
 .btn.sharp {
-  border-radius:0;
+  border-radius: 0;
 }
 
 .jumbotron-home {
-    margin-bottom: 0px;
-    background-image: url(gallery-sample-small.jpg);
-    background-position: 0% 25%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    h1, h2 {
+   background-image: url(CAD-art-2.jpg);
+   background-position: 0% 25%;
+   background-size: cover;
+   text-align: center;
+   padding: 25px 0;
+   background-repeat: no-repeat;
+   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+   min-height: 100vh; /* These two lines are counted as one :-)       */
+   display: flex;
+   align-items: center;
+     h1, h2, p {
       color: white;
-    }
+     }
     .btn-primary-outline {
       color: #fff;
       background-color: transparent;
-
       border-color: #fff;
       margin-top: 50px;
     }
+}
+
+.overlay {
+  background: transparent url("http://i.imgur.com/8B7UFiv.png") repeat;
+    
 }
 
 .carousel-inner {
