@@ -65,14 +65,17 @@ h1 {
 }
 
 h2 {
-  color: gray;
+  color: #CC0000;
+  text-transform: uppercase;
 }
 
 h3 {
   color: #CC0000;
+  text-transform: uppercase;
 }
 h4 {
   color: dimgray;
+  text-transform: uppercase;
 }
 
 h4.uppercase {
@@ -86,6 +89,11 @@ h5 {
 
 p {
   color: gray;
+}
+
+.gallery-info {
+  color: dimgray;
+  text-transform: uppercase;
 }
 
 .btn.btn-primary {
@@ -168,6 +176,11 @@ p {
 .marketing h2 {
   font-weight: normal;
 }
+
+.marketing h4 {
+  margin-top: 20px;
+}
+
 .marketing .col-lg-4 p {
   margin-right: 10px;
   margin-left: 10px;

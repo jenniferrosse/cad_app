@@ -11,9 +11,15 @@
    <br>
    <br>
    <br>
-      <h2 class="text-center">WHERE PEOPLE MEET ART</h2>
-      <h3 class="text-center">Next 2nd Friday Art Walk <br>
-        Friday, December 9th, 2016</h3>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+      <h1 class="text-center">WHERE PEOPLE MEET ART</h1>
+      <h2 class="text-center">Next 2nd Friday Art Walk <br>
+        Friday, December 9th, 2016</h2>
         <br>
         <br>
       <p class="text-center">
@@ -39,19 +45,19 @@
       <div class="row">
         <div class="col-lg-4">
           <%= link_to image_tag('tower.jpg', width: '175', height: '175', class: "img-circle"), events_path %>
-          <h2>Current Exhibitions</h2>
+          <h4>Current Exhibitions</h4>
           <p>Download a map now, or stop by the information booth for a map of the upcoming 2nd Fridays Gallery Night art walk.</p>
           <p><%= link_to "View Details", events_path, class: "btn btn-default" %></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <%= image_tag('map-nov-16.jpg', width: '175', height: '175', class: "img-circle") %>
-          <h2>Plan a Visit</h2>
+          <%= image_tag('artwalk3-square.jpg', width: '175', height: '175', class: "img-circle") %>
+          <h4>Plan a Visit</h4>
           <p>Download a map now, or stop by the information booth for a map of the upcoming 2nd Fridays Gallery Night art walk.</p>
           <p><%= link_to "View Details", pages_second_fridays_path, class: "btn btn-default" %></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <%= image_tag('CAD-about.jpg', width: '175', height: '175', class: "img-circle") %>
-          <h2>Sign Up for Updates</h2>
+          <%= image_tag('CAD-about-square.jpg', width: '175', height: '175', class: "img-circle") %>
+          <h4>Sign Up for Updates</h4>
           <p>Once a month we send out a newsletter with a program for the upcoming 2nd Fridays Gallery Night.</p>
           <p><!-- Button trigger modal -->
           <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
@@ -83,15 +89,16 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Featured Work <span class="text-muted"></span></h2>
+          <h3 class="featurette-heading">Upcoming Exhibitions<span class="text-muted"></span></h3>
           <br>
-          <h3 class="featurette-heading">John Yaou<span class="text-muted"></span></h3>
-          <h4>Studio Oh! Gallery<br>
-          1833 S Halsted St<br>
-          Chicago, IL 60608</h4>
-          <br>
+          <h2 class="featurette-heading">John Yaou<span class="text-muted"></span></h2>
+          <h4>JANUARY 10 - February 10, 2017</h4>
           <br>
           <p class="lead">This body of work by painter John Yaou focuses on the culture and impact of the rise of graphiti art. On display through February 15th. Receptions Friday, January 13th, from  6-10pm and Friday, February 10th, form 6-10pm. </p>
+          <br>
+          <p class="gallery-info">Studio Oh! Gallery<br>
+            1833 S. Halsted St.<br>
+            Chicago, IL 60608</p>
         </div>
         <div class="col-md-5">
           <%= image_tag('Yaou_CAD.jpg', class: "featurette-image img-responsive center-block") %>
@@ -102,14 +109,15 @@
 
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Welcome to the Neighborhood</h2>
+          <h3 class="featurette-heading">New Galleries</h3>
           <br>
-          <h3 class="featurette-heading">La Kaiser<span class="text-muted"></span></h3>
-          <h4>1932 S Halsted St., #501<br>
-          Chicago, IL 60608</h4>
+          <h2 class="featurette-heading">La Kaiser<span class="text-muted"></span></h2>
           <br>
+          <p class="lead">I'm a Swiss native, born and raised in Zimbabwe and now living the "American dream" in the windy city of Chicago. Life has been an adventure to say the least! My Swiss roots bring me back to Zurich often to visit family and I can't help myself from being inspired by the picturesque village settings, lush green pastures and pristine mountain tops and lakes. </p>
           <br>
-          <p class="lead">Cindy Kaiser has been making jewelry for 10+ years... </p>
+          <p class="gallery-info">La Kaiser<br>
+            1932 S Halsted St., #501<br>
+          Chicago, IL 60608</p>
         </div>
         <div class="col-md-5 col-md-pull-7">
           <%= image_tag('kaiser.png', class: "featurette-image img-responsive center-block") %>
@@ -120,11 +128,19 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h3 class="featurette-heading">About the Chicago Arts District<span class="text-muted"></span></h3>
+          <br>
+          <h2 class="featurette-heading">John Yaou<span class="text-muted"></span></h2>
+          <h4>JANUARY 10 - February 10, 2017</h4>
+          <br>
+          <p class="lead">This body of work by painter John Yaou focuses on the culture and impact of the rise of graphiti art. On display through February 15th. Receptions Friday, January 13th, from  6-10pm and Friday, February 10th, form 6-10pm. </p>
+          <br>
+          <p class="gallery-info">Studio Oh! Gallery<br>
+            1833 S. Halsted St.<br>
+            Chicago, IL 60608</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <%= image_tag('Yaou_CAD.jpg', class: "featurette-image img-responsive center-block") %>
         </div>
       </div>
 
