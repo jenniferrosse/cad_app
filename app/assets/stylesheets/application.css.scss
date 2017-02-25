@@ -31,6 +31,9 @@ body {
   a {
   color: #808080;
   }
+  h4 {
+  font-size: 95%;
+  }
   p {
   color: gray;
   }
@@ -102,6 +105,21 @@ hr {
     box-shadow: none;
 }
 
+
+.icon {
+    position: relative;
+}
+
+.caption {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    opacity: .9;
+}
+
+
 .btn.btn-primary {
   background: gray;
   border: gray;
@@ -141,10 +159,7 @@ hr {
 
 
 
-.overlay {
-  background: transparent url("http://i.imgur.com/8B7UFiv.png") repeat;
-    
-}
+
 
 .carousel-inner {
   h3 {
