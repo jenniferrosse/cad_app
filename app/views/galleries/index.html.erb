@@ -17,23 +17,21 @@
   <div class="row gallery">
     <div class="col-md-12 col-lg-10 col-lg-offset-1">
       <% @galleries.each do |gallery| %>
-        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-4">
           <div class="icon">
-            <div class="img">
-              <%= link_to image_tag(gallery.thumbnail.url(:medium), class: "img-responsive aspect"), gallery %>
-              <div class="caption">
-                <h4 class="text-center"><%= link_to gallery.gallery_name, gallery %></h4>
-                <h6 class="text-center"><%= gallery.address %></h6>
-                <h6 class="text-center"><em><%= gallery.medium %></em></h6><hr>
-              </div>
-            </div> 
-          </div>
+            <%= link_to image_tag(gallery.thumbnail.url(:medium), class: "img-responsive aspect"), gallery %>
+            <div class="caption">
+              <h4 class="text-center"><%= link_to gallery.gallery_name, gallery %></h4>
+              <h6 class="text-center"><%= gallery.address %></h6>
+              <h6 class="text-center"><em><%= gallery.medium %></em></h6><hr>
+            </div>
+          </div> 
         </div>
-
+        <div class="clearfix visible-md"></div>
       <% end %>
-
     </div>
-<div class="clearfix visible-md"></div>
+    
+  </div>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-1">

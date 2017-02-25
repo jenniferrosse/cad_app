@@ -1,11 +1,104 @@
-<div class="jumbotron">
-  <h1>Hello, world!</h1>
-  <p>...</p>
-  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
-</div>
+<br>
+<br>
+<br>
 
-<div class="jumbotron other-color">
-  <h1>Hello, people!</h1>
-  <p>...</p>
-  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h1 class="text-center">2nd Friday Gallery Night</h1>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h2>Participating Galleries</h2>
+      <div class="row">
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag('Lisa_CAD.jpg', class: "img-responsive") %>
+            <div class="caption">
+              <h5>Studio Oh!</h5>
+              <p>Aspects of the Whole</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag('WhatLiesBeneath_Banner.jpg', class: "img-responsive") %>
+            <div class="caption">
+              <h5>Chicago Art Department - East</h5>
+              <p>What Lies Beneath</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag('MelissaCarloline_banner.jpg', class: "img-responsive") %>
+            <div class="caption">
+              <h5>Chicago Art Department - West</h5>
+              <p>When Words Fail Us</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag('temple2-square.jpg', class: "img-responsive") %>
+            <div class="caption">
+              <h5>TEMPLE Gallery</h5>
+              <p>Improv with PosterchildArt</p>
+            </div>
+          </div>
+        </div>
+        <!-- Add clearfix for only the required viewport -->
+    <div class="clearfix visible-lg"></div>
+
+
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag('kaiser.png', class: "img-responsive") %>
+            <div class="caption">
+              <h5>La Kaiser</h5>
+              <p>Handmade Jewelry</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag('tower.jpg', class: "img-responsive") %>
+            <div class="caption">
+              <h5>DESIGNPROJECT</h5>
+              <p>Sears Tower Inquiry</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag('Bryan-Sperry-2016_1.jpg', class: "img-responsive") %>
+            <div class="caption">
+              <h5>Bryan Sperry Studio</h5>
+              <p>Warriors of the Apocolypse</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag('IMG_89461-square.jpg', class: "img-responsive") %>
+            <div class="caption">
+              <h5>SK Kitchen Design</h5>
+              <p>Art by Tulika Ladsariya</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+   
+  <br>
+  <p class="text-center">
+    <% if admin_signed_in? %>
+      <%= link_to 'New Event', new_event_path, class: "btn btn-default" %>
+    <% end %>
+  </p>
 </div>
