@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'pages/events'
   get 'pages/exhibitions'
   get 'pages/calendar'
+  get 'pages/calendar_all'
   get 'pages/contact'
 
   get 'pages/second_fridays'

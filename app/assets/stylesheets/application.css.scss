@@ -36,18 +36,11 @@ body {
   }
 }
 
-.event {
-  a {
-  color: #808080;
+.event 
+  {a {
+  color: #CC0000;
   }
-  p {
-  color: gray;
-  }
-}
-.event {
-  a {
-  color: #808080;
-  }
+  
   p {
   color: gray;
   }
@@ -74,7 +67,7 @@ h3 {
   text-transform: uppercase;
 }
 h4 {
-  color: #4d4d4d;
+  color: #CC0000;
   text-transform: uppercase;
 }
 
@@ -102,6 +95,11 @@ hr {
 .gallery-info {
   color: #4d4d4d;
   text-transform: uppercase;
+}
+
+.thumbnail {
+    border: 0 none;
+    box-shadow: none;
 }
 
 .btn.btn-primary {
