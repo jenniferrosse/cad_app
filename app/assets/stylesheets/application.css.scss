@@ -106,11 +106,11 @@ hr {
 }
 
 
-.icon {
+.icon-1 {
     position: relative;
 }
 
-.caption {
+.caption-1 {
     position: absolute;
     bottom: 10%;
     left: 0;
@@ -118,6 +118,21 @@ hr {
     background: #fff;
     opacity: .9;
 }
+
+.caption-2 {
+  h4 {
+    margin-top: 20px;
+    }
+  h6 {
+    margin-top: 0px;
+    }
+  hr {
+    width: 50%;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+}
+
 
 
 .btn.btn-primary {

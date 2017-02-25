@@ -18,9 +18,9 @@
     <div class="col-md-12 col-lg-10 col-lg-offset-1">
       <% @galleries.each do |gallery| %>
         <div class="col-md-4 col-lg-4">
-          <div class="icon">
+          <div class="icon icon-1">
             <%= link_to image_tag(gallery.thumbnail.url(:medium), class: "img-responsive aspect"), gallery %>
-            <div class="caption">
+            <div class="caption caption-1">
               <h4 class="text-center"><%= link_to gallery.gallery_name, gallery %></h4>
               <h6 class="text-center"><%= gallery.address %></h6>
               <h6 class="text-center"><em><%= gallery.medium %></em></h6>
@@ -35,6 +35,48 @@
       <br>
     </div>
   </div>
+
+
+
+ <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h1 class="text-center">galleries</h1>
+      <hr>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+
+
+  <div class="row gallery">
+    <div class="col-md-12 col-lg-10 col-lg-offset-1">
+      <% @galleries.each do |gallery| %>
+        <div class="col-md-4 col-lg-4">
+          <div class="icon">
+            <%= link_to image_tag(gallery.thumbnail.url(:medium), class: "img-responsive aspect"), gallery %>
+            <div class="caption caption-2">
+              <h4 class="text-center"><%= link_to gallery.gallery_name, gallery %></h4>
+
+              <h6 class="text-center"><%= gallery.address %></h6>
+              <hr>
+              <h6 class="text-center"><em><%= gallery.medium %></em></h6>
+
+            </div>
+               
+          </div> 
+          <br>   
+        </div>
+
+      <% end %>
+      <br>
+    </div>
+  </div>
+
+
+
+
 
 <div class="row">
   <div class="col-md-6 col-md-offset-1">
