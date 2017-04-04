@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -14,8 +14,8 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "HOME", root_path %></li>
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to "HOME", root_path %></li>
         <li><%= link_to "ABOUT", pages_about_path %></li>
         <li><%= link_to "GALLERIES", galleries_path %></li>
         <li><%= link_to "EVENTS", events_path %></li>
@@ -23,6 +23,27 @@
       <% if admin_signed_in? %>
         <li><%= link_to "Sign Out", destroy_admin_session_path, method: :delete %></li>
       <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a href="/login">login</a></li>
+        <!-- Button trigger modal -->
+            <li><div class="btn-nav"><a class="btn btn-primary btn-small navbar-btn" data-toggle="modal" data-target="#myModal">Sign for Newsletter</a></div></li>
+              
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Sign Up for Newsletter</h4>
+                </div><!-- end modal-header -->
+                <div class="modal-body">
+                    <iframe src="https://app.e2ma.net/app2/audience/signup/1355398/1354401/" width="500" height="425" frameborder="0"></iframe>
+                </div><!-- end modal-body -->
+              </div><!-- end modal-content -->
+            </div><!-- end modal-dialog -->
+          </div><!-- end modal fade -->
       </ul>
     
     </div><!-- /.navbar-collapse -->

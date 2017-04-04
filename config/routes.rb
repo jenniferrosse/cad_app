@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   get 'pages/events'
+  get 'pages/event_1'
   get 'pages/exhibitions'
+  get 'pages/exhibition'
   get 'pages/calendar'
   get 'pages/calendar_all'
   get 'pages/contact'
