@@ -452,9 +452,15 @@ hr {
 /* Events - Index Page
 ------------------------- */
 
+.col-sm-4 {
+    padding: 2px 2px;
+}
 .col-sm-3 {
     padding: 0px 2px;
     margin-bottom: -16px;
+}
+.col-sm-2 {
+    padding: 0px 2px;
 }
 
 .thumbnail.thumbnail-events {
@@ -511,6 +517,21 @@ hr {
   }
 }
 
+/* Events - Show Page
+------------------------- */
+#myCarousel-events {
+  height: 500px;
+  .item {
+    height: 500px;
+  }
+  .same-size-img {
+    width: auto;
+    height: 500px;
+    max-height: 500px;
+    margin: 0 auto;
+  }
+}
+
 /* Galleries - Index Page
 ------------------------- */
 
@@ -547,7 +568,41 @@ hr {
   }
 }
  
+/* Featurettes
+------------------------- */
 
+.image-container {
+  position: relative;
+}
+.img-overlay {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+.image-container:hover .overlay {
+  opacity: 1;
+}
+.text-overlay {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
 
 /* Featurettes
 ------------------------- */

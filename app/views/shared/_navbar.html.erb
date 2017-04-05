@@ -20,13 +20,12 @@
         <li><%= link_to "GALLERIES", galleries_path %></li>
         <li><%= link_to "EVENTS", events_path %></li>
         <li><%= link_to "CONTACT", pages_contact_path %></li>
-      <% if admin_signed_in? %>
-        <li><%= link_to "Sign Out", destroy_admin_session_path, method: :delete %></li>
-      <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
 
-        <li><a href="/login">login</a></li>
+        <% if admin_signed_in? %>
+        <li><%= link_to "sign out", destroy_admin_session_path, method: :delete %></li>
+      <% end %>
         <!-- Button trigger modal -->
             <li><div class="btn-nav"><a class="btn btn-primary btn-small navbar-btn" data-toggle="modal" data-target="#myModal">Sign for Newsletter</a></div></li>
               
