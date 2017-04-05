@@ -1,36 +1,11 @@
 <% content_for(:title, 'Home')%>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<div class="parallax"></div>
+<!-- <div class="bg"></div> -->
 
-
-  <div class="jumbotron jumbotron-home">  
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
- </div>
- <br>
-<br>
 <div class="row">
+  <br>
+  <br>
 <h2 class="text-center"> The Chicago Arts District</h2>
 <h1 class="text-center">WHERE PEOPLE MEET ART</h1>
   
@@ -477,6 +452,27 @@
         </p>
     </div>
   </div>
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+
+
 
 <script>
 $(document).ready(function(){
