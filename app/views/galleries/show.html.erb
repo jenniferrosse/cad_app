@@ -26,12 +26,12 @@
 
 
 
-  
-<p>
+
+<p class="text-center">
   <% if admin_signed_in? %>
-    <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+    <%= link_to 'Edit', edit_gallery_path(@gallery),class: "btn btn-warning" %>
   <% end %>
-  <%= link_to 'All Galleries', galleries_path %>
+  <%= link_to 'All Galleries', galleries_path, class: "btn btn-primary" %></p>
 </p>
 <br>
 <br>
