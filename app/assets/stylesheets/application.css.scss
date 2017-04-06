@@ -480,9 +480,11 @@ hr {
     margin-bottom: -16px;
 }
 .col-sm-2 {
+    padding: 2px 2px;
+}
+.col-sm-1 {
     padding: 0px 2px;
 }
-
 .thumbnail.thumbnail-events {
   background-color: #EDEBEB;
   border: 1px solid #E6E6E6;

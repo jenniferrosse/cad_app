@@ -3,19 +3,7 @@
   <hr>
 
     <div class="row">
-      <div class="col-sm-6">
-        <h1><%= @event.title %></h1>
-        <h4 class="uppercase">
-          <%= @event.start_date.try(:strftime, "%B %e") %>
-          <% if @event.end_date > @event.start_date %>
-            - <%= @event.end_date.try(:strftime, "%B %e, %Y") %>
-          <% end %>
-        </h4>
-        <p><strong><%= @event.date_info %></strong></p>
-        <p><%= markdown(@event.description) %></p><br>
-        <br>
-      </div>
-      <div class="col-sm-6">
+      <div class="col-md-6 col-xs-6-push">
         <div id="myCarousel-events" class="carousel slide" data-interval="false" data-ride="carousel">
           <!-- Indicators -->
           <ol class="carousel-indicators">
@@ -48,6 +36,19 @@
           </a>
         </div><!-- End Carousel -->
       </div><!-- End col-sm-6 -->
+      <div class="col-md-6 col-xs-6-pull">
+        <h1><%= @event.title %></h1>
+        <h4 class="uppercase">
+          <%= @event.start_date.try(:strftime, "%B %e") %>
+          <% if @event.end_date > @event.start_date %>
+            - <%= @event.end_date.try(:strftime, "%B %e, %Y") %>
+          <% end %>
+        </h4>
+        <p><strong><%= @event.date_info %></strong></p>
+        <p><%= markdown(@event.description) %></p><br>
+        <br>
+      </div>
+      
     </div><!-- End Row -->
 
 <br>
@@ -55,19 +56,18 @@
 
   <!-- Third Container (Grid) -->
   <div class="row">
-    <div class="col-sm-6">
       <h3 class="page-title">Participating Galleries</h3>
       <br>
       <hr>
-      <div class="col-sm-4">
+      <div class="col-xs-4 col-sm-2">
         <div class="image-container">
           <%= image_tag("design-project.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
           <div class="overlay">
-            <div class="text-overlay">DesignProject</div>
+            <h6 class="text-overlay">DesignProject</h6>
           </div>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-xs-4 col-sm-2">
         <div class="image-container">
           <%= image_tag("xavier-nuez2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
           <div class="overlay">
@@ -75,7 +75,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-xs-4 col-sm-2">
         <div class="image-container">
           <%= image_tag("la-kaiser.png", class: "img-responsive img-overlay", style: "width:100%" ) %>
           <div class="overlay">
@@ -83,7 +83,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-xs-4 col-sm-2">
         <div class="image-container">
           <%= image_tag("Palliative-endeavour2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
           <div class="overlay">
@@ -91,7 +91,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-xs-4 col-sm-2">
         <div class="image-container">
           <%= image_tag("scroll2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
           <div class="overlay">
@@ -99,7 +99,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-xs-4 col-sm-2">
         <div class="image-container">
           <%= image_tag("Adam_CAD.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
           <div class="overlay">
@@ -107,7 +107,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-xs-4 col-sm-2">
         <div class="image-container">
           <%= image_tag("dark-by-design.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
           <div class="overlay">
@@ -115,7 +115,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-xs-4 col-sm-2">
         <div class="image-container">
           <%= image_tag("MelissaCarloline_banner.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
           <div class="overlay">
@@ -123,79 +123,9 @@
           </div>
         </div>
       </div>
-
-      
-    </div>
   </div>
-
-
-
-    <!-- Third Container (Grid) -->
-  <div class="row">
-    <div class="col-sm-6">
-      <h3 class="page-title">Participating Galleries</h3><br>
-      <hr>
-      <div class="col-sm-4">
-        <div class="thumbnail thumbnail-galleries">
-          <%= image_tag("design-project.jpg", class: "img-responsive margin border", style: "width:100%" ) %>
-          <div class="caption exhibitions-text">
-            <h6 class="gallery-name">DesignProject </h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail thumbnail-galleries">
-          <%= image_tag("Heppner_Post.jpg", class: "img-responsive ", style: "width:100%" ) %>
-          <div class="caption exhibitions-text">
-            <h6 class="gallery-name">Studio Oh! Center</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail thumbnail-galleries">
-          <%= image_tag("Tolchin_CAD.jpg", class: "img-responsive", style: "width:100%" ) %>
-          <div class="caption exhibitions-text">
-            <h6 class="gallery-name">Xavier Nuez</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail thumbnail-galleries">
-          <%= image_tag("Adam_CAD.jpg", class: "img-responsive", style: "width:100%" ) %>
-          <div class="caption exhibitions-text">
-            <h6 class="gallery-name">Elko Hardwoods</h6>        </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail thumbnail-galleries">
-          <%= image_tag("great-lakes-home.jpg", class: "img-responsive", style: "width:100%" ) %>
-          <div class="caption exhibitions-text">
-            <h6 class="gallery-name">Chicago Art Dept. (CAD)</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail thumbnail-galleries">
-          <%= image_tag("tower.jpg", class: "img-responsive", style: "width:100%" ) %>
-          <div class="caption exhibitions-text">
-            <h6 class="gallery-name"> La Kaiser</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail thumbnail-galleries">
-          <%= image_tag("Yaou_CAD.jpg", class: "img-responsive", style: "width:100%" ) %>
-          <div class="caption exhibitions-text">
-            <h6 class="gallery-name">SK Kitchen Design</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-    <br>
-    <br>
+<br>
+<br>
     <p>
       <% if admin_signed_in? %>
         <%= link_to 'Edit', edit_event_path(@event) %> |
