@@ -1,0 +1,180 @@
+<% content_for(:title, 'Exhibitions')%>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<br>
+<br>
+<br>
+<div class="container">
+  <h2 class="page-title">Exhibitions</h2><br>
+  <hr>
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default">Current</button>
+    <button type="button" class="btn btn-default">Upcoming</button>
+    <button type="button" class="btn btn-default">Past</button>
+  </div>
+</div>
+
+<br>
+<br>
+
+
+<!-- Third Container (Grid) -->
+<div class="container bg-3">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="thumbnail thumbnail-exhibitions">
+        <%= image_tag("design-project.jpg", class: "img-responsive margin border", style: "width:100%" ) %>
+        <div class="caption exhibitions-text">
+          <h5 class="exhibitions-name">In Like a Lamb, Out Like a Lion</h5>
+          <p class="exhibitions-date">MARCH 10 - March 24, 2017</p>
+          <h6 class="gallery-name">Design Project</h6>
+          <p class="gallery-address">1932 S. Halsted St. #509<br>
+          Chicago, IL 60608</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail thumbnail-exhibitions">
+        <%= image_tag("Heppner_Post.jpg", class: "img-responsive ", style: "width:100%" ) %>
+        <div class="caption exhibitions-text">
+          <h5 class="exhibitions-name">What Lies Beneath</h5>
+          <p class="exhibitions-date">MARCH 10 - April 14, 2017</p>
+          <h6 class="gallery-name">Information Center</h6>
+          <p class="gallery-address">1945 S. Halsted St.<br>
+          Chicago, IL 60608</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail thumbnail-exhibitions">
+        <%= image_tag("Tolchin_CAD.jpg", class: "img-responsive", style: "width:100%" ) %>
+        <div class="caption exhibitions-text">
+          <h5 class="exhibitions-name">What Lies Beneath</h5>
+          <p class="exhibitions-date">MARCH 10 - April 18, 2017</p>
+          <h6 class="gallery-name">Information Center</h6>
+          <p class="gallery-address">1945 S. Halsted St.<br>
+          Chicago, IL 60608</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail thumbnail-exhibitions">
+        <%= image_tag("Adam_CAD.jpg", class: "img-responsive", style: "width:100%" ) %>
+        <div class="caption exhibitions-text">
+          <h5 class="exhibitions-name">What Lies Beneath</h5>
+          <p class="exhibitions-date">Ongoing</p>
+          <h6 class="gallery-name">Information Center</h6>
+          <p class="gallery-address">1945 S. Halsted St.<br>
+          Chicago, IL 60608</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="thumbnail thumbnail-exhibitions">
+        <%= image_tag("corsei.jpg", class: "img-responsive", style: "width:100%" ) %>
+        <div class="caption exhibitions-text">
+          <h5 class="exhibitions-name">What Lies Beneath</h5>
+          <p class="exhibitions-date">Ongoing</p>
+          <h6 class="gallery-name">Information Center</h6>
+          <p class="gallery-address">1945 S. Halsted St.<br>
+          Chicago, IL 60608</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail thumbnail-exhibitions">
+        <%= image_tag("great-lakes-home.jpg", class: "img-responsive", style: "width:100%" ) %>
+        <div class="caption exhibitions-text">
+          <h5 class="exhibitions-name">What Lies Beneath</h5>
+          <p class="exhibitions-date">Ongoing</p>
+          <h6 class="gallery-name">Information Center</h6>
+          <p class="gallery-address">1945 S. Halsted St.<br>
+          Chicago, IL 60608</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail thumbnail-exhibitions">
+        <%= image_tag("tower.jpg", class: "img-responsive", style: "width:100%" ) %>
+        <div class="caption exhibitions-text">
+          <h5 class="exhibitions-name">What Lies Beneath</h5>
+          <p class="exhibitions-date">Ongoing</p>
+          <h6 class="gallery-name">Information Center</h6>
+          <p class="gallery-address">1945 S. Halsted St.<br>
+          Chicago, IL 60608</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail thumbnail-exhibitions">
+        <%= image_tag("Yaou_CAD.jpg", class: "img-responsive", style: "width:100%" ) %>
+        <div class="caption exhibitions-text">
+          <h5 class="exhibitions-name">What Lies Beneath</h5>
+          <p class="exhibitions-date">Ongoing</p>
+          <h6 class="gallery-name">Information Center</h6>
+          <p class="gallery-address">1945 S. Halsted St.<br>
+          Chicago, IL 60608</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exhibitions.each do |exhibition| %>
+      <tr>
+        <td><%= exhibition.title %></td>
+        <td><%= exhibition.start_date %></td>
+        <td><%= exhibition.end_date %></td>
+        <td><%= exhibition.description %></td>
+        <td><%= link_to 'Show', exhibition %></td>
+        <td><%= link_to 'Edit', edit_exhibition_path(exhibition) %></td>
+        <td><%= link_to 'Destroy', exhibition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<p class="text-center">
+    <% if admin_signed_in? %>
+      <%= link_to 'New Exhibition', new_exhibition_path, class: "btn btn-default" %>
+    <% end %>
+  </p>
+</div>
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+

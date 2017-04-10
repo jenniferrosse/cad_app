@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :exhibitions
   devise_for :admins
   get 'pages/home'
 

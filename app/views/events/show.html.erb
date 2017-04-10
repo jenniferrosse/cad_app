@@ -15,13 +15,13 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
-              <%= image_tag("design-project.jpg", class: "img-responsive same-size-img") %>
+              <%= image_tag(@event.event_thumbnail.url(:medium), class: "img-responsive same-size-img") %>
             </div>
             <div class="item">
-              <%= image_tag("tower.jpg", class: "img-responsive same-size-img") %>
+              <%= image_tag(@event.event_thumbnail.url(:medium), class: "img-responsive same-size-img") %>
             </div>
             <div class="item">
-              <%= image_tag("xavier-nuez2-square.jpg", class: "img-responsive same-size-img") %>
+             <%= image_tag(@event.event_thumbnail.url(:medium), class: "img-responsive same-size-img") %>
             </div>
           </div>
 
