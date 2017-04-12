@@ -15,7 +15,25 @@
 
 <br>
 <br>
-
+<!-- Third Container (Grid) -->
+<div class="container bg-3">
+  <div class="row">
+    <% @exhibitions.each do |exhibition| %>
+      <div class="col-sm-3">
+        <div class="thumbnail thumbnail-exhibitions">
+          <%= image_tag("design-project.jpg", class: "img-responsive margin border", style: "width:100%" ) %>
+          <div class="caption exhibitions-text">
+            <h5 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h5>
+            <p class="exhibitions-date"><%= exhibition.start_date.try(:strftime, "%B %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
+            <h6 class="gallery-name">Design Project</h6>
+            <p class="gallery-address">1932 S. Halsted St. #509<br>
+            Chicago, IL 60608</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <!-- Third Container (Grid) -->
 <div class="container bg-3">
@@ -117,38 +135,8 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
-
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @exhibitions.each do |exhibition| %>
-      <tr>
-        <td><%= exhibition.title %></td>
-        <td><%= exhibition.start_date %></td>
-        <td><%= exhibition.end_date %></td>
-        <td><%= exhibition.description %></td>
-        <td><%= link_to 'Show', exhibition %></td>
-        <td><%= link_to 'Edit', edit_exhibition_path(exhibition) %></td>
-        <td><%= link_to 'Destroy', exhibition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 

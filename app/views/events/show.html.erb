@@ -38,7 +38,7 @@
       </div><!-- End col-sm-6 -->
       <div class="col-md-6 col-xs-6-pull">
         <h1><%= @event.title %></h1>
-        <h4 class="uppercase">
+        <h4>
           <%= @event.start_date.try(:strftime, "%B %e") %>
           <% if @event.end_date > @event.start_date %>
             - <%= @event.end_date.try(:strftime, "%B %e, %Y") %>
@@ -126,11 +126,14 @@
   </div>
 <br>
 <br>
-    <p>
+    <p class="text-center">
       <% if admin_signed_in? %>
-        <%= link_to 'Edit', edit_event_path(@event) %> |
+        <%= link_to 'Edit', edit_event_path(@event),class: "btn btn-warning" %>
       <% end %>
-      <%= link_to 'All Events', events_path %>
+        <%= link_to 'All Events', events_path, class: "btn btn-primary"  %>
+      <% if admin_signed_in? %>
+        <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <% end %>
     </p>
     <br>
     <br>

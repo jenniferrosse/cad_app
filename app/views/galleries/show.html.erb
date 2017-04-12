@@ -8,6 +8,7 @@
         <p class="lead-text"><em><%= @gallery.medium %></em></p><br>
         
         <%= @gallery.address %><br>
+        <%= @gallery.city %>, <%= @gallery.state %> <%= @gallery.zip %><br>
         <%= @gallery.phone %><br>
         <br>
         <%= link_to "Visit Website", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410211602) do
+ActiveRecord::Schema.define(version: 20170412140100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,9 @@ ActiveRecord::Schema.define(version: 20170410211602) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
   end
 
 end

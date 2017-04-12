@@ -1,25 +1,31 @@
 <div class="container">
+  <h2 class="page-title"></h2><br>
+  <hr>
 
-  <p>
-    <strong>Title:</strong>
-    <%= @exhibition.title %>
+  <div class="row">
+    <div class="col-sm-6">
+      <h1 class=""><%= @exhibition.title %></h1>
+        <p class="exhibition-date">
+          <%= @exhibition.start_date.try(:strftime, "%B %e, %Y") %> - 
+          <%= @exhibition.end_date.try(:strftime, "%B, %e, %Y") %></p>
+        </p><%= markdown(@exhibition.description) %></p>
+    </div>
+    <div class="col-sm-6">
+      <%= image_tag("design-project.jpg", class: "img-responsive margin border", style: "width:100%" ) %>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <p class="text-center">
+    <% if admin_signed_in? %>
+      <%= link_to 'Edit', edit_exhibition_path(@exhibition),class: "btn btn-warning" %>
+    <% end %>
+      <%= link_to 'All Exhibitions', exhibitions_path, class: "btn btn-primary" %>
+    <% if admin_signed_in? %>
+      <%= link_to 'Destroy', @exhibition, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    <% end %>
   </p>
-
-  <p>
-    <strong>Start date:</strong>
-    <%= @exhibition.start_date %>
-  </p>
-
-  <p>
-    <strong>End date:</strong>
-    <%= @exhibition.end_date %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @exhibition.description %>
-  </p>
-
-  <%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
-  <%= link_to 'Back', exhibitions_path %>
+  <br>
+  <br>
 </div>

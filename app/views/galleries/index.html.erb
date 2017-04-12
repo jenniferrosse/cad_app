@@ -18,7 +18,10 @@
             <%= link_to image_tag(gallery.thumbnail.url(:medium), class: "img-responsive aspect"), gallery %>
             <div class="caption gallery-text">
               <h5 class="gallery-name"><%= link_to gallery.gallery_name, gallery %></h5>
-              <p class="gallery-address"><%= gallery.address %></p>
+              <p class="gallery-address">
+                <%= gallery.address %><br>
+                <%= gallery.city %>, <%= gallery.state %> <%= gallery.zip %>
+              </p>
               <hr>
               <p class="gallery-medium"><%= gallery.medium %></p>
             </div>
