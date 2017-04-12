@@ -32,7 +32,11 @@
   <% if admin_signed_in? %>
     <%= link_to 'Edit', edit_gallery_path(@gallery),class: "btn btn-warning" %>
   <% end %>
-  <%= link_to 'All Galleries', galleries_path, class: "btn btn-primary" %></p>
+    <%= link_to 'All Galleries', galleries_path, class: "btn btn-primary" %>
+  <% if admin_signed_in? %>
+      <%= link_to 'Delete', @gallery, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <% end %>
+</p>
 </p>
 <br>
 <br>
