@@ -89,9 +89,6 @@ $colHighlight: #AD3C3C;
 h1, h2, h3, h4, h5, h6, p {
   font-family: 'Raleway', sans-serif;
 }
-h1 {
-  letter-spacing: 2px; 
-}
 
 h1, h2, h3, h4{
   color: #4A4A4A;
@@ -174,6 +171,16 @@ hr {
 
 .modal-backdrop.in { 
   z-index: auto;
+}
+.panel {
+  background-color: gray;
+  border: 1px solid gray;
+  border-radius: 0 !important;
+  padding: 0px !important;
+}
+.panel-title{
+  background-color: gray;
+  color: white;
 }
 
 /* Home Page
@@ -556,6 +563,18 @@ hr {
     margin: 0 auto;
   }
 }
+.event-show-info {
+  a {
+  color: #4A4A4A;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  .date-info {
+  text-transform:uppercase;
+  color: gray;
+  }
+}
 
 /* Events Show Page - Participating Galleries Img Overlay
 ------------------------- */
@@ -594,9 +613,14 @@ hr {
 
 /* Exhibitions - Show Page
 ------------------------- */
+p.page-title {
+  color: gray;
+  margin-top: -10px;
+}
 p.exhibition-date {
   text-transform: uppercase;
   font-size: 125%;
+  color: gray;
 }
 
 /* Galleries - Index Page
@@ -633,6 +657,21 @@ p.exhibition-date {
     margin-top: 0px;
     margin-bottom: 10px;
   }
+}
+
+/* Gallery Show Page
+------------------------- */
+.gallery-info-exhitition {
+  background-color: #4A4A4A;
+  margin-top: 4px;
+  margin-bottom: 50px;
+  padding: 2px 0px 5px 10px;
+  h3, p {
+    color: white;
+  }
+  a {
+    color: white;
+    }
 }
 
 /* Footer

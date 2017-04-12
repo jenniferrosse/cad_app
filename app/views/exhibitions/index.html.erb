@@ -21,7 +21,7 @@
     <% @exhibitions.each do |exhibition| %>
       <div class="col-sm-3">
         <div class="thumbnail thumbnail-exhibitions">
-          <%= image_tag("design-project.jpg", class: "img-responsive margin border", style: "width:100%" ) %>
+          <%= image_tag("tower.jpg", class: "img-responsive margin border", style: "width:100%" ) %>
           <div class="caption exhibitions-text">
             <h5 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h5>
             <p class="exhibitions-date"><%= exhibition.start_date.try(:strftime, "%B %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>

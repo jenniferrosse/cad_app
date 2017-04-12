@@ -1,7 +1,5 @@
 <div class="container">
-  <h2 class="page-title"></h2><br>
   <hr>
-
     <div class="row">
       <div class="col-md-6 col-xs-6-push">
         <div id="myCarousel-events" class="carousel slide" data-interval="false" data-ride="carousel">
@@ -36,16 +34,21 @@
           </a>
         </div><!-- End Carousel -->
       </div><!-- End col-sm-6 -->
-      <div class="col-md-6 col-xs-6-pull">
-        <h1><%= @event.title %></h1>
-        <h4>
-          <%= @event.start_date.try(:strftime, "%B %e") %>
+      <div class="col-md-6 col-xs-6-pull event-show-info">
+        <p class="page-title">EVENT</p><br>
+        <h2><%= @event.title %>: <a href="http://localhost:3000/exhibitions/1"><em>Tower Over Chicago</em></a></h2>
+          <br>
+          <p class="date-info">Friday, <%= @event.start_date.try(:strftime, "%B %e, %Y") %>
           <% if @event.end_date > @event.start_date %>
             - <%= @event.end_date.try(:strftime, "%B %e, %Y") %>
           <% end %>
-        </h4>
-        <p><strong><%= @event.date_info %></strong></p>
-        <p><%= markdown(@event.description) %></p><br>
+       <br><%= @event.date_info %></p>
+        <br>
+        <h4>Event Description</h4>
+        <p><%= markdown(@event.description) %></p>
+        <br>
+        <h4>About the Exhibition</h4>
+          <p>This month DESIGNPROJECT is presenting a collection of pop-art pieces that focus upon how we treat animals. The artwork is focused upon bringing to light the mistreatment and exploitation of animals for entertainment and commercial purposes, as well as how historical human development has inherently resulted in the destruction of animal species on a massive scale. Understanding the nature of our relationship and mistreatment of all the other creatures we share the planet with is one that should not be overlooked. The artwork shown will be a mix of 2D-Sculpture as well as 3D-Graphic Design and all realms in between. The goal of this month's show will be to spur conversation, debate, and contemplation about this important topic through pop-art.</p>
         <br>
       </div>
       
@@ -71,7 +74,7 @@
         <div class="image-container">
           <%= image_tag("xavier-nuez2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
           <div class="overlay">
-            <div class="text-overlay">Xavier Nuez</div>
+            <h6 class="text-overlay">Xavier Nuez</h6>
           </div>
         </div>
       </div>
