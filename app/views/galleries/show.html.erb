@@ -29,33 +29,23 @@
         <div class="panel panel-gray">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" href="#collapse1">Upcoming Events <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+              <a data-toggle="collapse" href="#collapse1">Gallery Events <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
             </h4>
           </div>
           <div id="collapse1" class="panel-collapse collapse">
             <ul class="list-group">
-              <li class="list-group-item"><b>Opening Reception</b><br>
-                April 10, 2017<br>
-                6:00 PM - 10:00 PM</li>
-              <li class="list-group-item"><b>Artist Talk</b><br>
-                April 20, 2017<br>
-                6:00 PM - 7:00 PM</li>
-              <li class="list-group-item"><b>Closing Reception</b><br>
-                May 10, 2017<br>
-                6:00 PM - 10:00 PM</li>
+              <% @gallery.events.each do |event| %>
+              <li class="list-group-item"><b><%= event.title %></b><br>
+                <%= event.start_date.try(:strftime, "%A, %B %e, %Y") %>
+                  <% if event.end_date > event.start_date %>
+                    - <%= event.end_date.try(:strftime, "%B %e, %Y") %>
+                  <% end %><br>
+                <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></li>
+                <% end %>
             </ul>
           </div>
         </div>
       </div>
-
-<h1>Current Exhibtion</h1>
-<div class="panel panel-default">
-    <div class="panel-heading">Panel Heading</div>
-    <div class="panel-body">Panel Content</div>
-  </div>
-
-<h1>All Exhibtion</h1>
-
 
 
 <p class="text-center">

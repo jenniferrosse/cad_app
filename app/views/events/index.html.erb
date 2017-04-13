@@ -25,7 +25,7 @@
           <div class="caption events-text">
             <h5 class="events-name"><%= link_to event.title, event %></h5>
               <p class="events-date"><%= event.start_date.try(:strftime, "%B %e, %Y") %></p>
-            <p class="events-time">6:00 PM - 10:00 PM</p>
+            <p class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p>
             
             <p class="gallery-name"><%= link_to event.gallery.try(:gallery_name), event.gallery %></h6>
             <p class="gallery-address"><%= event.gallery.try(:address) %></p>
