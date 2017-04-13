@@ -36,8 +36,8 @@
   </div>
 
    <div class="field">
-    <%= f.label :galery_id, :gallery %><br />
-    <%= f.text_field :gallery_id %>
+    <%= f.label :gallery_id, :gallery %><br />
+    <%= f.collection_select :gallery_id, Gallery.all, :id, :gallery_name %>
   </div>
   
   <div class="actions">
