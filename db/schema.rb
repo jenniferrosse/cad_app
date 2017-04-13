@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412140100) do
+ActiveRecord::Schema.define(version: 20170413121646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,12 @@ ActiveRecord::Schema.define(version: 20170412140100) do
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "exhibition_thumbnail_file_name"
+    t.string   "exhibition_thumbnail_content_type"
+    t.integer  "exhibition_thumbnail_file_size"
+    t.datetime "exhibition_thumbnail_updated_at"
   end
 
   create_table "galleries", force: :cascade do |t|

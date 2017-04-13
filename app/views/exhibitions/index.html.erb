@@ -7,9 +7,10 @@
   <h2 class="page-title">Exhibitions</h2><br>
   <hr>
   <div class="btn-group" role="group" aria-label="...">
-    <button type="button" class="btn btn-default">Current</button>
-    <button type="button" class="btn btn-default">Upcoming</button>
-    <button type="button" class="btn btn-default">Past</button>
+    <%= link_to 'Current', exhibitions_path(current_exhibitions: true), class: "btn btn-default" %>
+    <%= link_to 'Upcoming', exhibitions_path(upcoming_exhibitions: true), class: "btn btn-default" %>
+    <%= link_to 'Past', exhibitions_path(past_exhibitions: true), class: "btn btn-default" %>
+    <%= link_to 'All', exhibitions_path, class: "btn btn-default" %>
   </div>
 </div>
 
@@ -21,7 +22,7 @@
     <% @exhibitions.each do |exhibition| %>
       <div class="col-sm-3">
         <div class="thumbnail thumbnail-exhibitions">
-          <%= image_tag("tower.jpg", class: "img-responsive margin border", style: "width:100%" ) %>
+          <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
           <div class="caption exhibitions-text">
             <h5 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h5>
             <p class="exhibitions-date"><%= exhibition.start_date.try(:strftime, "%B %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
@@ -34,112 +35,7 @@
     <% end %>
   </div>
 </div>
-
-<!-- Third Container (Grid) -->
-<div class="container bg-3">
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="thumbnail thumbnail-exhibitions">
-        <%= image_tag("design-project.jpg", class: "img-responsive margin border", style: "width:100%" ) %>
-        <div class="caption exhibitions-text">
-          <h5 class="exhibitions-name">In Like a Lamb, Out Like a Lion</h5>
-          <p class="exhibitions-date">MARCH 10 - March 24, 2017</p>
-          <h6 class="gallery-name">Design Project</h6>
-          <p class="gallery-address">1932 S. Halsted St. #509<br>
-          Chicago, IL 60608</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail thumbnail-exhibitions">
-        <%= image_tag("Heppner_Post.jpg", class: "img-responsive ", style: "width:100%" ) %>
-        <div class="caption exhibitions-text">
-          <h5 class="exhibitions-name">What Lies Beneath</h5>
-          <p class="exhibitions-date">MARCH 10 - April 14, 2017</p>
-          <h6 class="gallery-name">Information Center</h6>
-          <p class="gallery-address">1945 S. Halsted St.<br>
-          Chicago, IL 60608</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail thumbnail-exhibitions">
-        <%= image_tag("Tolchin_CAD.jpg", class: "img-responsive", style: "width:100%" ) %>
-        <div class="caption exhibitions-text">
-          <h5 class="exhibitions-name">What Lies Beneath</h5>
-          <p class="exhibitions-date">MARCH 10 - April 18, 2017</p>
-          <h6 class="gallery-name">Information Center</h6>
-          <p class="gallery-address">1945 S. Halsted St.<br>
-          Chicago, IL 60608</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail thumbnail-exhibitions">
-        <%= image_tag("Adam_CAD.jpg", class: "img-responsive", style: "width:100%" ) %>
-        <div class="caption exhibitions-text">
-          <h5 class="exhibitions-name">What Lies Beneath</h5>
-          <p class="exhibitions-date">Ongoing</p>
-          <h6 class="gallery-name">Information Center</h6>
-          <p class="gallery-address">1945 S. Halsted St.<br>
-          Chicago, IL 60608</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-3">
-      <div class="thumbnail thumbnail-exhibitions">
-        <%= image_tag("corsei.jpg", class: "img-responsive", style: "width:100%" ) %>
-        <div class="caption exhibitions-text">
-          <h5 class="exhibitions-name">What Lies Beneath</h5>
-          <p class="exhibitions-date">Ongoing</p>
-          <h6 class="gallery-name">Information Center</h6>
-          <p class="gallery-address">1945 S. Halsted St.<br>
-          Chicago, IL 60608</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail thumbnail-exhibitions">
-        <%= image_tag("great-lakes-home.jpg", class: "img-responsive", style: "width:100%" ) %>
-        <div class="caption exhibitions-text">
-          <h5 class="exhibitions-name">What Lies Beneath</h5>
-          <p class="exhibitions-date">Ongoing</p>
-          <h6 class="gallery-name">Information Center</h6>
-          <p class="gallery-address">1945 S. Halsted St.<br>
-          Chicago, IL 60608</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail thumbnail-exhibitions">
-        <%= image_tag("tower.jpg", class: "img-responsive", style: "width:100%" ) %>
-        <div class="caption exhibitions-text">
-          <h5 class="exhibitions-name">What Lies Beneath</h5>
-          <p class="exhibitions-date">Ongoing</p>
-          <h6 class="gallery-name">Information Center</h6>
-          <p class="gallery-address">1945 S. Halsted St.<br>
-          Chicago, IL 60608</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail thumbnail-exhibitions">
-        <%= image_tag("Yaou_CAD.jpg", class: "img-responsive", style: "width:100%" ) %>
-        <div class="caption exhibitions-text">
-          <h5 class="exhibitions-name">What Lies Beneath</h5>
-          <p class="exhibitions-date">Ongoing</p>
-          <h6 class="gallery-name">Information Center</h6>
-          <p class="gallery-address">1945 S. Halsted St.<br>
-          Chicago, IL 60608</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <br>
-
 <p class="text-center">
     <% if admin_signed_in? %>
       <%= link_to 'New Exhibition', new_exhibition_path, class: "btn btn-default" %>

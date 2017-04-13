@@ -36,7 +36,7 @@
       </div><!-- End col-sm-6 -->
       <div class="col-md-6 col-xs-6-pull event-show-info">
         <p class="page-title">EVENT</p><br>
-        <h2><%= @event.title %>: <a href="http://localhost:3000/exhibitions/1"><em>Tower Over Chicago</em></a></h2>
+        <h2><%= @event.title %>: <a href="http://localhost:3000/exhibitions/1"></a></h2>
           <br>
           <p class="date-info">Friday, <%= @event.start_date.try(:strftime, "%B %e, %Y") %>
           <% if @event.end_date > @event.start_date %>
@@ -44,6 +44,10 @@
           <% end %>
        <br><%= @event.date_info %></p>
         <br>
+        <h4><%= @event.gallery.try(:gallery_name) %><br>
+        <%= @event.gallery.try(:address) %></h4>
+        <br><br>
+
         <h4>Event Description</h4>
         <p><%= markdown(@event.description) %></p>
         <br>
