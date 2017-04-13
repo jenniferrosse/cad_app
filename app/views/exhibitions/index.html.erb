@@ -25,7 +25,7 @@
           <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
           <div class="caption exhibitions-text">
             <h5 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h5>
-            <p class="exhibitions-date"><%= exhibition.start_date.try(:strftime, "%B %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
+            <p class="exhibitions-date"><%= exhibition.start_date.try(:strftime, "%b %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %></p>
             <h6 class="gallery-name">Design Project</h6>
             <p class="gallery-address">1932 S. Halsted St. #509<br>
             Chicago, IL 60608</p>
