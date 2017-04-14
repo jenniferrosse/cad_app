@@ -1,9 +1,13 @@
 class Event < ActiveRecord::Base
   belongs_to :gallery
 
-  scope :current_events, lambda{ |date = Date.today| where("? BETWEEN start_date AND end_date", date) }
-  scope :upcoming_events, lambda{ |date = Date.today| where("? <start_date", date) }
-  scope :past_events, lambda{ |date = Date.today| where("? > end_date", date) }
+
+  default_scope { where("start_date >= ?", Date.today)  }
+
+
+  scope :current_events, lambda{ |date = Date.today| unscope(:where).where("? BETWEEN start_date AND end_date", date) }
+  scope :upcoming_events, lambda{ |date = Date.today| unscope(:where).where("? <start_date", date) }
+  scope :past_events, lambda{ |date = Date.today| unscope(:where).where("? > end_date", date) }
 
               
 
