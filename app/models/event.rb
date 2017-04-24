@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   belongs_to :exhibition
-  validates :exhibition, presence: true
+  
 
 
   scope :upcoming, -> { where("start_date >= ?", Date.today) }
