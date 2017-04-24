@@ -7,9 +7,8 @@
   <h2 class="page-title">Events</h2><br>
   <hr>
   <div class="btn-group" role="group" aria-label="...">
-    <%= link_to 'Upcoming', events_path(upcoming_events: true), class: "btn btn-default" %>
-    <%= link_to 'Past', events_path(past_events: true), class: "btn btn-default" %>
-    <%= link_to 'All', events_path, class: "btn btn-default" %>
+    <%= link_to "Upcoming", events_path(:upcoming => "Upcoming"), class: "btn btn-default" %>
+    <%= link_to "Past", events_path(:past => "Past"), class: "btn btn-default" %>
   </div>
 </div>
 
@@ -23,26 +22,21 @@
         <div class="thumbnail thumbnail-events">
           <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive margin border"), event %>
           <div class="caption events-text">
-            <h5 class="events-name"><%= link_to event.title, event %></h5>
-              <p class="events-date"><%= event.start_date.try(:strftime, "%B %e, %Y") %></p>
-            <p class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p>
-            
-            <p class="gallery-name"><%= link_to event.gallery.try(:gallery_name), event.gallery %></h6>
-            <p class="gallery-address"><%= event.gallery.try(:address) %></p>
+            <span><%= link_to event.title, event %></br></span>
+            <% if event.exhibition %>
+              <span>for
+              <span class="exhibition-name"><%= link_to event.exhibition.try(:title), event.exhibition %>
+            <% end %>
+            </span>
+            <br>
+              <span="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></span>
+              <br>
+            <span="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></span>       
           </div>
         </div>
       </div>
     <% end %>
   </div>
-</div>
-
-<div class="container">
-  <br>
-  <p class="text-center">
-    <% if admin_signed_in? %>
-      <%= link_to 'New Event', new_event_path, class: "btn btn-default" %>
-    <% end %>
-  </p>
 </div>
 
 <script>

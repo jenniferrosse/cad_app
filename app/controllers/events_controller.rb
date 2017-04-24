@@ -6,20 +6,28 @@ class EventsController < ApplicationController
   # GET /events.json
 
   def index
-    @events = Event.order('start_date ASC')
-    @events = @events.current_events if params[:current_events]
-    @events = @events.upcoming_events if params[:upcoming_events]
-    @events = @events.past_events if params[:past_events]
+    if params[:upcoming]
+      @events = Event.upcoming.order('start_date ASC')
+    elsif params[:past]
+      @events = Event.past.order('start_date DESC')
+    else
+      @events = Event.where("start_date >= ?", Date.today).order('start_date ASC')
+    end
   end
 
   # GET /events/1
   # GET /events/1.json
-  def show
+  def show 
+    if params[:exhibition_id]
+      @events = Exhibition.find(params[:exhibition_id]).events
+    else
+      @events = Event.find(params[:id])
+    end
   end
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = Event.new(exhibition_id: params[:gallery_id])
   end
 
   # GET /events/1/edit
@@ -29,11 +37,11 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    @event = Event.new(event_params, params[:gallery_id])
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to @event, notice: 'Exhibition was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -68,12 +76,16 @@ class EventsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_exhibition
+      @exhibtion = Exhibition.find(params[:exhibition_id])
+    end
+
     def set_event
       @event = Event.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :start_date, :end_date, :start_time, :end_time, :description, :date_info, :event_thumbnail, :gallery_id)
+      params.require(:event).permit(:title, :start_date, :end_date, :start_time, :end_time, :description, :date_info, :event_thumbnail, :exhibition_id)
     end
 end

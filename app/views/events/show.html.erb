@@ -34,108 +34,110 @@
           </a>
         </div><!-- End Carousel -->
       </div><!-- End col-sm-6 -->
-      <div class="col-md-6 col-xs-6-pull event-show-info">
-        <p class="page-title">EVENT</p><br>
-        <h2><%= @event.title %>: <a href="http://localhost:3000/exhibitions/1"></a></h2>
+      <% if @event.exhibition %>
+        <div class="col-md-6 col-xs-6-pull event-show-info">
+          <p class="page-title">EVENT</p><br>
+          <h2><%= @event.title %>:<em></h2><h3><%= link_to @event.exhibition.try(:title), @event.exhibition %></em></h3>
+            <p class="date-info"><%= @event.start_date.try(:strftime, "%A, %B %e, %Y") %>
+            
+              - <%= @event.end_date.try(:strftime, "%B %e, %Y") %>
+            
+         <br><%= @event.start_time.try(:strftime, "%l:%M %p") %> - <%= @event.end_time.try(:strftime, "%l:%M %p") %></p>
+
+          <h4><%= link_to @event.exhibition.gallery.try(:gallery_name), @event.exhibition.gallery %><br>
+          <%= @event.exhibition.gallery.try(:address) %></h4>
+          <br><br>
+
+          <h4>Event Description</h4>
+          <p><%= markdown(@event.description) %></p>
           <br>
-          <p class="date-info"><%= @event.start_date.try(:strftime, "%A, %B %e, %Y") %>
-          <% if @event.end_date > @event.start_date %>
-            - <%= @event.end_date.try(:strftime, "%B %e, %Y") %>
-          <% end %>
-       <br><%= @event.start_time.try(:strftime, "%l:%M %p") %> - <%= @event.end_time.try(:strftime, "%l:%M %p") %></p>
-        <br>
-        <h4><%= link_to @event.gallery.try(:gallery_name), @event.gallery %><br>
-        <%= @event.gallery.try(:address) %></h4>
-        <br><br>
+          <h4>About the Exhibition</h4>
+            <p><%= @event.exhibition.description %></em></p>
+          <br>
+        </div>
+      </div><!-- End Row -->
+      <% else %>
 
-        <h4>Event Description</h4>
-        <p><%= markdown(@event.description) %></p>
-        <br>
-        <h4>About the Exhibition</h4>
-          <p>This month DESIGNPROJECT is presenting a collection of pop-art pieces that focus upon how we treat animals. The artwork is focused upon bringing to light the mistreatment and exploitation of animals for entertainment and commercial purposes, as well as how historical human development has inherently resulted in the destruction of animal species on a massive scale. Understanding the nature of our relationship and mistreatment of all the other creatures we share the planet with is one that should not be overlooked. The artwork shown will be a mix of 2D-Sculpture as well as 3D-Graphic Design and all realms in between. The goal of this month's show will be to spur conversation, debate, and contemplation about this important topic through pop-art.</p>
-        <br>
-      </div>
-      
-    </div><!-- End Row -->
 
-<br>
-<br>
+        <!-- Third Container (Grid) -->
+        <div class = "container">
+        <div class="row">
+            <h3 class="page-title">Participating Galleries</h3>
+            <br>
+            <hr>
+            <div class="col-xs-4 col-sm-2">
+              <div class="image-container">
+                <%= image_tag("design-project.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
+                <div class="overlay">
+                  <h6 class="text-overlay">DesignProject</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+              <div class="image-container">
+                <%= image_tag("xavier-nuez2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
+                <div class="overlay">
+                  <h6 class="text-overlay">Xavier Nuez</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+              <div class="image-container">
+                <%= image_tag("la-kaiser.png", class: "img-responsive img-overlay", style: "width:100%" ) %>
+                <div class="overlay">
+                  <div class="text-overlay">La Kaiser</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+              <div class="image-container">
+                <%= image_tag("Palliative-endeavour2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
+                <div class="overlay">
+                  <div class="text-overlay">SK Kitchen Design</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+              <div class="image-container">
+                <%= image_tag("scroll2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
+                <div class="overlay">
+                  <div class="text-overlay">Mary Lou Stewart</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+              <div class="image-container">
+                <%= image_tag("Adam_CAD.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
+                <div class="overlay">
+                  <div class="text-overlay">Zoe Rain</div> 
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+              <div class="image-container">
+                <%= image_tag("dark-by-design.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
+                <div class="overlay">
+                  <div class="text-overlay">Dark by Design</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+              <div class="image-container">
+                <%= image_tag("MelissaCarloline_banner.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
+                <div class="overlay">
+                  <div class="text-overlay">Chicago Art Dept.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <!-- Third Container (Grid) -->
-  <div class="row">
-      <h3 class="page-title">Participating Galleries</h3>
+        <% end %>
       <br>
-      <hr>
-      <div class="col-xs-4 col-sm-2">
-        <div class="image-container">
-          <%= image_tag("design-project.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-          <div class="overlay">
-            <h6 class="text-overlay">DesignProject</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-4 col-sm-2">
-        <div class="image-container">
-          <%= image_tag("xavier-nuez2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-          <div class="overlay">
-            <h6 class="text-overlay">Xavier Nuez</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-4 col-sm-2">
-        <div class="image-container">
-          <%= image_tag("la-kaiser.png", class: "img-responsive img-overlay", style: "width:100%" ) %>
-          <div class="overlay">
-            <div class="text-overlay">La Kaiser</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-4 col-sm-2">
-        <div class="image-container">
-          <%= image_tag("Palliative-endeavour2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-          <div class="overlay">
-            <div class="text-overlay">SK Kitchen Design</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-4 col-sm-2">
-        <div class="image-container">
-          <%= image_tag("scroll2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-          <div class="overlay">
-            <div class="text-overlay">Mary Lou Stewart</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-4 col-sm-2">
-        <div class="image-container">
-          <%= image_tag("Adam_CAD.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-          <div class="overlay">
-            <div class="text-overlay">Zoe Rain</div> 
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-4 col-sm-2">
-        <div class="image-container">
-          <%= image_tag("dark-by-design.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-          <div class="overlay">
-            <div class="text-overlay">Dark by Design</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-4 col-sm-2">
-        <div class="image-container">
-          <%= image_tag("MelissaCarloline_banner.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-          <div class="overlay">
-            <div class="text-overlay">Chicago Art Dept.</div>
-          </div>
-        </div>
-      </div>
-  </div>
-<br>
-<br>
+      <br>
     <p class="text-center">
       <% if admin_signed_in? %>
-        <%= link_to 'Edit', edit_event_path(@event),class: "btn btn-warning" %>
+        <%= link_to 'Edit', edit_event_path,class: "btn btn-warning" %>
       <% end %>
         <%= link_to 'All Events', events_path, class: "btn btn-primary"  %>
       <% if admin_signed_in? %>

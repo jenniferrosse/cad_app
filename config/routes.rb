@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :exhibitions
+ 
   devise_for :admins
   get 'pages/home'
 
@@ -13,13 +13,11 @@ Rails.application.routes.draw do
   get 'pages/calendar'
   get 'pages/calendar_all'
   get 'pages/contact'
-
   get 'pages/second_fridays'
 
-  resources :galleries do
-    resources :events
-  end
 
+  resources :galleries 
+  resources :exhibitions
   resources :events
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

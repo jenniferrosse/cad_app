@@ -71,6 +71,7 @@ class GalleriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
       params.require(:gallery).permit(:gallery_name, :address, :city, :state, :zip, :latitude, :longitude, :phone, :website, :email, :owner_operator, :medium, :description, :thumbnail, 
+        :exhibitions_attributes => [:id, :title, :date, :description], 
         :events_attributes => [:id, :title, :date, :description])
     end
 end

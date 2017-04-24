@@ -7,10 +7,9 @@
   <h2 class="page-title">Exhibitions</h2><br>
   <hr>
   <div class="btn-group" role="group" aria-label="...">
-    <%= link_to 'Current', exhibitions_path(current_exhibitions: true), class: "btn btn-default" %>
-    <%= link_to 'Upcoming', exhibitions_path(upcoming_exhibitions: true), class: "btn btn-default" %>
-    <%= link_to 'Past', exhibitions_path(past_exhibitions: true), class: "btn btn-default" %>
-    <%= link_to 'All', exhibitions_path, class: "btn btn-default" %>
+    <%= link_to 'Current', exhibitions_path(:current_exhibitions => "Current"), class: "btn btn-default" %>
+    <%= link_to 'Upcoming', exhibitions_path(:upcoming_exhibitions => "Upcoming"), class: "btn btn-default" %>
+    <%= link_to 'Past', exhibitions_path(:past_exhibitions => "Past"), class: "btn btn-default" %>
   </div>
 </div>
 
@@ -25,10 +24,19 @@
           <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
           <div class="caption exhibitions-text">
             <h5 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h5>
-            <p class="exhibitions-date"><%= exhibition.start_date.try(:strftime, "%b %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %></p>
-            <h6 class="gallery-name">Design Project</h6>
-            <p class="gallery-address">1932 S. Halsted St. #509<br>
-            Chicago, IL 60608</p>
+
+            <p class="exhibitions-date">  
+            <% if exhibition.end_date > Date.today + 4.month %>
+              Ongoing
+            <% elsif exhibition.end_date > Date.today && exhibition.start_date < Date.today %>
+              Through <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
+              <% elsif %>
+              <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
+              <% end %>
+              </p>
+
+            <p class="gallery-name"><%= link_to exhibition.gallery.try(:gallery_name), exhibition.gallery %></h6>
+            <p class="gallery-address"><%= exhibition.gallery.try(:address) %></p>
           </div>
         </div>
       </div>
@@ -38,7 +46,7 @@
 <br>
 <p class="text-center">
     <% if admin_signed_in? %>
-      <%= link_to 'New Exhibition', new_exhibition_path, class: "btn btn-default" %>
+      <%= link_to 'Create New Exhibition', galleries_url, class: "btn btn-default" %>
     <% end %>
   </p>
 </div>

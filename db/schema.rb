@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413194032) do
+ActiveRecord::Schema.define(version: 20170418175644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20170413194032) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.integer  "gallery_id"
     t.string   "title"
     t.date     "start_date"
     t.text     "description"
@@ -49,9 +48,10 @@ ActiveRecord::Schema.define(version: 20170413194032) do
     t.date     "end_date"
     t.time     "start_time"
     t.time     "end_time"
+    t.integer  "exhibition_id"
   end
 
-  add_index "events", ["gallery_id"], name: "index_events_on_gallery_id", using: :btree
+  add_index "events", ["exhibition_id"], name: "index_events_on_exhibition_id", using: :btree
 
   create_table "exhibitions", force: :cascade do |t|
     t.string   "title"
@@ -64,7 +64,10 @@ ActiveRecord::Schema.define(version: 20170413194032) do
     t.string   "exhibition_thumbnail_content_type"
     t.integer  "exhibition_thumbnail_file_size"
     t.datetime "exhibition_thumbnail_updated_at"
+    t.integer  "gallery_id"
   end
+
+  add_index "exhibitions", ["gallery_id"], name: "index_exhibitions_on_gallery_id", using: :btree
 
   create_table "galleries", force: :cascade do |t|
     t.string   "gallery_name"
@@ -88,4 +91,6 @@ ActiveRecord::Schema.define(version: 20170413194032) do
     t.string   "zip"
   end
 
+  add_foreign_key "events", "exhibitions"
+  add_foreign_key "exhibitions", "galleries"
 end

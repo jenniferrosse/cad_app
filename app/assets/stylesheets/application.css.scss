@@ -497,12 +497,15 @@ hr {
   border: 1px solid #E6E6E6;
   border-radius: 0 !important;
   padding: 0px !important;
-  .events-text h4, h5, h6, p {
+  .events-text h4, h5, h6 {
     text-transform: uppercase;
   }
   .events-name {
     color: #CC0000;
     margin-bottom: 40px;
+  }
+  .exhibition-name {
+  text-transform: uppercase;
   }
   .events-date {
     margin-bottom: 0px;
