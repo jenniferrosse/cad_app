@@ -13,7 +13,11 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
-              <%= image_tag(@event.event_thumbnail.url(:medium), class: "img-responsive same-size-img") %>
+              <% if @event.event_thumbnail.present? %>
+                <%= image_tag(@event.event_thumbnail.url(:medium), class: "img-responsive same-size-img") %>
+              <% else %>
+                <%= link_to image_tag(@event.exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), @event %>
+              <% end %>
             </div>
             <div class="item">
               <%= image_tag(@event.event_thumbnail.url(:medium), class: "img-responsive same-size-img") %>
@@ -39,9 +43,9 @@
           <p class="page-title">EVENT</p><br>
           <h2><%= @event.title %>:<em></h2><h3><%= link_to @event.exhibition.try(:title), @event.exhibition %></em></h3>
             <p class="date-info"><%= @event.start_date.try(:strftime, "%A, %B %e, %Y") %>
-            
+            <% if @event.end_date > @event.start_date %>
               - <%= @event.end_date.try(:strftime, "%B %e, %Y") %>
-            
+            <% end %>
          <br><%= @event.start_time.try(:strftime, "%l:%M %p") %> - <%= @event.end_time.try(:strftime, "%l:%M %p") %></p>
 
           <h4><%= link_to @event.exhibition.gallery.try(:gallery_name), @event.exhibition.gallery %><br>

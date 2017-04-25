@@ -20,15 +20,18 @@
     <% @events.each do |event| %>
       <div class="col-sm-3">
         <div class="thumbnail thumbnail-events">
-          <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive margin border"), event %>
+          <% if event.event_thumbnail.present? %>
+            <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive margin border"), event %>
+          <% else %>
+            <%= link_to image_tag(event.exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), event %>
+          <% end %>
           <div class="caption events-text">
-            <span><%= link_to event.title, event %></span>
+            <span><%= link_to event.title, event %></br></span>
             <% if event.exhibition %>
-              <span>--
+              <span>for
               <span class="exhibition-name"><%= link_to event.exhibition.try(:title), event.exhibition %>
             <% end %>
             </span>
-            <br>
             <br>
               <span="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></span>
               <br>
