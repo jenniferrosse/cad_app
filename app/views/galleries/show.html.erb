@@ -27,30 +27,35 @@
 </div>
 
 <div class="container">
-  <h2>Exhibitions</h2>
-  <div class="row">
-    <% if @gallery.exhibitions.any? %>
+  <% if @gallery.exhibitions.any? %>
+    <div class="row">
+      <h2>Exhibitions</h2>
       <% @gallery.exhibitions.each do |exhibition| %>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
-          <div class="caption">
-            <h3><%= link_to exhibition.title, exhibition %><br></h3>
-            <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
-        <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
-            <p><%= link_to 'About Exhibition', exhibition, class: "btn btn-primary" %>
-
-            <a href="#" class="btn btn-default" role="button">Related Events</a></p>
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
+            <div class="caption">
+              <h3><%= link_to exhibition.title, exhibition %><br></h3>
+              <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
+          <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
+              <p><%= link_to 'About Exhibition', exhibition, class: "btn btn-primary" %>
+              <a href="#" class="btn btn-default" role="button">Related Events</a></p>
+            </div>
           </div>
         </div>
-      </div>
       <% end %>
-    <% else %>
-      <p>This Gallery has not had an exhibition yet. Click below to schedule an exhibition.</p>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <% if admin_signed_in? %>
+        <p>This Gallery has not had an exhibition yet. Click below to schedule an exhibition.</p>
+      <% end %>
+    </div>
+  <% end %>
   <br>
-  <%= link_to "Add New Exhibition", new_exhibition_path(gallery_id: @gallery) %>
+  <% if admin_signed_in? %>
+    <%= link_to "Add New Exhibition", new_exhibition_path(gallery_id: @gallery) %>
+  <% end %>
 </div>
   
 
