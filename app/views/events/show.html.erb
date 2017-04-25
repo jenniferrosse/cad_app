@@ -57,7 +57,21 @@
         </div>
       </div><!-- End Row -->
       <% else %>
-
+      <div class="col-md-6 col-xs-6-pull event-show-info">
+          <p class="page-title">EVENT</p><br>
+          <h2><%= @event.title %></h2>
+            <p class="date-info"><%= @event.start_date.try(:strftime, "%A, %B %e, %Y") %>
+            
+              - <%= @event.end_date.try(:strftime, "%B %e, %Y") %>
+            
+         <br><%= @event.start_time.try(:strftime, "%l:%M %p") %> - <%= @event.end_time.try(:strftime, "%l:%M %p") %></p>
+          <br>
+          <br>
+          <h4>Event Description</h4>
+          <p><%= markdown(@event.description) %></p>
+          <br>
+        </div>
+      </div><!-- End Row -->
 
         <!-- Third Container (Grid) -->
         <div class = "container">

@@ -497,6 +497,9 @@ hr {
   border: 1px solid #E6E6E6;
   border-radius: 0 !important;
   padding: 0px !important;
+  .caption {
+   min-height: 150px;
+  }
   .events-text h4, h5, h6 {
     text-transform: uppercase;
   }
@@ -524,11 +527,17 @@ hr {
   }
 }
 
+/* Exhibitions - Index Page
+------------------------- */
+
 .thumbnail.thumbnail-exhibitions {
   background-color: #4A4A4A;
   border: 1px solid #E6E6E6;
   border-radius: 0 !important;
   padding: 0px !important;
+  .caption {
+   min-height: 200px;
+  }
   a {
     color: #FFF;
   }
@@ -635,9 +644,12 @@ p.exhibition-date {
   border-radius: 0 !important;
   padding: 0px !important;
   margin: 0px !important;
+  .caption {
+   min-height: 150px;
+  }
   .gallery-text h4, h5, h6, p {
     color: white;
-    text-align: center
+    text-align: center;
   }
   .gallery-name {
     font-size: 90%;
