@@ -15,6 +15,9 @@
         <%= link_to "Email Gallery", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>
         <br>
         <br>
+        <h4>Hours:</h4>
+        <%= markdown(@gallery.hours) %>
+        <br>
         <p><%= markdown(@gallery.description) %></p><br>
         <p>Owner/Operator: <%= @gallery.owner_operator %></p>
     </div>
