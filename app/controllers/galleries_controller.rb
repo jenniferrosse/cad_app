@@ -11,6 +11,14 @@ class GalleriesController < ApplicationController
   # GET /galleries/1
   # GET /galleries/1.json
   def show
+    if params[:upcoming_gallery_exhibitions]
+      @exhibitions = @gallery.exhibitions.where("end_date >=?", Date.today).order('end_date ASC')
+    elsif params[:past_gallery_exhibitions]
+      @exhibitions = @gallery.exhibitions.where("exhibitions.end_date < ?", Date.today)
+    else
+      @exhibitions = @gallery.exhibitions.where("end_date>=?", Date.today).order('end_date 
+        ASC')
+    end
   end
 
   # GET /galleries/new

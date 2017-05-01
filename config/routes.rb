@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   
  
   devise_for :admins
-  get 'pages/home'
+  get 'home', to: 'pages#home'
+  get 'about', to: 'pages#about'
+  get 'contact', to: 'pages#contact'
+  get 'second_fridays', to: 'pages#second_fridays'
 
-  get 'pages/about'
 
   get 'pages/events'
   get 'pages/event_1'
@@ -12,8 +14,6 @@ Rails.application.routes.draw do
   get 'pages/exhibition'
   get 'pages/calendar'
   get 'pages/calendar_all'
-  get 'pages/contact'
-  get 'pages/second_fridays'
 
 
   resources :galleries 

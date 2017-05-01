@@ -1,0 +1,12 @@
+<li>
+  <%= gallery.gallery_name %>
+            <%= link_to image_tag(gallery.thumbnail.url(:thumb)), gallery %>
+            <div class="caption gallery-text">
+              <h5 class="gallery-name"><%= link_to gallery.gallery_name, gallery %></h5>
+              <p class="gallery-address">
+                <%= gallery.address %><br>
+                <%= gallery.city %>, <%= gallery.state %> <%= gallery.zip %>
+              </p>
+              <hr>
+              <p class="gallery-medium"><%= gallery.medium %></p>
+</li>

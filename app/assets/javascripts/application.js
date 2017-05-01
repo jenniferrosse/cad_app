@@ -15,3 +15,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$('a[data-toggle="pill"]').on('shown.bs.pill', function (e) {
+  var target = $(this).data("target");
+  var href = $(this).data("href");
+  $.ajax({
+    type: "GET",
+    url: href,
+    data: {pill: target},
+    dataType: "script"
+  });
+})

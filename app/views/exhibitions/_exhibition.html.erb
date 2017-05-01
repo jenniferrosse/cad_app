@@ -1,0 +1,15 @@
+<div id="exhibition-<%= exhibition.id %>">
+  <div class="row">
+    <div class="col-sm-5">
+    <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%"), exhibition %>
+    </div>
+    <div class="col-sm-7">
+      <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
+      <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
+      <h3><%= link_to exhibition.title, exhibition %><br></h3>
+      <p><%= exhibition.description %></p>
+      <p><%= link_to 'About Exhibition', exhibition, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <hr>
+</div>

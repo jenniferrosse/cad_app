@@ -28,37 +28,48 @@
   <br>
   <br>
 </div>
+<% if @gallery.exhibitions.any? %>
 
 <div class="container">
-  <% if @gallery.exhibitions.any? %>
-    <div class="row">
-      <h2>Exhibitions</h2>
-      <% @gallery.exhibitions.each do |exhibition| %>
-        <div class="col-sm-3">
-          <div class="thumbnail">
-            <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
-            <div class="caption">
-              <h3><%= link_to exhibition.title, exhibition %><br></h3>
-              <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
-          <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
-              <p><%= link_to 'About Exhibition', exhibition, class: "btn btn-primary" %>
-              <a href="#" class="btn btn-default" role="button">Related Events</a></p>
-            </div>
-          </div>
+  <div class="panel panel-default">
+    <div class="panel-heading panel-heading-custom">
+      <h3 class="panel-title">Exhibitions</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="active"><%= link_to 'Current', gallery_path(:current_gallery_exhibitions => "current_gallery_exhibitions") %></li>
+            <li role="presentation"><%= link_to 'Past', gallery_path(:past_gallery_exhibitions => "past_gallery_exhibitions") %></li>
+  
+          </ul>
         </div>
-      <% end %>
+        <div class="col-md-9">
+          <% @exhibitions.each do |exhibition| %>
+            <div class="row">
+              <div class="col-sm-5">
+                <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
+              </div>
+              <div class="col-sm-7">
+                <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
+                <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
+                <h3><%= link_to exhibition.title, exhibition %><br></h3>
+                <p><%= exhibition.description %></p>
+                <p><%= link_to 'About Exhibition', exhibition, class: "btn btn-primary" %>
+              </div>
+            </div>
+            <hr>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% else %>
-    <div class="row">
-      <% if admin_signed_in? %>
-        <p>This Gallery has not had an exhibition yet. Click below to schedule an exhibition.</p>
-      <% end %>
-    </div>
-  <% end %>
-  <br>
-  <% if admin_signed_in? %>
-    <%= link_to "Add New Exhibition", new_exhibition_path(gallery_id: @gallery) %>
-  <% end %>
+  </div>
+</div>
+<% end %>
+<div class="container">
+<% if admin_signed_in? %>
+  <%= link_to "Add New Exhibition", new_exhibition_path(gallery_id: @gallery) %>
+<% end %>
 </div>
   
 

@@ -118,8 +118,18 @@ hr {
     position: relative;
 }
 .panel {
-  border-radius: 0;
+  border-radius: 0 !important;
+  padding: 0px !important;
+
 }
+.panel-default > .panel-heading-custom{
+  border-radius: 0 !important;
+  background-image: none;
+  background-color: gray;
+  border: 1px solid gray;
+  color: #ffffff;
+}
+
 .caption-1 {
     position: absolute;
     bottom: 10%;
@@ -171,16 +181,6 @@ hr {
 
 .modal-backdrop.in { 
   z-index: auto;
-}
-.panel {
-  background-color: gray;
-  border: 1px solid gray;
-  border-radius: 0 !important;
-  padding: 0px !important;
-}
-.panel-title{
-  background-color: gray;
-  color: white;
 }
 
 /* Home Page
@@ -688,6 +688,72 @@ p.exhibition-date {
     color: white;
     }
 }
+/* Gallery Show Page -- Exhibitions Scroll
+------------------------- */
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: red;
+}
+
+.exhibitions-image img {
+  max-height: 400px;
+}
+@media (max-width: 768px) {
+    .row .col-sm > .pull-right {
+        float: none !important;
+    }
+}
+.gallery-exhibitions-info {
+  padding-right: 50px;
+  position: relative;
+  .exhibitions-date {
+    font-size: 110%;
+    margin-bottom: -5px;
+  }
+  .exhibitions-name {
+    margin-bottom: 30px;
+  }
+  .gallery-info {
+    position: absolute;
+    bottom: 0;
+    .gallery-name {
+      text-transform: uppercase;
+      text-transform: bold;
+      margin-bottom: 0px;
+
+    }
+    .gallery-address {
+      text-transform: uppercase;
+      font-size: 80%;
+      padding-bottom:5px;
+      vertical-align: bottom;
+    }
+  }
+}
+
+.carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: #4A4A4A;
+}
+.carousel-control.right.exhibitions-control, .carousel-control.left.exhibitions-control {
+    background-image: none;
+    color: #EEE;
+}
+.carousel-indicators li {
+    border-color: #4A4A4A;
+}
+.carousel-indicators li.active {
+    background-color: #4A4A4A;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%; /* pushes the icon in the middle of the height */
+  z-index: 5;
+  display: inline-block;
+}
+
+
 
 /* Footer
 ------------------------- */
