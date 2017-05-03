@@ -28,8 +28,10 @@
   <br>
   <br>
 </div>
-<% if @gallery.exhibitions.any? %>
 
+<div>
+
+<% if @gallery.exhibitions.any? %>
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading panel-heading-custom">
@@ -37,35 +39,58 @@
     </div>
     <div class="panel-body">
       <div class="row">
-        <div class="col-md-3">
-          <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active"><%= link_to 'Current', gallery_path(:current_gallery_exhibitions => "current_gallery_exhibitions") %></li>
-            <li role="presentation"><%= link_to 'Past', gallery_path(:past_gallery_exhibitions => "past_gallery_exhibitions") %></li>
-  
-          </ul>
-        </div>
-        <div class="col-md-9">
-          <% @exhibitions.each do |exhibition| %>
-            <div class="row">
-              <div class="col-sm-5">
-                <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
+      <div class="col-md-3">
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills nav-stacked" role="tablist">
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Current</a></li>
+          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Past</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="home">
+            <% @upcoming_exhibitions.each do |exhibition| %>
+              <div class="row">
+                <div class="col-md-5">
+                  <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
+                </div>
+                <div class="col-md-7">
+                  <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
+                  <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
+                  <h3><%= link_to exhibition.title, exhibition %><br></h3>
+                  <p><%= exhibition.description %></p>
+                  <p><%= link_to 'About Exhibition', exhibition, class: "btn btn-primary" %>
+                </div>
               </div>
-              <div class="col-sm-7">
-                <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
-                <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
-                <h3><%= link_to exhibition.title, exhibition %><br></h3>
-                <p><%= exhibition.description %></p>
-                <p><%= link_to 'About Exhibition', exhibition, class: "btn btn-primary" %>
+              <hr>
+            <% end %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="profile">
+            <%= @past_exhibitions.each do |exhibition| %>
+              <div class="row">
+                <div class="col-md-5">
+                  <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
+                </div>
+                <div class="col-md-7">
+                  <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
+                  <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
+                  <h3><%= link_to exhibition.title, exhibition %><br></h3>
+                  <p><%= exhibition.description %></p>
+                  <p><%= link_to 'About Exhibition', exhibition, class: "btn btn-primary" %>
+                </div>
               </div>
-            </div>
-            <hr>
-          <% end %>
+              <hr>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
+    </div>
   </div>
-</div>
+<div>
 <% end %>
+
 <div class="container">
 <% if admin_signed_in? %>
   <%= link_to "Add New Exhibition", new_exhibition_path(gallery_id: @gallery) %>
