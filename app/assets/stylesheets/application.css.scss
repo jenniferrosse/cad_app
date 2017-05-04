@@ -22,7 +22,7 @@ body, html {
 }
 
 body {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* Navbar
@@ -87,7 +87,7 @@ $colHighlight: #AD3C3C;
 ------------------------- */
 
 h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 h1, h2, h3, h4{
@@ -111,8 +111,15 @@ hr {
     color: #333; /* old IE */
     background-color: #BFBFBF; /* Modern Browsers */
 }
-.page-title {
- margin-bottom: -30px; 
+p.page-title {
+  color: gray;
+  text-transform: uppercase;
+  margin-bottom: -30px;
+}
+
+.gray .active a,
+.gray .active a:hover {
+    background-color: gray !important;
 }
 .icon-1 {
     position: relative;
@@ -625,10 +632,6 @@ hr {
 
 /* Exhibitions - Show Page
 ------------------------- */
-p.page-title {
-  color: gray;
-  margin-top: -10px;
-}
 p.exhibition-date {
   text-transform: uppercase;
   font-size: 125%;
@@ -690,11 +693,6 @@ p.exhibition-date {
 }
 /* Gallery Show Page -- Exhibitions Scroll
 ------------------------- */
-
-.nav-pills > .active > a, .nav-pills > .active > a:hover {
-    background-color: red;
-}
-
 .exhibitions-image img {
   max-height: 400px;
 }
