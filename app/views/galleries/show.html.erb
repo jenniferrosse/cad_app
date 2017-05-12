@@ -14,15 +14,18 @@
         <%= @gallery.city %>, <%= @gallery.state %> <%= @gallery.zip %><br>
         <%= @gallery.phone %><br>
         <br>
+        <p>Owner/Operator: <%= @gallery.owner_operator %></p>
+        <br>
         <%= link_to "Visit Website", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>
         <%= link_to "Email Gallery", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>
+        
         <br>
-        <br>
-        <h4>Hours:</h4>
-        <%= markdown(@gallery.hours) %>
+        <% unless @gallery.hours.blank? %>
+          <h4>Hours:</h4>
+          <%= markdown(@gallery.hours) %>
+        <% end %>
         <br>
         <p><%= markdown(@gallery.description) %></p><br>
-        <p>Owner/Operator: <%= @gallery.owner_operator %></p>
     </div>
   </div>
   <br>
@@ -57,8 +60,13 @@
                     <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
                   </div>
                   <div class="col-md-7">
-                    <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
-                    <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
+                    <p class="date">
+                      <% if exhibition.end_date > Date.today + 4.month %>
+                        Ongoing
+                      <% else %> 
+                        <%= exhibition.start_date.try(:strftime, "%B %e") %> - <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %>
+                      <% end %>
+                    </p>
                     <h3><%= link_to exhibition.title, exhibition %><br></h3>
                     <p><%= truncate exhibition.description, length: 200 %></p>
                     <p><%= link_to 'More About Exhibition', exhibition, class: "btn btn-primary" %>

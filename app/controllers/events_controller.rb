@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :add_gallery, :destroy]
   before_action :authenticate_admin!, except: [:index, :show]
 
   # GET /events
@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show 
+    @galleries = @event.galleries
     if params[:exhibition_id]
       @events = Exhibition.find(params[:exhibition_id]).events
     else
@@ -64,6 +65,15 @@ class EventsController < ApplicationController
     end
   end
 
+
+  # PATCH/PUT /events/1/participation
+  def participation
+    @event = Event.find(params[:id])
+    @gallery = Gallery.find(params[:id])
+    @gallery.events << @event
+    redirect_to @event
+  end
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
@@ -78,6 +88,10 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_exhibition
       @exhibtion = Exhibition.find(params[:exhibition_id])
+    end
+
+    def set_event
+      @event = Event.find(params[:id])
     end
 
     def set_event

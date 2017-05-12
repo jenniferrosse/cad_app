@@ -1,6 +1,9 @@
 class Gallery < ActiveRecord::Base
-  has_many :exhibitions, -> { order 'start_date desc' }, dependent: :destroy
+  has_many :exhibitions, dependent: :destroy
   accepts_nested_attributes_for :exhibitions
+  
+  has_many :gallery_events
+  has_many :events, through: :gallery_events
  
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?

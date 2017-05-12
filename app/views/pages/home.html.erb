@@ -23,30 +23,34 @@
     <div class="container events-scroll">
 
       <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
-      
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
+          <% @events.each_with_index do |event, index| %>
+            <div class="item <%= index == 0 ? 'active' : '' %>">
             <div class="row events-row">
               <div class="col-xs-12 col-md-6 col-sm-6 events-image">
-                <%= image_tag("2nd-fridays-logo-with-hours.jpg", class: "img-responsive pull-right") %>
+                <% if event.event_thumbnail.present? %>
+                <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive pull-right"), event %>
+                <% else %>
+                <%= link_to image_tag(event.exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive pull-right"), event %>
+              <% end %>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 events-info">
                 <div class="row">
-                  <p class="events-date">MARCH 10, 2017</p>
-                  <p class="events-time">6:00 PM - 10:00 PM</p>
-                  <h3 class="events-name">2nd Fridays Gallery Night - April 2017</h3>
-                  <p class="events-text">
-                    The Chicago Arts District hosts 2nd Fridays Gallery Night, the monthly opening receptions at the galleries and artists' studios centered around South Halsted Street, beginning at 1711 and ending at 2005 South Halsted Street in Chicago.</p>
-
-                    <p>Come visit the creative spaces in the Chicago Arts District at South Halsted Street as they showcase an exciting display of art and artists from Chicago and beyond. This unique art community opens its </p>
-                  </p>
+                  <p class="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></p>
+                  <br>
+                  <span="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></span> 
+                  <h3 class="events-name"><%= link_to event.title, event %></h3>
+                  <p class="events-text"><%= truncate event.description, length: 400 %></p>
                 </div>
                 <div class="row gallery-info">
                   <div class="col-md-6">
-                    <h6 class="gallery-name">Information Center</h6>
-                    <p class="gallery-address">1945 S. Halsted St.<br>
-                    Chicago, IL 60608</p>
+                    <% if event.exhibition %>
+                      <h6 class="gallery-name"><%= link_to event.exhibition.gallery.try(:gallery_name), event.exhibition.gallery %></h6>
+                      <p class="gallery-address">
+                        <%= event.exhibition.gallery.address %><br>
+                        <%= event.exhibition.gallery.city %>, <%= event.exhibition.gallery.state %> <%= event.exhibition.gallery.zip %></p>
+                      <% end %>
                   </div>
                   <div class="col-md-6">
                     <%= link_to image_tag('2nd-fridays-link.jpg', height: '50', alt: 'Atlanta'), events_path, title: '2nd Fridays', title: 'more info about 2nd Fridays', rel: 'tooltip', relative: true, class: "pull-right" %>
@@ -55,65 +59,8 @@
               </div>
             </div>
           </div>
-
-          <div class="item">
-          <div class="row events-row">
-            <div class="col-xs-12 col-md-6 col-sm-6 events-image">
-              <%= image_tag("Heppner_Post.jpg", class: "img-responsive pull-right") %>
-            </div>
-            <div class="col-xs-12 col-md-6 col-sm-6 events-info">
-              <div class="row">
-                <p class="events-date">MARCH 10, 2017</p>
-                <p class="events-time">6:00 PM - 10:00 PM</p>
-                <h3 class="events-name">Opening Reception: What Lies Beneath</h3>
-                <p class="events-text">
-                  Join us for an opening reception for the exhibition "What Lies Beneath" which explores the elemental forces within the process of creation. Charles and Gunjan explore this concept both in light of eastern philosophies and modern day physics. </p>
-                <p>This event is part of the 2nd Fridays Gallery Night Art Walk.</p>
-              </div>
-              <div class="row gallery-info">
-                <div class="col-md-6">
-                  <h6 class="gallery-name">Chicago Art Dept. (CAD) </h6>
-                  <p class="gallery-address">1932 S. Halsted St. #100<br>
-                  Chicago, IL 60608</p>
-                </div>
-                <div class="col-md-6">
-                  <%= link_to image_tag('2nd-fridays-link.jpg', height: '50', alt: 'Atlanta'), events_path, title: '2nd Fridays', title: 'more info about 2nd Fridays', rel: 'tooltip', relative: true, class: "pull-right" %>
-                </div>
-              </div>
-            </div>
-          </div>
+          <% end %>
         </div>
-        <div class="item">
-          <div class="row events-row">
-            <div class="col-xs-12 col-md-6 col-sm-6 events-image">
-              <%= image_tag("Tolchin_CAD.jpg", class: "img-responsive pull-right") %>
-            </div>
-            <div class="col-xs-12 col-md-6 col-sm-6 events-info">
-              <div class="row">
-                <p class="events-date">MARCH 10, 2017</p>
-                <p class="events-time">6:00 PM - 10:00 PM</p>
-                <h3 class="events-name">Opening Reception: Aspects of the Whole</h3>
-                <p class="events-text">
-                  Join us for an opening reception for the exhibition "What Lies Beneath" which explores the elemental forces within the process of creation. Charles and Gunjan explore this concept both in light of eastern philosophies and modern day physics. </p>
-              </div>
-              <div class="row gallery-info">
-                <div class="col-md-6">
-                  <h6 class="gallery-name">Studio Oh!</h6>
-                  <p class="gallery-address">1837 S. Halsted St.<br>
-                  Chicago, IL 60608</p>
-                </div>
-                <div class="col-md-6">
-                  <%= link_to image_tag('2nd-fridays-link.jpg', height: '50', alt: 'Atlanta'), events_path, title: '2nd Fridays', title: 'more info about 2nd Fridays', rel: 'tooltip', relative: true, class: "pull-right" %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-</div>
-
-
 
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -130,7 +77,7 @@
     </div>
   </div>
 </div>
-<!-- End Carousel of Upcoming Events -->
+<!-- End Carousel of Upcoming Exhibitions -->
 
 <div class="exhibitions-background">
   <div class="container exhibitions-container">
@@ -138,73 +85,32 @@
     <div class="container exhibitions-scroll">
 
       <div id="myCarousel2" class="carousel slide" data-interval="false" data-ride="carousel">
-      
+        
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-
-          <div class="item active">
-            <div class="row exhibitions-row">
-              <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-image">
-                <%= image_tag("Heppner_Post.jpg", class: "img-responsive pull-right") %>
-              </div>
-              <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-info">
-                <div class="row">
-                  <p class="exhibitions-date">MARCH 10 - MARCH 24, 2017</p>
-                  <h3 class="exhibitions-name">WHAT LIES BENEATH - March 2017</h3>
-                  <p class="exhibitions-text">
-                    "What Lies Beneath" explores the elemental forces within the process of creation. Charles and Gunjan explore this concept both in light of eastern philosophies and modern day physics. Charles' paintings are inspired by String Theory while Gunjan will be taking inspirations from the eastern philosophies of non- duality to explore certain aspects of creation and their unifying nature. She will be creating works using turmeric, oyster shell powder, malachite, graphite and other organic material. In extension to her works, the show also features her collaborative installations with Landscape Artist, Kevin Benham, on the same theme.
-                  </p>
+          <% @exhibitions.each_with_index do |exhibition, index| %>
+            <div class="item <%= index == 0 ? 'active' : '' %>">
+              <div class="row exhibitions-row">
+                <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-image">
+                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive pull-right"), exhibition %>
                 </div>
-                <div class=" row gallery-info">
-                  <h6 class="gallery-name">Chicago Art Dept (CAD)</h6>
-                  <p class="gallery-address">1932 S. Halsted St. #100<br>
-                  Chicago, IL 60608</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="row exhibitions-row">
-              <div class="col-md-6 col-sm-6 col-xs-12 exhibitions-image">
-                    <%= image_tag("design-project.jpg", class: "img-responsive pull-right") %>
-              </div>
-              <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-info">
-                <p class="exhibitions-date">MARCH 10, 2017</p>
-                <p class="exhibitions-time">6:00 PM - 10:00 PM</p>
-                <h3 class="exhibitions-name">2nd Fridays Gallery Night - March 2017</h3>
-                <p class="exhibitions-text">
-                  Opening night for many of the Chicago Art District Galleries. This is our monthly gallery opening night, not to be missed!
-                </p>
-                <div class="gallery-info">
-                  <h6 class="gallery-name">Information Center</h6>
-                  <p class="gallery-address">1945 S. Halsted St.<br>
-                  Chicago, IL 60608</p>
+                <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-info">
+                  <div class="row">
+                    <p class="exhibitions-date-home"><%= exhibition.start_date.try(:strftime, "%b, %e %Y") %> - <%= exhibition.end_date.try(:strftime, "%b, %e %Y") %></p>
+                    <h3 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h3>
+                    <p class="exhibitions-text"><%= truncate exhibition.description, length: 425 %>
+                    <p><%= link_to 'More Info', exhibition, class: "btn btn-default" %></p>
+                    </p>
+                  </div>
+                  <div class="row gallery-info">
+                    <h6 class="gallery-name"><%= link_to exhibition.gallery.gallery_name, exhibition.gallery %></h6>
+                    <p class="gallery-address"><%= exhibition.gallery.address %><br>
+                      <%= exhibition.gallery.city %>, <%= exhibition.gallery.state %> <%= exhibition.gallery.zip %></p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="item">
-            <div class="row exhibitions-row">
-              <div class="col-md-6 col-sm-6 col-xs-12 exhibitions-image">
-                    <%= image_tag("design-project.jpg", class: "img-responsive pull-right") %>
-              </div>
-              <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-info">
-                <p class="exhibitions-date">MARCH 10, 2017</p>
-                <p class="exhibitions-time">6:00 PM - 10:00 PM</p>
-                <h3 class="exhibitions-name">2nd Fridays Gallery Night - March 2017</h3>
-                <p class="exhibitions-text">
-                  Opening night for many of the Chicago Art District Galleries. This is our monthly gallery opening night, not to be missed!
-                </p>
-                <div class="gallery-info">
-                  <h6 class="gallery-name">Information Center</h6>
-                  <p class="gallery-address">1945 S. Halsted St.<br>
-                  Chicago, IL 60608</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <% end %>    
         </div>
 
         <!-- Left and right controls -->
@@ -218,16 +124,12 @@
         </a>
       </div><!-- End Carousel -->
     </div>
-      <p class="text-center"><%= link_to "View All Exhibitions", events_path, class: "btn btn-primary btn-lg sharp" %></p>
+      <p class="text-center"><%= link_to "View All Exhibitions", exhibitions_path, class: "btn btn-primary btn-lg sharp" %></p>
     </div>
   </div>
 </div>
 <!-- End Carousel of Upcoming Exhibitions -->
 
-<br>
-<br>
-<br>
-<br>
 <br>
 
   <!-- Marketing messaging and featurettes

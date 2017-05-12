@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   def home
+    @events = Event.where("start_date >= ?", Date.today).order('end_date ASC')
+    @exhibitions = Exhibition.where("end_date >= ?", Date.today).order('end_date ASC')
   end
 
   def about

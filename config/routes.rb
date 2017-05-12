@@ -18,7 +18,11 @@ Rails.application.routes.draw do
 
   resources :galleries 
   resources :exhibitions
-  resources :events
+  resources :events do
+    member do
+      post :participation
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

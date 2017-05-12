@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+  has_many :gallery_events
+  has_many :galleries, through: :gallery_events
+  
   belongs_to :exhibition
   
 

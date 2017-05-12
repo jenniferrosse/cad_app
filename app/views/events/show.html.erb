@@ -41,7 +41,7 @@
       <% if @event.exhibition %>
         <div class="col-md-6 col-xs-6-pull event-show-info">
           <p class="page-title">EVENT</p><br>
-          <h2><%= @event.title %><br><small>for <%= link_to @event.exhibition.try(:title), @event.exhibition %></small></h2>
+          <h2><%= link_to @event.exhibition.try(:title), @event.exhibition %>: <%= @event.title %></h2>
           <br>
             <p class="date-info"><%= @event.start_date.try(:strftime, "%A, %B %e, %Y") %>
             <% if @event.end_date > @event.start_date %>
@@ -90,85 +90,40 @@
         </div>
       </div><!-- End Row -->
 
+<% if @event.galleries.any? %>
+              
+            <% end %>
+
         <!-- Third Container (Grid) -->
         <div class = "container">
         <div class="row">
             <h3 class="page-title">Participating Galleries</h3>
+            
             <br>
             <hr>
+            <% @galleries.each do |gallery| %>
             <div class="col-xs-4 col-sm-2">
               <div class="image-container">
-                <%= image_tag("design-project.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
+                <%= image_tag(gallery.thumbnail.url(:medium), class: "img-responsive same-size-img") %>
                 <div class="overlay">
-                  <h6 class="text-overlay">DesignProject</h6>
+                  <h6 class="text-overlay"><%= link_to gallery.gallery_name, gallery %></h6>
                 </div>
               </div>
             </div>
-            <div class="col-xs-4 col-sm-2">
-              <div class="image-container">
-                <%= image_tag("xavier-nuez2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-                <div class="overlay">
-                  <h6 class="text-overlay">Xavier Nuez</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-2">
-              <div class="image-container">
-                <%= image_tag("la-kaiser.png", class: "img-responsive img-overlay", style: "width:100%" ) %>
-                <div class="overlay">
-                  <div class="text-overlay">La Kaiser</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-2">
-              <div class="image-container">
-                <%= image_tag("Palliative-endeavour2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-                <div class="overlay">
-                  <div class="text-overlay">SK Kitchen Design</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-2">
-              <div class="image-container">
-                <%= image_tag("scroll2-square.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-                <div class="overlay">
-                  <div class="text-overlay">Mary Lou Stewart</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-2">
-              <div class="image-container">
-                <%= image_tag("Adam_CAD.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-                <div class="overlay">
-                  <div class="text-overlay">Zoe Rain</div> 
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-2">
-              <div class="image-container">
-                <%= image_tag("dark-by-design.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-                <div class="overlay">
-                  <div class="text-overlay">Dark by Design</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-2">
-              <div class="image-container">
-                <%= image_tag("MelissaCarloline_banner.jpg", class: "img-responsive img-overlay", style: "width:100%" ) %>
-                <div class="overlay">
-                  <div class="text-overlay">Chicago Art Dept.</div>
-                </div>
-              </div>
-            </div>
+            <% end %>
           </div>
         </div>
 
         <% end %>
       <br>
+      <%= button_to 'Add Gallery', participation_event_path(@event.id), :method => "post" %>
+
+
       <br>
     <p class="text-center">
       <% if admin_signed_in? %>
         <%= link_to 'Edit', edit_event_path,class: "btn btn-warning" %>
+        <%= link_to "Add Another Gallery", new_exhibition_path(gallery_id: @gallery) %>
       <% end %>
         <%= link_to 'All Events', events_path, class: "btn btn-primary"  %>
       <% if admin_signed_in? %>

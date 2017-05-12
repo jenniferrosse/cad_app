@@ -78,17 +78,12 @@ $colHighlight: #AD3C3C;
         color: $colHighlight;
         background-color: $bgHighlight; }}}
 }
-
 .navbar btn-nav {
   margin: 30px;
 }
 
 /* General
 ------------------------- */
-
-h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Open Sans', sans-serif;
-}
 
 h1, h2, h3, h4{
   color: #4A4A4A;
@@ -116,7 +111,9 @@ p.page-title {
   text-transform: uppercase;
   margin-bottom: -30px;
 }
-
+.date {
+  text-transform: uppercase;
+}
 .gray .active a,
 .gray .active a:hover {
     background-color: gray !important;
@@ -321,6 +318,7 @@ p.page-title {
     color: #4A4A4A;
     font-size: 110%;
     margin-bottom: -5px;
+    text-transform: uppercase;
   }
   .events-time {
     color: #4A4A4A;
@@ -330,7 +328,7 @@ p.page-title {
     color: #3CC0000;
     margin-bottom: 30px;
     a {
-      color: #CC0000;
+      color: #4A4A4A;
       }
   }
   .events-text {
@@ -388,10 +386,11 @@ p.page-title {
 .exhibitions-info {
   padding-right: 125px;
   position: relative;
-  .exhibitions-date {
+  .exhibitions-date-home {
     color: #FFF;
     font-size: 110%;
     margin-bottom: -5px;
+    text-transform: uppercase;
   }
   .exhibitions-name {
     color: #FFF;
@@ -411,7 +410,9 @@ p.page-title {
       color: #FFF;
       text-transform: bold;
       margin-bottom: 0px;
-
+      a {
+      color: #FFF;
+      }
     }
     .gallery-address {
       color: #FFF;
@@ -628,6 +629,9 @@ p.page-title {
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  a {
+  color: white;
+  }
 }
 
 /* Exhibitions - Show Page
@@ -755,7 +759,9 @@ p.exhibition-date {
 
 /* Footer
 ------------------------- */
-
+.footer-bar {
+  background-color: #CC0000;
+}
 .footer {
   background-size: cover;
   background-color: white;
