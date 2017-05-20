@@ -13,7 +13,7 @@ class GalleriesController < ApplicationController
   def show
 
     @upcoming_exhibitions = @gallery.exhibitions.where("end_date >=?", Date.today).order('start_date ASC')
-    @past_exhibitions = @gallery.exhibitions.where("exhibitions.end_date < ?", Date.today)
+    @past_exhibitions = @gallery.exhibitions.where("exhibitions.end_date < ?", Date.today).order('end_date DESC')
 
     if params[:upcoming_gallery_exhibitions]
       @exhibitions = @gallery.exhibitions.where("end_date >=?", Date.today).order('end_date ASC')

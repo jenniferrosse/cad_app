@@ -7,11 +7,11 @@ class EventsController < ApplicationController
 
   def index
     if params[:upcoming]
-      @events = Event.upcoming.order('start_date ASC')
+      @events = Event.upcoming.order('start_date ASC, title ASC')
     elsif params[:past]
       @events = Event.past.order('start_date DESC')
     else
-      @events = Event.where("start_date >= ?", Date.today).order('start_date ASC')
+      @events = Event.where("start_date >= ?", Date.today).order('start_date ASC, title ASC')
     end
   end
 
@@ -28,7 +28,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new(exhibition_id: params[:gallery_id])
+    @event = Event.new(exhibition_id: params[:exhibition_id])
   end
 
   # GET /events/1/edit

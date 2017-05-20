@@ -23,28 +23,32 @@
       <!-- Third Container (Grid) -->
       <div class="container bg-3">
         <div class="row">
-          <% @current_exhibitions.each do |exhibition| %>
-            <div class="col-sm-3">
-              <div class="thumbnail thumbnail-exhibitions">
-                <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
-                <div class="caption exhibitions-text">
-                  <h5 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h5>
+          <% if @current_exhibitions.any? %>
+            <% @current_exhibitions.each do |exhibition| %>
+              <div class="col-sm-3">
+                <div class="thumbnail thumbnail-exhibitions">
+                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
+                  <div class="caption exhibitions-text">
+                    <h5 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h5>
 
-                  <p class="exhibitions-date">  
-                  <% if exhibition.end_date > Date.today + 4.month %>
-                    Ongoing
-                  <% elsif exhibition.end_date > Date.today && exhibition.start_date < Date.today %>
-                    Through <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
-                    <% elsif %>
-                    <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
-                    <% end %>
-                    </p>
+                    <p class="exhibitions-date">  
+                    <% if exhibition.end_date > Date.today + 4.month %>
+                      Ongoing
+                    <% elsif exhibition.end_date > Date.today && exhibition.start_date < Date.today %>
+                      Through <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
+                      <% elsif %>
+                      <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
+                      <% end %>
+                      </p>
 
-                  <p class="gallery-name"><%= link_to exhibition.gallery.try(:gallery_name), exhibition.gallery %></h6>
-                  <p class="gallery-address"><%= exhibition.gallery.try(:address) %></p>
+                    <p class="gallery-name"><%= link_to exhibition.gallery.try(:gallery_name), exhibition.gallery %></h6>
+                    <p class="gallery-address"><%= exhibition.gallery.try(:address) %></p>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
+          <% else %> 
+            <p>There are no current exhibitions at this time.</p>
           <% end %>
         </div>
       </div>
@@ -53,28 +57,32 @@
       <!-- Third Container (Grid) -->
       <div class="container bg-3">
         <div class="row">
-          <% @upcoming_exhibitions.each do |exhibition| %>
-            <div class="col-sm-3">
-              <div class="thumbnail thumbnail-exhibitions">
-                <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
-                <div class="caption exhibitions-text">
-                  <h5 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h5>
+          <% if @upcoming_exhibitions.any? %>
+            <% @upcoming_exhibitions.each do |exhibition| %>
+              <div class="col-sm-3">
+                <div class="thumbnail thumbnail-exhibitions">
+                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
+                  <div class="caption exhibitions-text">
+                    <h5 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h5>
 
-                  <p class="exhibitions-date">  
-                  <% if exhibition.end_date > Date.today + 4.month %>
-                    Ongoing
-                  <% elsif exhibition.end_date > Date.today && exhibition.start_date < Date.today %>
-                    Through <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
-                    <% elsif %>
-                    <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
-                    <% end %>
-                    </p>
+                    <p class="exhibitions-date">  
+                    <% if exhibition.end_date > Date.today + 4.month %>
+                      Ongoing
+                    <% elsif exhibition.end_date > Date.today && exhibition.start_date < Date.today %>
+                      Through <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
+                      <% elsif %>
+                      <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
+                      <% end %>
+                      </p>
 
-                  <p class="gallery-name"><%= link_to exhibition.gallery.try(:gallery_name), exhibition.gallery %></h6>
-                  <p class="gallery-address"><%= exhibition.gallery.try(:address) %></p>
+                    <p class="gallery-name"><%= link_to exhibition.gallery.try(:gallery_name), exhibition.gallery %></h6>
+                    <p class="gallery-address"><%= exhibition.gallery.try(:address) %></p>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
+          <% else %> 
+            <p>There are no upcoming exhibitions at this time.</p>
           <% end %>
         </div>
       </div>

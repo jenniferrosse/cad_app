@@ -116,14 +116,13 @@
 
         <% end %>
       <br>
+    <% if admin_signed_in? %>
       <%= button_to 'Add Gallery', participation_event_path(@event.id), :method => "post" %>
-
-
+    <% end %>
       <br>
     <p class="text-center">
       <% if admin_signed_in? %>
         <%= link_to 'Edit', edit_event_path,class: "btn btn-warning" %>
-        <%= link_to "Add Another Gallery", new_exhibition_path(gallery_id: @gallery) %>
       <% end %>
         <%= link_to 'All Events', events_path, class: "btn btn-primary"  %>
       <% if admin_signed_in? %>
