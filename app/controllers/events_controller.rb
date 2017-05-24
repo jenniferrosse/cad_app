@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     if params[:upcoming]
       @events = Event.upcoming.order('start_date ASC, title ASC')
     elsif params[:past]
-      @events = Event.past.order('start_date DESC')
+      @events = Event.past.order('start_date DESC, title ASC')
     else
       @events = Event.where("start_date >= ?", Date.today).order('start_date ASC, title ASC')
     end

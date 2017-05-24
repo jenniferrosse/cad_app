@@ -8,7 +8,7 @@ class ExhibitionsController < ApplicationController
   def index
     @current_exhibitions = Exhibition.where("? BETWEEN start_date AND end_date", Date.today).order('end_date ASC')
     @upcoming_exhibitions = Exhibition.where("start_date > ?", Date.today).order('end_date ASC')
-    @past_exhibitions = Exhibition.where("end_date < ?", Date.today)
+    @past_exhibitions = Exhibition.where("end_date < ?", Date.today).order('end_date DESC')
 
     if params[:gallery_id]
       @exhibitions = Gallery.find(params[:gallery_id]).exhibitions
