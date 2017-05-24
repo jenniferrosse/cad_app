@@ -62,9 +62,9 @@
                 <% @upcoming_events.each do |event| %>
                   <li class="list-group-item"><b><%= link_to event.title, event %></b><br>
                   <%= event.start_date.try(:strftime, "%A, %B %e, %Y") %>
-                    
+                    <% if event.end_date > event.start_date %>
                       - <%= event.end_date.try(:strftime, "%B %e, %Y") %>
-                    
+                    <% end %><br>
                   <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></li>
                   <% end %>
               </ul>

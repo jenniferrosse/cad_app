@@ -68,7 +68,7 @@
                       <% end %>
                     </p>
                     <h3><%= link_to exhibition.title, exhibition %><br></h3>
-                    <p><%= truncate exhibition.description, length: 200 %></p>
+                    <p><%= truncate exhibition.description, length: 675 %></p>
                     <p><%= link_to 'More About Exhibition', exhibition, class: "btn btn-primary" %>
                   </div>
                 </div>
@@ -89,14 +89,14 @@
                     <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
                     <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
                     <h3><%= link_to exhibition.title, exhibition %><br></h3>
-                    <p><%= truncate exhibition.description, length: 750 %></p>
+                    <p><%= truncate exhibition.description, length: 675 %></p>
                     <p><%= link_to 'More About Exhibition', exhibition, class: "btn btn-primary" %>
                   </div>
                 </div>
                 <hr>
               <% end %>
             <% else %>
-              <p>There are previous exhibitions.</p>
+              <p>There are no previous exhibitions.</p>
             <% end %>
           </div>
         </div>
