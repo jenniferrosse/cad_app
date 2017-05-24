@@ -28,16 +28,18 @@
           <div class="caption events-text">
             <span><%= link_to event.title, event %></br></span>
             <% if event.exhibition %>
-              <span>for
               <span class="exhibition-name"><%= link_to event.exhibition.try(:title), event.exhibition %>
             <% end %>
             </span>
             <br>
-              <span="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></span>
+            <br>
+              <span class="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></span>
               <br>
-            <span="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></span> 
+            <span class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></span> 
+            <br>
+            <br>
             <% if event.exhibition %>
-              <%= link_to event.exhibition.gallery.try(:gallery_name), event.exhibition.gallery %>
+              <span class="gallery-name"><%= link_to event.exhibition.gallery.try(:gallery_name), event.exhibition.gallery %></span>
             <% end %>      
           </div>
         </div>

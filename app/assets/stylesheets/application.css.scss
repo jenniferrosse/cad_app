@@ -502,32 +502,29 @@ p.page-title {
 }
 .thumbnail.thumbnail-events {
   background-color: #EDEBEB;
-  border: 1px solid #E6E6E6;
+  border: 1px solid #EDEBEB;
   border-radius: 0 !important;
   padding: 0px !important;
   .caption {
-   min-height: 150px;
-  }
-  .events-text h4, h5, h6 {
-    text-transform: uppercase;
-  }
-  .events-name {
-    color: #CC0000;
-    margin-bottom: 40px;
+   min-height: 180px;
   }
   .exhibition-name {
-  text-transform: uppercase;
+    text-transform: uppercase;
+       a {
+        color: #AD3C3C;
+       }
   }
   .events-date {
-    margin-bottom: 0px;
+    margin-bottom: -10px;
+    text-transform: uppercase;
+    font-size: 90%;
   }
   .events-time {
-    margin-top: -5px;
-    margin-bottom: 2s0px;
+    font-size: 90%;
   }
   .gallery-name {
     font-size: 80%;
-    margin-bottom: 0px;
+    text-transform: uppercase;
   }
   .gallery-address {
     font-size: 70%;
