@@ -35,7 +35,10 @@
             <br>
               <span="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></span>
               <br>
-            <span="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></span>       
+            <span="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></span> 
+            <% if event.exhibition %>
+              <%= link_to event.exhibition.gallery.try(:gallery_name), event.exhibition.gallery %>
+            <% end %>      
           </div>
         </div>
       </div>
