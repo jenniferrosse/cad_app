@@ -96,7 +96,13 @@
                 </div>
                 <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-info">
                   <div class="row">
-                    <p class="exhibitions-date-home"><%= exhibition.start_date.try(:strftime, "%b, %e %Y") %> - <%= exhibition.end_date.try(:strftime, "%b, %e %Y") %></p>
+                    <p class="exhibitions-date-home">
+                      <% if exhibition.end_date > Date.today + 4.month %>
+                        Ongoing
+                      <% elsif %>
+                        <%= exhibition.start_date.try(:strftime, "%b, %e %Y") %> - <%= exhibition.end_date.try(:strftime, "%b, %e %Y") %>
+                      <% end %>
+                      </p>
                     <h3 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h3>
                     <p class="exhibitions-text"><%= truncate exhibition.description, length: 425 %>
                     <p><%= link_to 'More Info', exhibition, class: "btn btn-default" %></p>
