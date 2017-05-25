@@ -18,7 +18,7 @@
 <div class="container bg-3">
   <div class="row">
     <% @events.each do |event| %>
-      <div class="col-sm-3">
+      <div class="col-sm-4 col-md-3">
         <div class="thumbnail thumbnail-events">
           <% if event.event_thumbnail.present? %>
             <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive margin border"), event %>
@@ -29,21 +29,15 @@
             <div class="events-text1">
               <span><%= link_to event.title, event %></br></span>
               <% if event.exhibition %>
-                <span class="exhibition-name"><%= link_to event.exhibition.try(:title), event.exhibition %>
+                <p class="exhibition-name"><%= link_to event.exhibition.try(:title), event.exhibition %></p>
               <% end %>
-              </span>
-              <br>
-              <br>
             </div>
           
             <div class="events-text2">
               <span class="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></span>
-              <br>
-              <span class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></span> 
-              <br>
-              <br>
+              <p class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p> 
               <% if event.exhibition %>
-                <span class="gallery-name"><%= link_to event.exhibition.gallery.try(:gallery_name), event.exhibition.gallery %></span>
+                <p class="gallery-name"><%= link_to event.exhibition.gallery.try(:gallery_name), event.exhibition.gallery %></p>
                 <% else %>
                  .    
               <% end %>      

@@ -25,12 +25,12 @@
         <div class="row">
           <% if @current_exhibitions.any? %>
             <% @current_exhibitions.each do |exhibition| %>
-              <div class="col-sm-3">
+              <div class="col-md-3 col-sm-4">
                 <div class="thumbnail thumbnail-exhibitions">
                   <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
                   <div class="caption">
                     <div class="exhibitions-text1">
-                      <span class="exhibitions-name"><%= link_to exhibition.title, exhibition %></span>
+                      <p class="exhibitions-name"><%= link_to exhibition.title, exhibition %></p>
                     </div>
                     <div class="exhibitions-text2">
                       <p class="exhibitions-date">  
@@ -44,7 +44,8 @@
                         </p>
 
                       <p class="gallery-name"><%= link_to exhibition.gallery.try(:gallery_name), exhibition.gallery %></p>
-                      <p class="gallery-address"><%= exhibition.gallery.try(:address) %></p>
+                      <p class="gallery-address"><%= exhibition.gallery.try(:address) %><br>
+                        <%= exhibition.gallery.try(:city) %>, <%= exhibition.gallery.try(:state) %> <%= exhibition.gallery.try(:zip) %></p>
                     </div>
                   </div>
                 </div>
@@ -62,7 +63,7 @@
         <div class="row">
           <% if @upcoming_exhibitions.any? %>
             <% @upcoming_exhibitions.each do |exhibition| %>
-              <div class="col-sm-3">
+              <div class="col-md-3 col-sm-4">
                 <div class="thumbnail thumbnail-exhibitions">
                   <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
                   <div class="caption exhibitions-text">
@@ -95,7 +96,7 @@
       <div class="container bg-3">
         <div class="row">
           <% @past_exhibitions.each do |exhibition| %>
-            <div class="col-sm-3">
+            <div class="col-md-3 col-sm-4">
               <div class="thumbnail thumbnail-exhibitions">
                 <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
                 <div class="caption">
@@ -142,7 +143,7 @@
 <div class="container bg-3">
   <div class="row">
     <% @exhibitions.each do |exhibition| %>
-      <div class="col-sm-3">
+      <div class="col-md-3">
         <div class="thumbnail thumbnail-exhibitions">
           <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
           <div class="caption exhibitions-text">
