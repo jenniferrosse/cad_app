@@ -13,7 +13,7 @@
   <br>
   <div class="row">
       <% @galleries.each do |gallery| %>
-        <div class="col-sm-3">
+        <div class="col-md-3 col-sm-4">
           <div class="thumbnail thumbnail-galleries">
             <%= link_to image_tag(gallery.thumbnail.url(:medium), class: "img-responsive aspect"), gallery %>
             <div class="caption gallery-text">
