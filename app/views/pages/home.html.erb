@@ -37,24 +37,34 @@
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 events-info">
                 <div class="row">
-                  <p class="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></p>
+                  <div class="col-md-6 no-padding-left">
+                    <p class="events-date"><%= event.start_date.try(:strftime, "%A, %b %e, %Y") %></p>
+                    <p class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p>
+                  </div>
+                  <div class="col-md-6 no-padding-right">
+                    <%= link_to image_tag('2nd-fridays-link.jpg', height: '100', alt: '2nd Fridays'), events_path, title: '2nd Fridays', title: '2nd Fridays', rel: 'tooltip', relative: true, class: "pull-right" %>
+                  </div> 
+                </div>
+                <div class="row">
                   <br>
-                  <span="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></span> 
-                  <h3 class="events-name"><%= link_to event.title, event %></h3>
+                  <h3 class="events-name"><%= link_to event.title, event %><% if event.exhibition %>
+                    <span class="small-text">for</span> 
+                      <%= link_to event.exhibition.title, event.exhibition %>
+                    <% end %></h3>
                   <p class="events-text"><%= truncate event.description, length: 400 %></p>
+                  
+                 <p><%= link_to 'About the Event', event, class: "btn btn-primary-outline sharp" %>
+                 <% if event.exhibition %>
+                   <%= link_to 'About the Exhibition', event.exhibition, class: "btn btn-primary-outline sharp" %></p>
+                  <% end %>
                 </div>
                 <div class="row gallery-info">
-                  <div class="col-md-6">
-                    <% if event.exhibition %>
-                      <h6 class="gallery-name"><%= link_to event.exhibition.gallery.try(:gallery_name), event.exhibition.gallery %></h6>
-                      <p class="gallery-address">
-                        <%= event.exhibition.gallery.address %><br>
-                        <%= event.exhibition.gallery.city %>, <%= event.exhibition.gallery.state %> <%= event.exhibition.gallery.zip %></p>
-                      <% end %>
-                  </div>
-                  <div class="col-md-6">
-                    <%= link_to image_tag('2nd-fridays-link.jpg', height: '50', alt: 'Atlanta'), events_path, title: '2nd Fridays', title: 'more info about 2nd Fridays', rel: 'tooltip', relative: true, class: "pull-right" %>
-                  </div>
+                  <% if event.exhibition %>
+                    <h6 class="gallery-name"><%= link_to event.exhibition.gallery.try(:gallery_name), event.exhibition.gallery %></h6>
+                    <p class="gallery-address">
+                      <%= event.exhibition.gallery.address %><br>
+                      <%= event.exhibition.gallery.city %>, <%= event.exhibition.gallery.state %> <%= event.exhibition.gallery.zip %></p>
+                    <% end %>
                 </div>
               </div>
             </div>
@@ -104,8 +114,8 @@
                       <% end %>
                       </p>
                     <h3 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h3>
-                    <p class="exhibitions-text"><%= truncate exhibition.description, length: 425 %>
-                    <p><%= link_to 'More Info', exhibition, class: "btn btn-default" %></p>
+                    <p class="exhibitions-text"><%= truncate exhibition.description, length: 550 %>
+                    <p><%= link_to 'About the Exhibition', exhibition, class: "btn btn-primary-outine-inverse sharp" %></p>
                     </p>
                   </div>
                   <div class="row gallery-info">

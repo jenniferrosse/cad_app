@@ -179,6 +179,15 @@ p.page-title {
   background: gray;
   border: gray;
 }
+.btn-primary-outline {
+  background-color: transparent;
+  border-color: #4A4A4A;
+}
+.btn-primary-outine-inverse {
+  background-color: transparent;
+  border-color: #EAEAEA;
+  color: #EAEAEA;
+}
 .btn.sharp {
   border-radius: 0;
 }
@@ -191,7 +200,7 @@ p.page-title {
 ------------------------- */
 .parallax {
     /* The image used */
-    background-image: url(art2.jpg);
+    background-image: url(cad-1346.jpg);
 
     /* Full height */
     height: 60%; 
@@ -289,7 +298,7 @@ p.page-title {
 }
 .events-container {
   h2 {
-  margin-bottom: -7px;
+
   color: #EAEAEA;
   }
 }
@@ -314,29 +323,54 @@ p.page-title {
 .events-info {
   padding-right: 125px;
   position: relative;
+  .no-padding-left {
+    padding-left: 0px;
+  }
+  .no-padding-right {
+    padding-right: 0px;
+  }
   .events-date {
     color: #4A4A4A;
+    font-size: 130%;
+    margin-top: 40px;
+    margin-bottom: 0px;
     font-size: 110%;
-    margin-bottom: -5px;
     text-transform: uppercase;
+
   }
   .events-time {
     color: #4A4A4A;
-    margin-bottom: 25px;
+    margin-top: 0px;
+
   }
   .events-name {
     color: #3CC0000;
-    margin-bottom: 30px;
     a {
       color: #4A4A4A;
       }
+    .small-text {
+    font-size: 60%;
+  }
+  }
+  .small-text {
+    font-size: 60%;
+  }
+  .exhibition-card {
+    background-color: #4A4A4A;
+    padding: 5px;
+    .exhibition-name {
+      color: #EAEAEA;
+    }
+    p {
+      color: #EAEAEA;
+    }
   }
   .events-text {
     color: #4A4A4A;
   }
   .gallery-info {
-    margin-left: -30px;
-    
+    position: absolute;
+    bottom: 0;
     .gallery-name {
       text-transform: uppercase;
       color: #4A4A4A;
@@ -347,6 +381,7 @@ p.page-title {
       color: #4A4A4A;
       text-transform: uppercase;
       font-size: 80%;
+      margin-bottom: 0px;
       vertical-align: bottom;
     }
   }
@@ -387,38 +422,38 @@ p.page-title {
   padding-right: 125px;
   position: relative;
   .exhibitions-date-home {
-    color: #FFF;
+    color: #EAEAEA;
     font-size: 110%;
     margin-bottom: -5px;
     text-transform: uppercase;
   }
   .exhibitions-name {
-    color: #FFF;
+    color: #EAEAEA;
     margin-bottom: 30px;
     a {
-      color: #FFF;
+      color: #EAEAEA;
       }
   }
   .exhibitions-text {
-    color: #FFF;
+    color: #EAEAEA;
   }
   .gallery-info {
     position: absolute;
     bottom: 0;
     .gallery-name {
       text-transform: uppercase;
-      color: #FFF;
+      color: #EAEAEA;
       text-transform: bold;
       margin-bottom: 0px;
       a {
-      color: #FFF;
+      color: #EAEAEA;
       }
     }
     .gallery-address {
-      color: #FFF;
+      color: #EAEAEA;
       text-transform: uppercase;
       font-size: 80%;
-      padding-bottom:5px;
+      margin-bottom: 0px;
       vertical-align: bottom;
     }
   }
