@@ -501,31 +501,43 @@ p.page-title {
     padding: 2px 2px;
 }
 .thumbnail.thumbnail-events {
+
   background-color: #EDEBEB;
   border: 1px solid #EDEBEB;
   border-radius: 0 !important;
   padding: 0px !important;
   .caption {
-    padding-bottom: 2px;
+    padding-bottom: 0px;
+    padding-left: 3px;
+    padding-right: 3px;
     .events-text1 {
-    min-height: 100px;
-      margin: 0 0 0 0px;
+      min-height: 90px;
+      border: 1px solid #EDEBEB;
     } 
     .events-text2 {
-      min-height: 95px;
+      margin: 0 0 0 0px;
+      min-height: 100px;
+      border: 1px solid #EDEBEB;
     } 
+  }
+  .exhibitions-text h4, h5, h6, p {
+    text-transform: uppercase;
+  }
+  .event-name {
+    margin-bottom: 0px;
   }
   .exhibition-name {
     text-transform: uppercase;
-    font-size: 90%;
-    
-       a {
-        color: #AD3C3C;
-       }
+    line-height: 1.2;
+    font-size: 95%;
+     a {
+      color: #AD3C3C;
+     }
   }
   .events-date {
-    text-transform: uppercase;
+    margin-bottom: 25px;
     font-size: 90%;
+    text-transform: uppercase;
   }
   .events-time {
     font-size: 90%;
@@ -533,8 +545,9 @@ p.page-title {
 
   }
   .gallery-name {
-    font-size: 70%;
-    text-transform: uppercase;
+    font-size: 73%;
+    margin-bottom: 0px;
+    text-align: bottom;
   }
   .gallery-address {
     font-size: 70%;
@@ -551,7 +564,7 @@ p.page-title {
   border-radius: 0 !important;
   padding: 0px !important;
   .caption {
-   padding-bottom: 4px;
+   padding-bottom: 0px;
     .exhibitions-text1 {
       min-height: 80px;
       margin: 0 0 0 0px;

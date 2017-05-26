@@ -27,7 +27,7 @@
           <% end %>
           <div class="caption">
             <div class="events-text1">
-              <span><%= link_to event.title, event %></br></span>
+              <p class="event-name"><%= link_to event.title, event %></p>
               <% if event.exhibition %>
                 <p class="exhibition-name"><%= link_to event.exhibition.try(:title), event.exhibition %></p>
               <% end %>
@@ -36,11 +36,16 @@
             <div class="events-text2">
               <span class="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></span>
               <p class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p> 
+            
+            
               <% if event.exhibition %>
                 <p class="gallery-name"><%= link_to event.exhibition.gallery.try(:gallery_name), event.exhibition.gallery %></p>
-                <% else %>
-                 .    
-              <% end %>      
+           
+              <% end %>
+              <% if event.exhibition %>
+              <p class="gallery-address"><%= event.exhibition.gallery.try(:address) %><br>
+                <%= event.exhibition.gallery.try(:city) %>, <%= event.exhibition.gallery.try(:state) %> <%= event.exhibition.gallery.try(:zip) %>
+                <% end %>
             </div>
           </div>
         </div>

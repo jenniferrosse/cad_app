@@ -25,7 +25,7 @@
         <div class="row">
           <% if @current_exhibitions.any? %>
             <% @current_exhibitions.each do |exhibition| %>
-              <div class="col-md-3 col-sm-4">
+              <div class="col-sm-4 col-md-3">
                 <div class="thumbnail thumbnail-exhibitions">
                   <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
                   <div class="caption">
