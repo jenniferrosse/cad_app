@@ -6,6 +6,9 @@ class EventsController < ApplicationController
   # GET /events.json
 
   def index
+    @current_and_upcoming_events = Event.where("start_date >= ?", Date.today).order('end_date ASC').order('end_date ASC')
+    @past_events = Event.where("end_date < ?", Date.today).order('end_date DESC')
+
     if params[:upcoming]
       @events = Event.upcoming.order('start_date ASC, title ASC')
     elsif params[:past]

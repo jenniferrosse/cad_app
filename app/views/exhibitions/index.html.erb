@@ -4,11 +4,8 @@
 <br>
 <br>
 <div class="container">
-  <h2 class="page-title">Exhibitions</h2><br>
+  <h2 class="page-title">Exhibitions</h2>
   <hr>
-
-  <div>
-
   <!-- Nav tabs -->
     <ul class="nav nav-pills gray" role="tablist">
       <li role="presentation" class="active"><a href="#current" aria-controls="home" role="tab" data-toggle="tab">Current</a></li>
@@ -56,7 +53,7 @@
           <% end %>
         </div>
       </div>
-    </div>
+    </div><!-- end tab panel -->
     <div role="tabpanel" class="tab-pane" id="profile">
       <!-- Third Container (Grid) -->
       <div class="container bg-3">
@@ -90,7 +87,7 @@
           <% end %>
         </div>
       </div>
-    </div>
+    </div><!-- end tab panel -->
     <div role="tabpanel" class="tab-pane" id="messages">
       <!-- Third Container (Grid) -->
       <div class="container bg-3">
@@ -123,54 +120,15 @@
           <% end %>
         </div>
       </div>
-    </div>
-  </div>
-
-</div>
-
-
-</div>
+    </div><!-- end tab panel -->
+  </div><!-- end tab content -->
 
 <br>
 <br>
-
-<div class="btn-group" role="group" aria-label="...">
-    <%= link_to 'Current', exhibitions_path(:current_exhibitions => "Current"), class: "btn btn-default" %>
-    <%= link_to 'Upcoming', exhibitions_path(:upcoming_exhibitions => "Upcoming"), class: "btn btn-default" %>
-    <%= link_to 'Past', exhibitions_path(:past_exhibitions => "Past"), class: "btn btn-default" %>
-  </div>
-<!-- Third Container (Grid) -->
-<div class="container bg-3">
-  <div class="row">
-    <% @exhibitions.each do |exhibition| %>
-      <div class="col-md-3">
-        <div class="thumbnail thumbnail-exhibitions">
-          <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
-          <div class="caption exhibitions-text">
-            <h5 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h5>
-
-            <p class="exhibitions-date">  
-            <% if exhibition.end_date > Date.today + 4.month %>
-              Ongoing
-            <% elsif exhibition.end_date > Date.today && exhibition.start_date < Date.today %>
-              Through <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
-              <% elsif %>
-              <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
-              <% end %>
-              </p>
-
-            <p class="gallery-name"><%= link_to exhibition.gallery.try(:gallery_name), exhibition.gallery %></h6>
-            <p class="gallery-address"><%= exhibition.gallery.try(:address) %></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
 <br>
 <p class="text-center">
     <% if admin_signed_in? %>
-      <%= link_to 'Create New Exhibition', galleries_url, class: "btn btn-default" %>
+      <%= link_to 'Create New Exhibition', galleries_url, class: "btn btn-warning" %>
     <% end %>
   </p>
 </div>

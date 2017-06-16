@@ -85,20 +85,13 @@ $colHighlight: #AD3C3C;
 /* General
 ------------------------- */
 
-h1, h2, h3, h4{
+h1, h2, h3, h4, h5 {
   color: #4A4A4A;
   text-transform: uppercase;
 }
-h5 {
-  color: #4d4d4d;
-  text-transform: uppercase;
-}
-p {
+p, a {
   color: #4A4A4A;
 }
-a {
-    color: #4A4A4A;
-    }
 hr {
     border: none;
     height: 1px;
@@ -106,10 +99,7 @@ hr {
     color: #333; /* old IE */
     background-color: #BFBFBF; /* Modern Browsers */
 }
-p.page-title {
-  color: gray;
-  text-transform: uppercase;
-  margin-bottom: -30px;
+.page-title {
 }
 .date {
   text-transform: uppercase;
@@ -175,23 +165,52 @@ p.page-title {
     }
   }
 }
+/* Buttons 
+------------------------- */
 .btn.btn-primary {
-  background: gray;
-  border: gray;
+  background: #A4A4A4;
+  border: #A4A4A4;
+}
+.btn.btn-primary:hover {
+  background-color: #808080;
 }
 .btn-primary-outline {
+  color: #CC0000;
   background-color: transparent;
   border-color: #4A4A4A;
+}
+.btn.btn-primary-outline:hover {
+  color: #11101B;
+  background-color: white;
 }
 .btn-primary-outine-inverse {
   background-color: transparent;
   border-color: #EAEAEA;
   color: #EAEAEA;
 }
-.btn.sharp {
-  border-radius: 0;
+.btn.btn-primary-outine-inverse:hover {
+  color: #4A4A4A;
+  background-color: white;
+}
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #A4A4A4;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
 }
 
+#myBtn:hover {
+  background-color: #FFF;
+  color: #A4A4A4;
+}
 .modal-backdrop.in { 
   z-index: auto;
 }
@@ -200,7 +219,7 @@ p.page-title {
 ------------------------- */
 .parallax {
     /* The image used */
-    background-image: url(cad-1346.jpg);
+    background-image: url(artwalk3.jpg);
 
     /* Full height */
     height: 60%; 
@@ -254,25 +273,7 @@ p.page-title {
   position: fixed;
   height: 50%;
 }
-#myBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  border: none;
-  outline: none;
-  background-color: #A4A4A4;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 10px;
-}
 
-#myBtn:hover {
-  background-color: #FFF;
-  color: #A4A4A4;
-}
 
 /* Home Page - Featurettes
 ------------------------- */
@@ -297,8 +298,8 @@ p.page-title {
   padding-bottom: 75px;
 }
 .events-container {
-  h2 {
-
+  h1 {
+  margin-bottom: -7px;
   color: #EAEAEA;
   }
 }
@@ -396,7 +397,7 @@ p.page-title {
   padding-bottom: 75px;
 }
 .exhibitions-container {
-  h2 {
+  h1 {
   margin-bottom: -7px;
   color: #4A4A4A;
   }
@@ -524,47 +525,21 @@ p.page-title {
 
 /* Events - Index Page
 ------------------------- */
-
-.col-sm-4 {
-    padding: 2px 2px;
-}
-.col-md-3 {
-    padding: 0px 2px;
-    margin-bottom: -16px;
-}
-.col-sm-2 {
-    padding: 2px 2px;
-}
-.thumbnail.thumbnail-events {
-
-  background-color: #EDEBEB;
-  border: 1px solid #EDEBEB;
-  border-radius: 0 !important;
-  padding: 0px !important;
-  .caption {
-    padding-bottom: 0px;
-    padding-left: 3px;
-    padding-right: 3px;
-    .events-text1 {
-      min-height: 90px;
-      border: 1px solid #EDEBEB;
-    } 
-    .events-text2 {
-      margin: 0 0 0 0px;
-      min-height: 100px;
-      border: 1px solid #EDEBEB;
-    } 
-  }
+.events-information {
   .exhibitions-text h4, h5, h6, p {
     text-transform: uppercase;
   }
   .event-name {
-    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  a {
+  color: #4A4A4A;
+  }
+  a:hover{
+    text-decoration: none;
   }
   .exhibition-name {
     text-transform: uppercase;
-    line-height: 1.2;
-    font-size: 95%;
      a {
       color: #AD3C3C;
      }
@@ -589,6 +564,7 @@ p.page-title {
     margin-bottom: 0px;
   }
 }
+
 
 /* Exhibitions - Index Page
 ------------------------- */
@@ -630,12 +606,29 @@ p.page-title {
   }
   .gallery-address {
     font-size: 70%;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
   }
 }
 
 /* Events - Show Page
 ------------------------- */
+
+.col-sm-4 {
+    padding: 2px 2px;
+}
+.col-md-3 {
+    padding: 0px 2px;
+    margin-bottom: -16px;
+}
+.col-sm-2 {
+    padding: 2px 2px;
+}
+.col-md-12 {
+    padding: 2px 2px;
+}
+.col-md-2 {
+    padding: 2px 2px;
+}
 #myCarousel-events {
   height: 500px;
   .item {
@@ -820,7 +813,44 @@ p.exhibition-date {
   display: inline-block;
 }
 
-
+.bottom-stripe {
+  background-color: #4A4A4A;
+  h4, p {
+    color: #EDEBEB;
+    text-align: center;
+  }
+  .stay-connected {
+    padding: 30px;
+  }
+  .socials {
+    text-align: center;
+    color: #fff;
+    font-size: 150%;
+    letter-spacing: 20px;
+    a {
+      color: #fff;
+     }
+  }
+  @media handheld, screen and (max-width: 799px) {
+    .line {
+      border-top: 1px solid #595858;
+      margin-top:20px;
+      padding-top:20px
+    }
+  }
+  @media only screen and (min-width: 800px) {
+    /* For desktop: */
+    .line {
+      border-left: 1px solid #595858;
+    }
+  }
+  .newsletter-signup-form {
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 30px;
+  }
+}
 
 /* Footer
 ------------------------- */

@@ -10,7 +10,7 @@
 <h1 class="text-center">WHERE PEOPLE MEET ART</h1>
   
     <p class="text-center">
-       <%= link_to "Learn More", second_fridays_path, class: "btn btn-default btn-lg sharp" %></p>
+       <%= link_to "Learn More", second_fridays_path, class: "btn btn-primary btn-lg" %></p>
 </div>
   <br>
   <br>
@@ -19,7 +19,7 @@
 <!-- Carousel of Upcoming Events -->
 <div class="events-background">
   <div class="container events-container">
-    <h2>Current & Upcoming Events</h2>
+    <h1>Current & Upcoming Events</h1>
     <div class="container events-scroll">
 
       <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
@@ -53,9 +53,9 @@
                     <% end %></h3>
                   <p class="events-text"><%= truncate event.description, length: 400 %></p>
                   
-                 <p><%= link_to 'About the Event', event, class: "btn btn-primary-outline sharp" %>
+                 <p><%= link_to 'About the Event', event, class: "btn btn-primary" %>
                  <% if event.exhibition %>
-                   <%= link_to 'About the Exhibition', event.exhibition, class: "btn btn-primary-outline sharp" %></p>
+                   <%= link_to 'About the Exhibition', event.exhibition, class: "btn btn-primary-outline" %></p>
                   <% end %>
                 </div>
                 <div class="row gallery-info">
@@ -83,7 +83,7 @@
         </a>
       </div><!-- End Carousel -->
     </div>
-      <p class="text-center"><%= link_to "View All Events", events_path, class: "btn btn-primary btn-lg sharp" %></p>
+      <p class="text-center"><%= link_to "View All Events", events_path, class: "btn btn-primary btn-lg" %></p>
     </div>
   </div>
 </div>
@@ -91,7 +91,7 @@
 
 <div class="exhibitions-background">
   <div class="container exhibitions-container">
-    <h2>Current & Upcoming Exhibitions</h2>
+    <h1>Current & Upcoming Exhibitions</h1>
     <div class="container exhibitions-scroll">
 
       <div id="myCarousel2" class="carousel slide" data-interval="false" data-ride="carousel">
@@ -115,7 +115,7 @@
                       </p>
                     <h3 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h3>
                     <p class="exhibitions-text"><%= truncate exhibition.description, length: 550 %>
-                    <p><%= link_to 'About the Exhibition', exhibition, class: "btn btn-primary-outine-inverse sharp" %></p>
+                    <p><%= link_to 'About the Exhibition', exhibition, class: "btn btn-primary-outine-inverse" %></p>
                     </p>
                   </div>
                   <div class="row gallery-info">
@@ -140,7 +140,7 @@
         </a>
       </div><!-- End Carousel -->
     </div>
-      <p class="text-center"><%= link_to "View All Exhibitions", exhibitions_path, class: "btn btn-primary btn-lg sharp" %></p>
+      <p class="text-center"><%= link_to "View All Exhibitions", exhibitions_path, class: "btn btn-primary btn-lg" %></p>
     </div>
   </div>
 </div>
@@ -148,175 +148,110 @@
 
 <br>
 
-  <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
+<div class="container marketing">
 
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <%= link_to image_tag('tower.jpg', width: '200', height: '200', class: "img-circle"), events_path %>
-          <h3>Current Exhibitions</h3>
-          <p class="lead">Download a map now, or stop by the information booth for a map of the upcoming 2nd Fridays Gallery Night art walk.</p>
-          <p><%= link_to "Upcoming Events", events_path, class: "btn btn-primary btn-lg sharp" %></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <%= image_tag('artwalk3-square.jpg', width: '200', height: '200', class: "img-circle") %>
-          <h3>Plan a Visit</h3>
-          <p class="lead">Download a map now, or stop by the information booth for a map of the upcoming 2nd Fridays Gallery Night art walk.</p>
-          <p><%= link_to "Download Map", second_fridays_path, class: "btn btn-primary btn-lg sharp" %></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <%= image_tag('CAD-about-square.jpg', width: '200', height: '200', class: "img-circle") %>
-          <h3>Sign Up for Updates</h3>
-          <p class="lead">Once a month we send out a newsletter with a program for the upcoming 2nd Fridays Gallery Night.</p>
-          <p><!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#myModal">
-            Sign Up for Updates
-          </button></p>
-          <br>
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-lg-4">
+      <%= link_to image_tag('tower.jpg', width: '200', height: '200', class: "img-circle"), events_path %>
+      <h3>Current Exhibitions</h3>
+      <p class="lead">Download a map now, or stop by the information booth for a map of the upcoming 2nd Fridays Gallery Night art walk.</p>
+      <p><%= link_to "Upcoming Events", events_path, class: "btn btn-primary btn-lg" %></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <%= image_tag('artwalk3-square.jpg', width: '200', height: '200', class: "img-circle") %>
+      <h3>Plan a Visit</h3>
+      <p class="lead">Download a map now, or stop by the information booth for a map of the upcoming 2nd Fridays Gallery Night art walk.</p>
+      <p><%= link_to "Download Map", second_fridays_path, class: "btn btn-primary btn-lg" %></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <%= image_tag('CAD-about-square.jpg', width: '200', height: '200', class: "img-circle") %>
+      <h3>Sign Up for Updates</h3>
+      <p class="lead">Once a month we send out a newsletter with a program for the upcoming 2nd Fridays Gallery Night.</p>
+      <p><!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Sign Up for Updates
+      </button></p>
+      <br>
 
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Sign Up for Newsletter</h4>
-                </div><!-- end modal-header -->
-                <div class="modal-body">
-                    <iframe src="https://app.e2ma.net/app2/audience/signup/1355398/1354401/" width="500" height="400" frameborder="0"></iframe>
-                </div><!-- end modal-body -->
-              </div><!-- end modal-content -->
-            </div><!-- end modal-dialog -->
-          </div><!-- end modal fade -->
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Sign Up for Newsletter</h4>
+            </div><!-- end modal-header -->
+            <div class="modal-body">
+                <iframe src="https://app.e2ma.net/app2/audience/signup/1355398/1354401/" width="500" height="400" frameborder="0"></iframe>
+            </div><!-- end modal-body -->
+          </div><!-- end modal-content -->
+        </div><!-- end modal-dialog -->
+      </div><!-- end modal fade -->
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
 
 
-  <!-- START THE FEATURETTES -->
 
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h3 class="featurette-heading">Upcoming Events<span class="text-muted"></span></h3>
-        <br>
-          <h2 class="featurette-heading">2nd Fridays Gallery Night<span class="text-muted"></span></h2>
-        <br>
-          <h5>Friday, May 12, 2017<br>
-            6:00 PM - 10:00 PM</h5>
-        <br>
-          <p class="lead">The 2nd Friday of each month, The Chicago Arts District hosts 2nd Fridays Gallery Night, a monthly opening reception at all of the galleries and artists' studios centered around South Halsted Street, beginning at 1711 and ending at 2005 South Halsted Street in Chicago.</p>
-        <br>
-          <p> <%= link_to "Learn More", second_fridays_path, class: "btn btn-default" %></p>
-        </div>
-        <div class="col-md-5">
-          <%= image_tag('art-square-small.jpg', class: "featurette-image img-responsive center-block") %>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h3 class="featurette-heading">Upcoming Exhibitions<span class="text-muted"></span></h3>
-        <br>
-          <h2 class="featurette-heading">John Yaou<span class="text-muted"></span></h2>
-        <br>
-          <h5>JANUARY 10 - February 10, 2017</h5>
-        <br>
-          <p class="lead">This body of work by painter John Yaou focuses on the culture and impact of the rise of graphiti art. On display through February 15th. Receptions Friday, January 13th, from  6-10pm and Friday, February 10th, form 6-10pm. </p>
-        <br>
-          <p class="gallery-info">Studio Oh! Gallery<br>
-            1833 S. Halsted St.<br>
-            Chicago, IL 60608</p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <%= image_tag('Yaou_CAD.jpg', class: "featurette-image img-responsive center-block") %>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h3 class="featurette-heading">New Galleries</h3>
-        <br>
-          <h2 class="featurette-heading">La Kaiser<span class="text-muted"></span></h2>
-        <br>
-          <p class="lead">I'm a Swiss native, born and raised in Zimbabwe and now living the "American dream" in the windy city of Chicago. Life has been an adventure to say the least! My Swiss roots bring me back to Zurich often to visit family and I can't help myself from being inspired by the picturesque village settings, lush green pastures and pristine mountain tops and lakes. </p>
-        <br>
-          <p class="gallery-info">La Kaiser<br>
-            1932 S Halsted St., #501<br>
-          Chicago, IL 60608</p>
-        </div>
-        <div class="col-md-5">
-          <%= image_tag('kaiser.png', class: "featurette-image img-responsive center-block") %>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
 
      
-  <br>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-md-3 col-md-offset-2">
-      <%= link_to 'https://s3-us-west-2.amazonaws.com/cadimages/February-2017-Map.pdf', target:'_blank' do %>
-        <%= image_tag 'map-nov-16.jpg', class: 'img-responsive' %>
-      <% end %>
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="col-md-3 col-md-offset-2">
+    <%= link_to 'https://s3-us-west-2.amazonaws.com/cadimages/February-2017-Map.pdf', target:'_blank' do %>
+      <%= image_tag 'map-nov-16.jpg', class: 'img-responsive' %>
+    <% end %>
+  </div>
+  <div class="col-md-5 col-md-offset-1">
+    <h3>Visiting this month's art walk?</h3>
+    <div class="row">
+      <div class="col-md-2">
+        <h1><span class="glyphicon glyphicon-home"></span></h1>
+      </div>
+      <div class="col-md-10">
+        <br>
+        <p class="lead">Stop by the <%= link_to "Information Center", second_fridays_path %> at 1945 S Halsted in Chicago to get a map.</p>
+      </div>
     </div>
-    <div class="col-md-5 col-md-offset-1">
-      <h3>Visiting this month's art walk?</h3>
-      <div class="row">
-        <div class="col-md-2">
-          <h1><span class="glyphicon glyphicon-home"></span></h1>
-        </div>
-        <div class="col-md-10">
-          <br>
-          <p class="lead">Stop by the <%= link_to "Information Center", second_fridays_path %> at 1945 S Halsted in Chicago to get a map.</p>
-        </div>
+    <div class="row">
+      <div class="col-md-2">
+        <h1><span class="glyphicon glyphicon-download"></span></h1>
       </div>
-      <div class="row">
-        <div class="col-md-2">
-          <h1><span class="glyphicon glyphicon-download"></span></h1>
-        </div>
-        <div class="col-md-10">
-          <br>
-          <p class="lead">Or <%= link_to 'download a map now', ' https://s3-us-west-2.amazonaws.com/cadimages/February-2017-Map.pdf', target: "_blank" %>.</p>
-        </div>
+      <div class="col-md-10">
+        <br>
+        <p class="lead">Or <%= link_to 'download a map now', ' https://s3-us-west-2.amazonaws.com/cadimages/February-2017-Map.pdf', target: "_blank" %>.</p>
       </div>
-      <div class="row">
-        <div class="col-md-2">
-          <h1><span class="glyphicon glyphicon-envelope"></span></h1>
-        </div>
-        <div class="col-md-10">
-          <br>
-          <p class="lead"><%= link_to "Sign up to be notified", "#", data: {toggle: "modal", target: "#myModal"} %> about future art walks and other upcoming events.</p>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <h1><span class="glyphicon glyphicon-envelope"></span></h1>
+      </div>
+      <div class="col-md-10">
+        <br>
+        <p class="lead"><%= link_to "Sign up to be notified", "#", data: {toggle: "modal", target: "#myModal"} %> about future art walks and other upcoming events.</p>
       </div>
     </div>
   </div>
-  <br>
-  <br>
+</div>
+<br>
+<br>
 
-  <div class="jumbotron home-second">
-    <div class="container">
-      <div class="row">
-        <h2 class="text-center">About the Chicago Arts District</h2>
-        <br>
-        <div class="col-md-8 col-md-offset-2">
-          <p class="lead text-center">The Chicago Arts District encompasses several contiguous blocks of lofts, studios and retail spaces for artists, gallerists, and creative individuals. Every 2nd Friday of the month, the galleries of the Chicago Arts District invite the public to view new and exciting exhibitions. There is something for everyone here in the Chicago Arts District, from the traditional mediums of painting, photography, and sculpture to avant garde fashion, installation and video art, just to name a few!</p>
-         
-        <p class="lead text-center">
-          <%= link_to "List of Galleries", galleries_path, class: "btn btn-primary btn-lg sharp" %></p>
-        </div>
+<div class="jumbotron home-second">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center">About the Chicago Arts District</h2>
+      <br>
+      <div class="col-md-8 col-md-offset-2">
+        <p class="lead text-center">The Chicago Arts District encompasses several contiguous blocks of lofts, studios and retail spaces for artists, gallerists, and creative individuals. Every 2nd Friday of the month, the galleries of the Chicago Arts District invite the public to view new and exciting exhibitions. There is something for everyone here in the Chicago Arts District, from the traditional mediums of painting, photography, and sculpture to avant garde fashion, installation and video art, just to name a few!</p>
+       
+      <p class="lead text-center">
+        <%= link_to "List of Galleries", galleries_path, class: "btn btn-primary btn-lg" %></p>
       </div>
     </div>
   </div>
@@ -367,6 +302,29 @@
         </p>
     </div>
   </div>
+</div>
+
+<div class="container-fluid bottom-stripe">
+  <div class="stay-connected">
+    <div class="row">
+      <div class="col-sm-6">
+        <h4>Follow Us</h4>
+        <div class="socials">
+          <a href="https://www.facebook.com/chicagoartsdist" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a href="https://twitter.com/chicagoartsdist" target="_blank"><i class="fa fa-twitter"></i></a> 
+          <a href="https://www.instagram.com/chicagoartsdistrict/" target="_blank"><i class="fa fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-6 line">
+        <h4>Get Updates</h4>
+        <div class="newsletter-signup-form"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+              Sign Up for Newsletter
+            </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 // When the user scrolls down 20px from the top of the document, show the button
