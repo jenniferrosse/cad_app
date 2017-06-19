@@ -27,6 +27,7 @@ class ExhibitionsController < ApplicationController
   # GET /exhibitions/1.json
   def show
     @upcoming_events = @exhibition.events.where("start_date >=?", Date.today)
+    @past_events = @exhibition.events.where("start_date <?", Date.today)
   end
 
   # GET /exhibitions/new
