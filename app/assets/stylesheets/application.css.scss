@@ -21,8 +21,11 @@ body, html {
     margin: 0;
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
+h1, h2, h3, h4, h5 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+p {
+  font-family: 'Raleway', sans-serif;
 }
 
 /* Navbar
@@ -217,6 +220,10 @@ hr {
 
 /* Home Page
 ------------------------- */
+
+
+
+
 .parallax {
     /* The image used */
     background-image: url(artwalk3.jpg);
@@ -299,7 +306,7 @@ hr {
 }
 .events-container {
   h1 {
-  margin-bottom: -7px;
+  margin-bottom: -11px;
   color: #EAEAEA;
   }
 }
@@ -398,7 +405,7 @@ hr {
 }
 .exhibitions-container {
   h1 {
-  margin-bottom: -7px;
+  margin-bottom: -11px;
   color: #4A4A4A;
   }
 }
@@ -525,6 +532,26 @@ hr {
 
 /* Events - Index Page
 ------------------------- */
+.background-gray {
+  background: #EAEAEA;
+  padding: 5px;
+  h4, h5, h6, p {
+    color: #4A4A4A;
+    text-transform: uppercase;
+  }
+  .event-name {
+    margin-top: 0px;
+  }
+  a {
+  color: #4A4A4A;
+  }
+  .events-date {
+    color: 4A4A4A;
+    margin-bottom: 25px;
+    font-size: 90%;
+    text-transform: uppercase;
+  }
+}
 .events-information {
   .exhibitions-text h4, h5, h6, p {
     text-transform: uppercase;
