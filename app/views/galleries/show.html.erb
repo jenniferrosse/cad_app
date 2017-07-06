@@ -1,36 +1,85 @@
-<div class="container">
-  <hr>
-
+    <div class="container">
+      <hr>
   <div class="row">
-    <div class="col-md-6 col-xs-6-push">
+    <div class="col-md-5 col-md-offset-6">
+      <p class="page-title">Gallery</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
       <%= image_tag(@gallery.thumbnail.url(:medium), class: "img-responsive") %>
     </div>
-    <div class="col-md-6 col-xs-6-pull">
-      <p class="page-title">Gallery</p><br>
+    <div class="col-md-5">
       <h1><%= @gallery.gallery_name %></h1>
         <p class="lead-text"><em><%= @gallery.medium %></em></p><br>
         
-        <%= @gallery.address %><br>
+        <h4><%= @gallery.address %><br>
         <%= @gallery.city %>, <%= @gallery.state %> <%= @gallery.zip %><br>
-        <%= @gallery.phone %><br>
+        <%= @gallery.phone %></h4>
         <br>
-        <p>Owner/Operator: <%= @gallery.owner_operator %></p>
-        <br>
-        <%= link_to "Visit Website", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>
-        <%= link_to "Email Gallery", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>
-        
         <br>
         <% unless @gallery.hours.blank? %>
-          <h4>Hours:</h4>
-          <%= markdown(@gallery.hours) %>
-        <% end %>
-        <br>
-        <p><%= markdown(@gallery.description) %></p><br>
+        
+        <p><strong>Owner/Operator:</strong><br>
+        <%= @gallery.owner_operator %></p>
+        <p><strong>Hours:</strong>
+        <%= markdown(@gallery.hours) %></p>
+      <% end %>
+    </div>
+  </div><!-- end row-->
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2"> 
+      <h4 class="text-center">About</h4>
+      <p><%= markdown(@gallery.description) %></p>
+      <p class="text-center">
+      <%= link_to "Visit Website", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>
+        <%= link_to "Email Gallery", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>
+      </p>
     </div>
   </div>
-  <br>
-  <br>
 </div>
+  <div class="container">
+      <hr>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-6">
+      <p class="page-title">Gallery</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <%= image_tag(@gallery.thumbnail.url(:medium), class: "img-responsive") %>
+    </div>
+    <div class="col-md-5">
+      <h1><%= @gallery.gallery_name %></h1>
+        <p class="lead-text"><em><%= @gallery.medium %></em></p><br>
+        
+        <h4><%= @gallery.address %><br>
+        <%= @gallery.city %>, <%= @gallery.state %> <%= @gallery.zip %><br>
+        <%= @gallery.phone %></h4>
+        <br>
+        <% unless @gallery.hours.blank? %>
+        
+        <p><strong>Owner/Operator:</strong><br>
+        <%= @gallery.owner_operator %></p>
+        <p><strong>Hours:</strong>
+        <%= markdown(@gallery.hours) %></p>
+      <% end %>
+    </div>
+  </div><!-- end row-->
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1"> 
+    </div>
+    <div class="col-md-5">
+      <h4>About:</h4>
+      <p><%= markdown(@gallery.description) %></p>
+      <%= link_to "Visit Website", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>
+        <%= link_to "Email Gallery", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>
+    </div>
+  </div>
+</div>
+
 
 <div>
 
