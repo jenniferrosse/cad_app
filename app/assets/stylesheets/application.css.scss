@@ -176,6 +176,15 @@ hr {
 }
 .btn.btn-primary:hover {
   background-color: #808080;
+
+}
+.btn.btn-white {
+  background: #ffffff;
+  border: #ffffff;
+  color: #4A4A4A;
+}
+.btn.btn-primary:hover {
+  background-color: #808080;
 }
 .btn-primary-outline {
   color: #CC0000;
@@ -232,8 +241,15 @@ hr {
 /* Home Page
 ------------------------- */
 
-
-
+.carousel-caption {
+  top: 40%;
+  
+  h1, h2 {
+  color: white;
+  text-transform: bold;
+  text-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+  }
+}
 
 .parallax {
     /* The image used */
@@ -919,3 +935,4 @@ p.exhibition-date {
   color: dimgray;
   }
 }
+
