@@ -218,6 +218,17 @@ hr {
   z-index: auto;
 }
 
+.nav-tabs.centered > li, .nav-pills.centered > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs.centered, .nav-pills.centered {
+    text-align:center;
+}
+
 /* Home Page
 ------------------------- */
 
@@ -532,6 +543,9 @@ hr {
 
 /* Events - Index Page
 ------------------------- */
+.gray-background {
+  background: #EAEAEA;
+}
 .background-gray {
   background: #EAEAEA;
   padding: 5px;
