@@ -54,46 +54,44 @@
         </div>
     </div>
   <div class="row">
-    <div class="col-md-3 pull-md-9">      
-      <% if @upcoming_events.any? %>
-        <h3>Upcoming Events</h3>
-          <% @upcoming_events.each do |event| %>
-          <p><b><%= link_to event.title, event %></b><br>
-            <%= event.start_date.try(:strftime, "%A, %B %e, %Y") %>
-              <% if event.end_date > event.start_date %>
-                - <%= event.end_date.try(:strftime, "%B %e, %Y") %>
-              <% end %><br>
-            <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %>
-            </p>
-          <% end %>
-      <% end %>
+    <div class="col-md-6 col-md-offset-3">
       <br>
-      <br>
-      <% if @past_events.any? %>
-        <h4>Past Events</h4>
-          <% @past_events.each do |event| %>
-          <p><b><%= link_to event.title, event %></b><br>
-            <%= event.start_date.try(:strftime, "%A, %B %e, %Y") %>
-              <% if event.end_date > event.start_date %>
-                - <%= event.end_date.try(:strftime, "%B %e, %Y") %>
-              <% end %><br>
-            <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %>
-            </p>
-            <% end %>
-      <% end %>
-      <br>
-      <br>
-      <% if admin_signed_in? %>
-        <%= link_to "Add New Event", new_event_path(exhibition_id: @exhibition),class: "btn btn-warning"  %>
-        <br>
-      <% end %> 
-    </div>
-    <div class="col-md-6 push-md-3">
       <p><%= markdown(@exhibition.description) %></p>
     </div>
-      <div class="col-md-3">
-        
-      </div>
+    <div class="col-md-3">      
+    <% if @upcoming_events.any? %>
+      <h3>Upcoming Events</h3>
+        <% @upcoming_events.each do |event| %>
+        <p><b><%= link_to event.title, event %></b><br>
+          <%= event.start_date.try(:strftime, "%A, %B %e, %Y") %>
+            <% if event.end_date > event.start_date %>
+              - <%= event.end_date.try(:strftime, "%B %e, %Y") %>
+            <% end %><br>
+          <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %>
+          </p>
+        <% end %>
+    <% end %>
+    <br>
+    <br>
+    <% if @past_events.any? %>
+      <h4>Past Events</h4>
+        <% @past_events.each do |event| %>
+        <p><b><%= link_to event.title, event %></b><br>
+          <%= event.start_date.try(:strftime, "%A, %B %e, %Y") %>
+            <% if event.end_date > event.start_date %>
+              - <%= event.end_date.try(:strftime, "%B %e, %Y") %>
+            <% end %><br>
+          <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %>
+          </p>
+          <% end %>
+    <% end %>
+    <br>
+    <br>
+    <% if admin_signed_in? %>
+      <%= link_to "Add New Event", new_event_path(exhibition_id: @exhibition),class: "btn btn-warning"  %>
+      <br>
+    <% end %> 
+  </div>
   </div>
   <br>
   <br>
