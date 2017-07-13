@@ -37,14 +37,17 @@ $colHighlight: #AD3C3C;
 .navbar-default {
   background-color: $bgDefault;
   border-color: $bgHighlight;
-  .navbar-brand {
-    color: $colDefault;
-    &:hover, &:focus {
-      color: $colHighlight; }}
-  .navbar-text {
-    color: $colDefault; }
+  .navbar-header {
+
+    border: 1px solid red;
+  }
   .navbar-nav {
     > li {
+      padding-top: 30px;
+      padding-left: 0px;
+      padding-right: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
       > a {
         color: $colDefault;
         &:hover,  &:focus {
@@ -264,7 +267,38 @@ hr {
   padding-bottom: 20px;
   }
 }
-
+.background-dark {
+  background-color: #4A4A4A;
+  padding: 70px;
+  margin: 0px;
+  h1, p {
+    color: #EAEAEA;
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+  h1 {
+    margin-top: 0px;
+  }
+  p {
+    font-size: 130%;
+  }
+}
+.background-light {
+  background-color: white;
+  padding: 70px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  h1, p {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+  h1 {
+    margin-top: 0px;
+  }
+  p {
+    font-size: 130%;
+  }
+}
 .carousel-control.right.hero-image, .carousel-control.left.hero-image {
     background-image: none;
     color: #FFF;
@@ -940,13 +974,12 @@ p.exhibition-date {
 
 /* Footer
 ------------------------- */
-.footer-bar {
-  background-color: #CC0000;
-}
+
 .footer {
   background-size: cover;
   background-color: white;
-  padding: 5px;
+  padding-top: 40px;
+  padding-bottom: 50px;
 
   p {
   color: dimgray;
