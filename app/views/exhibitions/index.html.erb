@@ -73,6 +73,8 @@
                       Ongoing
                     <% elsif exhibition.end_date > Date.today && exhibition.start_date < Date.today %>
                       Through <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
+                      <% elsif exhibition.end_date == exhibition.start_date %>
+                        <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %>
                       <% elsif %>
                       <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
                       <% end %>
@@ -108,6 +110,8 @@
                       Ongoing
                     <% elsif exhibition.end_date > Date.today && exhibition.start_date < Date.today %>
                       Through <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
+                      <% elsif exhibition.end_date == exhibition.start_date %>
+                        <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %>
                       <% elsif %>
                       <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
                       <% end %>
