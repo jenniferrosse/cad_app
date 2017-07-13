@@ -58,9 +58,10 @@
       <br>
       <p><%= markdown(@exhibition.description) %></p>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="date-column-padding">      
         <% if @upcoming_events.any? %>
+        <div class="date-column-border">  
           <h3>Upcoming Events</h3>
             <% @upcoming_events.each do |event| %>
             <p><b><%= link_to event.title, event %></b><br>
@@ -71,6 +72,7 @@
               <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %>
               </p>
             <% end %>
+          </div>
         <% end %>
         <br>
         <br>
