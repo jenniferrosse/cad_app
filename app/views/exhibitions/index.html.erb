@@ -35,9 +35,11 @@
                         Ongoing
                       <% elsif exhibition.end_date > Date.today && exhibition.start_date < Date.today %>
                         Through <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
-                        <% elsif %>
+                      <% elsif exhibition.end_date == exhibition.start_date %>
+                        <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %>
+                      <% elsif %>
                         <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %> - <%= exhibition.end_date.try(:strftime, "%b %e, %Y") %>
-                        <% end %>
+                      <% end %>
                         </p>
 
                       <p class="gallery-name"><%= link_to exhibition.gallery.try(:gallery_name), exhibition.gallery %></p>
