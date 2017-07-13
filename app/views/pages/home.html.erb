@@ -1,64 +1,104 @@
 <% content_for(:title, 'Home')%>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <%= link_to image_tag('banner2.jpg', alt: 'Tuscon') %>
-      
-          <div class="carousel-caption">
-            <h1 class="display-1">2nd Fridays Gallery Night</h1>
-            <h2>Friday, July 14th</h2>
-            <h4>from 6pm - 10pm</h4>
-              <br>
-              <button class="btn btn-white btn-lg" type="submit">Learn More</button></span>
-          </div>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron jumbotron-home-first">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 hidden-xs">
+        <div class="text-box">
+          <h2>Upcoming 2nd Fridays Gallery Night</h2>
+          <h3>Friday, July 14th, 2017 | 6pm - 10pm</h3>
+          <button class="btn btn-primary-outine-inverse" type="submit">Learn More</button></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+<div class="row">
+  <div class="col-xs-12 hidden-lg hidden-md hidden-sm">
+      <h2>Upcoming 2nd Fridays Gallery Night</h2>
+      <h3>Friday, July 14th, 2017 | 6pm - 10pm</h3>
+      <button class="btn btn-primary" type="submit">Learn More</button></span>
+      <br>
+      <br>
+      <br>
+  </div>
+</div>
+</div>
 
+<div class="container">
+  <div class="row">
+    <h1>About the Chicago Arts District</h1>
+
+    <!-- 4:3 aspect ratio -->
+    <div class="embed-responsive embed-responsive-4by3">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=VGdiwhpp24E"></iframe>
     </div>
 
-    <div class="item">
-      <%= link_to image_tag('IMG_0292.jpg', alt: 'Tuscon') %>
-    </div>
-
-    <div class="item">
-      <%= link_to image_tag('CAD_41stOpenHouse_111002_484.jpg', alt: 'Tuscon') %>
-    </div>
 
   </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
 
 
-<div class="row">
-  <br>
-  <br>
-<h1 class="text-center"> The Chicago Arts District</h1>
-<h2 class="text-center">WHERE PEOPLE MEET ART</h2>
-  
-    <p class="text-center">
-       <%= link_to "Learn More", second_fridays_path, class: "btn btn-primary btn-lg" %></p>
-</div>
-  <br>
-  <br>
-  <br>
+<div class="exhibitions-background">
+  <div class="container exhibitions-container">
+    <h1>Current & Upcoming Exhibitions</h1>
+    <div class="container exhibitions-scroll">
 
+      <div id="myCarousel2" class="carousel slide" data-interval="false" data-ride="carousel">
+        
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <% @exhibitions.each_with_index do |exhibition, index| %>
+            <div class="item <%= index == 0 ? 'active' : '' %>">
+              <div class="row exhibitions-row">
+                <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-image">
+                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive pull-right"), exhibition %>
+                </div>
+                <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-info">
+                  <div class="row">
+                    <p class="exhibitions-date-home">
+                      <% if exhibition.end_date > Date.today + 4.month %>
+                        Ongoing
+                      <% elsif %>
+                        <%= exhibition.start_date.try(:strftime, "%b, %e %Y") %> - <%= exhibition.end_date.try(:strftime, "%b, %e %Y") %>
+                      <% end %>
+                      </p>
+                    <h3 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h3>
+                    <p class="exhibitions-text"><%= truncate exhibition.description, length: 550 %>
+                    <p><%= link_to 'About the Exhibition', exhibition, class: "btn btn-primary-outine-inverse" %></p>
+                    </p>
+                  </div>
+                  <div class="row gallery-info">
+                    <h6 class="gallery-name"><%= link_to exhibition.gallery.gallery_name, exhibition.gallery %></h6>
+                    <p class="gallery-address"><%= exhibition.gallery.address %><br>
+                      <%= exhibition.gallery.city %>, <%= exhibition.gallery.state %> <%= exhibition.gallery.zip %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>    
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control exhibitions-control" href="#myCarousel2" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control exhibitions-control" href="#myCarousel2" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div><!-- End Carousel -->
+    </div>
+      <p class="text-center"><%= link_to "View All Exhibitions", exhibitions_path, class: "btn btn-primary btn-lg" %></p>
+    </div>
+  </div>
+</div>
+<!-- End Carousel of Upcoming Exhibitions -->
 <!-- Carousel of Upcoming Events -->
 <div class="events-background">
   <div class="container events-container">
@@ -133,156 +173,6 @@
 </div>
 <!-- End Carousel of Upcoming Exhibitions -->
 
-<div class="exhibitions-background">
-  <div class="container exhibitions-container">
-    <h1>Current & Upcoming Exhibitions</h1>
-    <div class="container exhibitions-scroll">
-
-      <div id="myCarousel2" class="carousel slide" data-interval="false" data-ride="carousel">
-        
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <% @exhibitions.each_with_index do |exhibition, index| %>
-            <div class="item <%= index == 0 ? 'active' : '' %>">
-              <div class="row exhibitions-row">
-                <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-image">
-                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive pull-right"), exhibition %>
-                </div>
-                <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-info">
-                  <div class="row">
-                    <p class="exhibitions-date-home">
-                      <% if exhibition.end_date > Date.today + 4.month %>
-                        Ongoing
-                      <% elsif %>
-                        <%= exhibition.start_date.try(:strftime, "%b, %e %Y") %> - <%= exhibition.end_date.try(:strftime, "%b, %e %Y") %>
-                      <% end %>
-                      </p>
-                    <h3 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h3>
-                    <p class="exhibitions-text"><%= truncate exhibition.description, length: 550 %>
-                    <p><%= link_to 'About the Exhibition', exhibition, class: "btn btn-primary-outine-inverse" %></p>
-                    </p>
-                  </div>
-                  <div class="row gallery-info">
-                    <h6 class="gallery-name"><%= link_to exhibition.gallery.gallery_name, exhibition.gallery %></h6>
-                    <p class="gallery-address"><%= exhibition.gallery.address %><br>
-                      <%= exhibition.gallery.city %>, <%= exhibition.gallery.state %> <%= exhibition.gallery.zip %></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>    
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control exhibitions-control" href="#myCarousel2" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control exhibitions-control" href="#myCarousel2" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div><!-- End Carousel -->
-    </div>
-      <p class="text-center"><%= link_to "View All Exhibitions", exhibitions_path, class: "btn btn-primary btn-lg" %></p>
-    </div>
-  </div>
-</div>
-<!-- End Carousel of Upcoming Exhibitions -->
-
-<br>
-
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
-<div class="container marketing">
-
-  <!-- Three columns of text below the carousel -->
-  <div class="row">
-    <div class="col-lg-4">
-      <%= link_to image_tag('tower.jpg', width: '200', height: '200', class: "img-circle"), events_path %>
-      <h3>Current Exhibitions</h3>
-      <p class="lead">Download a map now, or stop by the information booth for a map of the upcoming 2nd Fridays Gallery Night art walk.</p>
-      <p><%= link_to "Upcoming Events", events_path, class: "btn btn-primary btn-lg" %></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <%= image_tag('artwalk3-square.jpg', width: '200', height: '200', class: "img-circle") %>
-      <h3>Plan a Visit</h3>
-      <p class="lead">Download a map now, or stop by the information booth for a map of the upcoming 2nd Fridays Gallery Night art walk.</p>
-      <p><%= link_to "Download Map", second_fridays_path, class: "btn btn-primary btn-lg" %></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <%= image_tag('CAD-about-square.jpg', width: '200', height: '200', class: "img-circle") %>
-      <h3>Sign Up for Updates</h3>
-      <p class="lead">Once a month we send out a newsletter with a program for the upcoming 2nd Fridays Gallery Night.</p>
-      <p><!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-        Sign Up for Updates
-      </button></p>
-      <br>
-
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Sign Up for Newsletter</h4>
-            </div><!-- end modal-header -->
-            <div class="modal-body">
-                <iframe src="https://app.e2ma.net/app2/audience/signup/1355398/1354401/" width="500" height="400" frameborder="0"></iframe>
-            </div><!-- end modal-body -->
-          </div><!-- end modal-content -->
-        </div><!-- end modal-dialog -->
-      </div><!-- end modal fade -->
-    </div><!-- /.col-lg-4 -->
-  </div><!-- /.row -->
-
-
-
-
-     
-<br>
-<br>
-<br>
-<div class="row">
-  <div class="col-md-3 col-md-offset-2">
-    <%= link_to 'https://s3-us-west-2.amazonaws.com/cadimages/February-2017-Map.pdf', target:'_blank' do %>
-      <%= image_tag 'map-nov-16.jpg', class: 'img-responsive' %>
-    <% end %>
-  </div>
-  <div class="col-md-5 col-md-offset-1">
-    <h3>Visiting this month's art walk?</h3>
-    <div class="row">
-      <div class="col-md-2">
-        <h1><span class="glyphicon glyphicon-home"></span></h1>
-      </div>
-      <div class="col-md-10">
-        <br>
-        <p class="lead">Stop by the <%= link_to "Information Center", second_fridays_path %> at 1945 S Halsted in Chicago to get a map.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <h1><span class="glyphicon glyphicon-download"></span></h1>
-      </div>
-      <div class="col-md-10">
-        <br>
-        <p class="lead">Or <%= link_to 'download a map now', ' https://s3-us-west-2.amazonaws.com/cadimages/February-2017-Map.pdf', target: "_blank" %>.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <h1><span class="glyphicon glyphicon-envelope"></span></h1>
-      </div>
-      <div class="col-md-10">
-        <br>
-        <p class="lead"><%= link_to "Sign up to be notified", "#", data: {toggle: "modal", target: "#myModal"} %> about future art walks and other upcoming events.</p>
-      </div>
-    </div>
-  </div>
-</div>
 <br>
 <br>
 
@@ -300,49 +190,7 @@
     </div>
   </div>
 </div>
-
-  <div class="row">
-    <div class="col-md-4 col-md-offset-0 col-xs-8 col-xs-offset-2">
-      <h2 class="text-center"><u>01</u><h2>
-        <h1 class="text-center"><span class="glyphicon glyphicon-globe"></span><br></h1>
-        <h4 class="text-center">Get a Map</h4>
-        <p class="lead text-center">Stop by the <%= link_to "Information Center", second_fridays_path %> or download a map now.<br>
-          <br>
-          <a class="btn btn-danger btn-lg" href="http://podmajersky.com/wp-content/uploads/2016/09/September-2016-Map.pdf" target="_blank" role="button">Download Map</a></p>
-    </div>
-    <div class="col-md-4 col-md-offset-0 col-xs-8 col-xs-offset-2">
-      <h2 class="text-center"><u>02</u><h2>
-        <h1 class="text-center"><span class="glyphicon glyphicon-eye-open"></span><br></h1>
-        <h4 class="text-center">View Art</h4>
-        <p class="lead text-center">Come to Pilsen East to enjoy a self-guided art walk!<br>
-          <br>
-          <%= link_to "List of Galleries", galleries_path, class: "btn btn-danger btn-lg" %></p>
-    </div>
-    <div class="col-md-4 col-md-offset-0 col-xs-8 col-xs-offset-2">
-      <h2 class="text-center"><u>03</u><h2>
-        <h1 class="text-center"><span class="glyphicon glyphicon-envelope"></span></br></h1>
-        <h4 class="text-center">Sign Up for Updates</h4>
-        <p class="lead text-center">Receive updates about upcoming art walks & events.<br>
-          <br>
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">
-            Sign Up for Updates
-          </button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Sign Up for Updates</h4>
-                </div>
-                <div class="modal-body">
-                    <iframe src="https://app.e2ma.net/app2/audience/signup/1355398/1354401/" width="500" height="425" frameborder="0"></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
+   
         </p>
     </div>
   </div>
