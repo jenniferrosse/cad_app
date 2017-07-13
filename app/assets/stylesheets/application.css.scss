@@ -711,12 +711,21 @@ hr {
 }
 /* Exhibitions - Show Page
 ------------------------- */
-.date-column-padding {
-  padding-left: 40px;
+
+.some-padding {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 50px;
+
 }
-.date-column-border {
+.date-column-background {
   background-color: #EAEAEA;
+  margin-left: 0px;
+  h3 {
+    margin-top: 0px;
+  }
 }
+
 
 /* Events - Show Page
 ------------------------- */
