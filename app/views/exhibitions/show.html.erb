@@ -41,7 +41,7 @@
       <p class="exhibition-date">
         <% if @exhibition.end_date > Date.today + 4.month %>
           Ongoing
-        <% elsif @exhibition.end_date == exhibition.start_date %>
+        <% elsif @exhibition.end_date == @exhibition.start_date %>
           <%= @exhibition.start_date.try(:strftime, "%b %e, %Y") %>
         <% elsif %>
           <%= @exhibition.start_date.try(:strftime, "%B %e") %> - 
