@@ -38,7 +38,6 @@ $colHighlight: #AD3C3C;
   background-color: $bgDefault;
   border-color: $bgHighlight;
   .navbar-header {
-
     border: 1px solid red;
   }
   .navbar-nav {
@@ -73,6 +72,14 @@ $colHighlight: #AD3C3C;
     color: $colDefault;
     &:hover {
       color: $colHighlight; }}}
+   .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+      background-color: #FFFFFF !important;
+      
+      background-repeat: repeat-x !important;
+      color: #AD3C3C;
+      outline: 0 none;
+      text-decoration: none;
+    }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu {
     > li > a {
