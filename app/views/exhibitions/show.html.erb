@@ -68,7 +68,7 @@
       <% if @upcoming_events.any? %>
         <div class="date-column-background">
           <div class="some-padding">
-            <h3>Upcoming Events</h3>
+            <h3>Upcoming Related Events</h3>
             <% @upcoming_events.each do |event| %>
               <p><b><%= link_to event.title, event %></b><br>
               <%= event.start_date.try(:strftime, "%A, %B %e, %Y") %>
@@ -84,7 +84,7 @@
       <% end %>
       <% if @past_events.any? %>
       <div class="some-padding">
-        <h3>Past Events</h3>
+        <h3>Past Related Events</h3>
 
         <% @past_events.each do |event| %>
           <p><b><%= link_to event.title, event %></b><br>
