@@ -7,7 +7,9 @@ class ExhibitionsController < ApplicationController
   # GET /exhibitions.json
   def index
     @current_exhibitions = Exhibition.where("? BETWEEN start_date AND end_date", Date.today).order('end_date ASC')
+    @current_upcoming_exhibitions = Exhibition.where("end_date >= ?", Date.today).order('end_date ASC')
     @upcoming_exhibitions = Exhibition.where("start_date > ?", Date.today).order('end_date ASC')
+    @ongoing_exhibitions = Exhibition.where("end_date > ?", Date.today + 4.months).order('end_date ASC')
     @past_exhibitions = Exhibition.where("end_date < ?", Date.today).order('end_date DESC')
 
     if params[:gallery_id]
