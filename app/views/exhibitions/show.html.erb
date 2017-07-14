@@ -37,12 +37,11 @@
 
 
     <div class="row exhibition-heading">
-      <div class>
       <h1><%= @exhibition.title %></h1>
       <p class="exhibition-date">
         <% if @exhibition.end_date > Date.today + 4.month %>
           Ongoing
-        <% elsif @exhibition.end_date == @exhibition.start_date %>
+        <% elsif @exhibition.end_date == exhibition.start_date %>
           <%= @exhibition.start_date.try(:strftime, "%b %e, %Y") %>
         <% elsif %>
           <%= @exhibition.start_date.try(:strftime, "%B %e") %> - 
@@ -86,6 +85,7 @@
       <% if @past_events.any? %>
       <div class="some-padding">
         <h3>Past Events</h3>
+
         <% @past_events.each do |event| %>
           <p><b><%= link_to event.title, event %></b><br>
             <%= event.start_date.try(:strftime, "%A, %B %e, %Y") %>
