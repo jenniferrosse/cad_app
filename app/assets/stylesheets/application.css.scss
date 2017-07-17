@@ -777,6 +777,24 @@ hr {
   color: gray;
   }
 }
+/* About Page
+------------------------- */
+.testimonials-carousel {
+  margin-top: 30px;
+  background:linear-gradient(0deg,rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.6)),url('CAD_41stOpenHouse_111002_461.jpg');
+  margin-bottom: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  min-height: 275px;
+  
+  p {
+  color: #EAEAEA;
+  font-size: 150%;
+  padding-top: 30px;
+  }
+}
 
 /* Events Show Page - Participating Galleries Img Overlay
 ------------------------- */
