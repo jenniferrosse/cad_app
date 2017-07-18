@@ -779,6 +779,20 @@ hr {
 }
 /* About Page
 ------------------------- */
+.jumbotron-about-page {
+  background-image: url('artwalk.jpg');
+  background-color: #EAEAEA;
+  margin-bottom: 0;
+  min-height: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.glyphicon-arrow-right {
+  -webkit-text-stroke: 2px white;
+}
+
 .testimonials-carousel {
   margin-top: 30px;
   background:linear-gradient(0deg,rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.6)),url('CAD_41stOpenHouse_111002_461.jpg');
