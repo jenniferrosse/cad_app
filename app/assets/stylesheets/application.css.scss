@@ -587,6 +587,8 @@ hr {
   display: inline-block;
 }
 
+e7e1d1
+
 .jumbotron-home-second {
     margin-bottom: 0px;
     background-color: gray;
@@ -596,11 +598,14 @@ hr {
     color: white;
 }
 .jumbotron-contact {
-    margin-bottom: 0px;
-    background-image: url(gallery5.jpg);
-    background-position: 0% 25%;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url('gallery-flat.jpg');
+  background-color: #EAEAEA;
+  margin-bottom: 0;
+  min-height: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 .jumbotron.lead-text {
