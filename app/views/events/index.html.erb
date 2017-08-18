@@ -18,14 +18,12 @@
     <div role="tabpanel" class="tab-pane active" id="current_upcoming">
       <div class="container-fluid">
       <% @current_and_upcoming_events.each do |event| %>
-      <% if event.title == "2nd Fridays Gallery Night" %>
+      <% if event.event_type == "Series" %>
         <div class="row background-gray">
       <% else %>
         <div class="row events-information">
           <hr>
       <% end %>
-
-         
 
           <div class="col-md-2 ">
             <% if event.event_thumbnail.present? %>
@@ -76,7 +74,7 @@
     <div role="tabpanel" class="tab-pane" id="past">
       <div class="container">
       <% @past_events.each do |event| %>
-        <% if event.title == "2nd Fridays Gallery Night" %>
+        <% if event.event_type == "Series" %>
           <div class="row background-gray">
             <div class="col-md-2 ">
             <% if event.event_thumbnail.present? %>

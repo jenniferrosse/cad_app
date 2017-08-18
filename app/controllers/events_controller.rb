@@ -6,8 +6,8 @@ class EventsController < ApplicationController
   # GET /events.json
 
   def index
-    @current_and_upcoming_events = Event.where("start_date >= ?", Date.today).order('end_date ASC').order('end_date ASC')
-    @past_events = Event.where("end_date < ?", Date.today).order('end_date DESC')
+    @current_and_upcoming_events = Event.where.not(event_type: 'Participation').where("start_date >= ?", Date.today).order('end_date ASC').order('end_date ASC')
+    @past_events = Event.where.not(event_type: 'Participation').where("end_date < ?", Date.today).order('end_date DESC')
 
     if params[:upcoming]
       @events = Event.upcoming.order('start_date ASC, title ASC')
@@ -103,6 +103,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :start_date, :end_date, :start_time, :end_time, :description, :date_info, :event_thumbnail, :exhibition_id)
+      params.require(:event).permit(:title, :start_date, :end_date, :start_time, :end_time, :description, :date_info, :event_thumbnail, :event_type, :exhibition_id)
     end
 end

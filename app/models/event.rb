@@ -1,7 +1,9 @@
 class Event < ActiveRecord::Base
-  has_many :gallery_events
-  has_many :galleries, through: :gallery_events
   
+  has_many :participations
+  has_many :galleries, :through => :participations
+
+
   belongs_to :exhibition
   
 

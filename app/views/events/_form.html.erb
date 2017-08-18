@@ -42,6 +42,10 @@
     <%= f.label :event_thumbnail %><br />
     <%= f.file_field :event_thumbnail %>
   </div>
+   <div class="field">
+    <%= f.label :event_type %><br>
+    <%= f.select :event_type, ['Series', 'Single', 'Participation'] %>
+  </div>
   <div class="field">
     <%= f.label :exhibition_id, "Exhibition ID" %><br>
     <%= f.text_field :exhibition_id %>

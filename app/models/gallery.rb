@@ -1,10 +1,10 @@
 class Gallery < ActiveRecord::Base
   has_many :exhibitions, dependent: :destroy
   accepts_nested_attributes_for :exhibitions
-  
-  has_many :gallery_events
-  has_many :events, through: :gallery_events
  
+  has_many :participations
+  has_many :events, :through => :participations
+  
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
 
