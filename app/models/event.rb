@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   
   has_many :participations
   has_many :galleries, :through => :participations
+  accepts_nested_attributes_for :galleries
 
 
   belongs_to :exhibition

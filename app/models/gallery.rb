@@ -4,6 +4,7 @@ class Gallery < ActiveRecord::Base
  
   has_many :participations
   has_many :events, :through => :participations
+  accepts_nested_attributes_for :events
   
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
