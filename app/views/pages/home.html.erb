@@ -9,7 +9,10 @@
       <div class="col-md-6 col-sm-6 hidden-xs">
         <div class="text-box">
           <h2>Upcoming 2nd Fridays Gallery Night</h2>
-          <h3>Friday, July 14th, 2017 | 6pm - 10pm</h3>
+          <% @next_2nd_fridays.each do |event| %>
+            <h3><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %><br> 
+              <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></h3>
+          <% end %>
           <button class="btn btn-primary-outine-inverse" type="submit">Learn More</button></span>
         </div>
       </div>
@@ -153,7 +156,7 @@
                       <% end %>
                       </p>
                     <h3 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h3>
-                    <p class="exhibitions-text"><%= truncate exhibition.description, length: 550 %>
+                    <p class="exhibitions-text"><%= truncate exhibition.description, length: 525 %>
                     <p><%= link_to 'About the Exhibition', exhibition, class: "btn btn-primary-outine-inverse" %></p>
                     </p>
                   </div>
