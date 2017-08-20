@@ -46,13 +46,6 @@
     <%= f.label :event_type %><br>
     <%= f.select :event_type, ['Series', 'Single', 'Participation'] %>
   </div>
-  <div class="field">
-    <%= f.label :exhibition_id, "Exhibition ID" %><br>
-    <%= f.text_field :exhibition_id %>
-  </div>
-  <div>
-    <%= collection_check_boxes(:gallery, :gallery_ids, Gallery.all, :id, :gallery_name) %>
-  </div>
   
   <div class="actions">
     <%= f.submit %>
