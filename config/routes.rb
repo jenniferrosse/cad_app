@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home'
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
-  get 'second_fridays', to: 'pages#second_fridays'
+  get 'about_2nd_fridays', to: 'pages#about_2nd_fridays'
 
 
   get 'pages/events'

@@ -1,0 +1,78 @@
+<% content_for(:title, '2nd Fridays Gallery Night')%>
+<br>
+<br>
+<br>
+<div class="container">
+  <h2 class="page-title">About 2nd Fridays</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag("good-details-2.jpg", class: "img-responsive") %>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag("CAD_41stOpenHouse_110930_028.jpg", class: "img-responsive") %>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag("NYCH-3.jpg", class: "img-responsive") %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-8">
+      <h3>2nd Friday's Gallery Night</h3>
+        <p>The Chicago Arts District, located in Pilsen East, encompasses several contiguous blocks of lofts, studios and retail spaces for artists, gallerists, and creative individuals. Every 2nd Friday of the month, the galleries of the Chicago Arts District invite the public to view new and exciting exhibitions. There is something for everyone here in the Chicago Arts District, from the traditional mediums of painting, photography, and sculpture to avant garde fashion, installation and video art, just to name a few!</p>
+
+        <p>Visitors enjoy cutting edge art from Chicago artists, as well as artists from all over the country and the world! Artists and gallery owners are on hand to discuss the art and help visitors "connect" with and understand the works. Experience art in a welcoming atmosphere with historic architecture and award winning courtyard gardens. This is a truly unique area of the city that welcomes all visitors and offers an opportunity to get up close and personal with the art and the artists!</p>
+
+      <h3>Pick Up A Map</h3>
+        <p>Each 2nd Friday, visitors can pick up a map at our Information Center, located at <strong><a href="https://www.google.com/maps/place/1945+S+Halsted+St,+Chicago,+IL+60608/data=!4m2!3m1!1s0x880e2c587bd449ef:0x7da689be045d1c3b?sa=X&ved=0ahUKEwjO94qzr7rQAhVG9YMKHdCPC8kQ8gEIGjAA" target="_blank">1945 S Halsted Street</a></strong> in Chicago and enjoy exploring the city's most vibrant art community, the Chicago Arts District!</p>
+        <p class="gallery-info">Chicago Arts District<br> -Information Center - <br>
+          1945 S. Halsted St.<br>
+          Chicago, IL 60608</p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag("2017-02-10-0906.jpg", class: "img-responsive") %>
+    </div>
+  </div>
+  <br>
+  <h2>Upcoming 2nd Fridays Gallery Nights</h2>
+  <div class="container-fluid">
+      <% @upcoming_2nd_fridays.each do |event| %>
+          <div class="row background-gray">
+            <div class="col-md-2 ">
+              <% if event.event_thumbnail.present? %>
+                <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive margin border"), event %>
+              <% end %>
+            </div>
+            <div class="col-md-10">
+              <span class="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></span>
+              <p class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p> 
+              <h3 class="event-name"><%= link_to event.title, event %> - <%= event.start_date.try(:strftime, "%B" ) %></h3>  
+            </div>
+            <div class="col-md-12">
+              <% if event.galleries.any? %>
+                <h4>Participating Galleries</h4>
+                <% event.galleries.each do |gallery| %>
+                  <div class="col-xs-4 col-sm-3 col-md-2">
+                    <div class="image-container">
+                      <%= image_tag(gallery.thumbnail.url(:medium), class: "img-responsive same-size-img") %>
+                      <div class="overlay">
+                        <h6 class="text-overlay"><%= link_to gallery.gallery_name, gallery %></h6>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% else %>
+              <br>
+                 <h4>Participating Galleries will be announced soon! Sign up for updates!</h4>
+                 
+              <% end %>
+            </div><!-- end col-md-12 -->
+          </div><!-- end row -->
+        <hr>
+      <% end %>
+
+    </div>
+  <br>
+</div>

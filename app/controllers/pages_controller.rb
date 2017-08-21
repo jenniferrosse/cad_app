@@ -14,6 +14,7 @@ class PagesController < ApplicationController
   def contact
   end
 
-  def second_fridays
+  def about_2nd_fridays
+    @upcoming_2nd_fridays = Event.where(title: '2nd Fridays Gallery Night - September').where("start_date >= ?", Date.today).order('end_date ASC')
   end
 end
