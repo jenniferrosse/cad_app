@@ -13,7 +13,7 @@
             <h3><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %><br> 
               <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></h3>
           <% end %>
-          <p><%= link_to 'Learn More', about_2nd_fridays_path, class: "btn btn-primary-outine-inverse" %></span>
+          <p><%= link_to 'Learn More', about_2nd_fridays_path, class: "btn btn-primary-outine-inverse" %></p>
         </div>
       </div>
     </div>
