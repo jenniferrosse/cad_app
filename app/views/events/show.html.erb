@@ -68,27 +68,27 @@
     <% if @event.event_type == "Series" %>
       <h3 class="page-title">Participating Galleries</h3>
       <hr>
-      <% @galleries.each do |gallery| %>
-        <div class="col-xs-4 col-sm-2">
-          <div class="image-container">
-            <%= image_tag(gallery.thumbnail.url(:medium), class: "img-responsive same-size-img") %>
-            <div class="overlay">
-              <h6 class="text-overlay"><%= link_to gallery.gallery_name, gallery %></h6>
+      <% if @event.galleries.any? %>  
+        <% @galleries.each do |gallery| %>
+          <div class="col-xs-4 col-sm-2">
+            <div class="image-container">
+              <%= image_tag(gallery.thumbnail.url(:medium), class: "img-responsive same-size-img") %>
+              <div class="overlay">
+                <h6 class="text-overlay"><%= link_to gallery.gallery_name, gallery %></h6>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
+      <% else %>
+        <h4>Participating Galleries will be announced soon! Sign up for updates!</h4>
       <% end %>
-    <% else %>
-      <h4>Participating Galleries will be announced soon! Sign up for updates!</h4>
     <% end %>
   </div>
 </div>
   
   <br>
 
-    <% if admin_signed_in? %>
-      <%= button_to 'Add Gallery', participation_event_path(@event.id), :method => "post" %>
-    <% end %>
+
       <br>
     <p class="text-center">
       <% if admin_signed_in? %>
