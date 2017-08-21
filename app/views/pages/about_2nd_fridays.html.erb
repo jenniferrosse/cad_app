@@ -32,7 +32,7 @@
           1945 S. Halsted St.<br>
           Chicago, IL 60608</p>
           <br>
-          <p><%= link_to 'Map It', 'https://www.google.com/maps/place/1945+S+Halsted+St,+Chicago,+IL+60608/data=!4m2!3m1!1s0x880e2c587bd449ef:0x7da689be045d1c3b?sa=X&ved=0ahUKEwjO94qzr7rQAhVG9YMKHdCPC8kQ8gEIGjAA', target: '_blank', class: "btn btn-primary" %></p></span>
+          <p><%= link_to 'Map It', 'https://www.google.com/maps/place/1945+S+Halsted+St,+Chicago,+IL+60608/data=!4m2!3m1!1s0x880e2c587bd449ef:0x7da689be045d1c3b?sa=X&ved=0ahUKEwjO94qzr7rQAhVG9YMKHdCPC8kQ8gEIGjAA', target: '_blank', class: "btn btn-primary" %></p>
     </div>
     <div class="col-md-4">
       <%= image_tag("2017-02-10-0906.jpg", class: "img-responsive") %>
@@ -69,7 +69,12 @@
               <% else %>
               <br>
                  <h4>Participating Galleries will be announced soon! Sign up for updates!</h4>
-                 
+                 <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    Sign Up for Newsletter
+                  </button>
+
+
               <% end %>
             </div><!-- end col-md-12 -->
           </div><!-- end row -->
