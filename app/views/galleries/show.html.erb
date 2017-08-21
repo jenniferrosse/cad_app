@@ -56,89 +56,90 @@
       <br>
       <br>
 
-<!-- Tab panes -->
-<div class="tab-content">
-  <div role="tabpanel" class="tab-pane active" id="current">
-  <% if @upcoming_exhibitions.any? %>
-    <% @upcoming_exhibitions.each do |exhibition| %>
-      <div class="row">
-        <div class="col-md-4 col-md-offset-1">
-          <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
-        </div>
-        <div class="col-md-6">
-          <p class="date">
-            <% if exhibition.end_date > Date.today + 4.month %>
-              Ongoing
-            <% else %> 
-              <%= exhibition.start_date.try(:strftime, "%B %e") %> - <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %>
-            <% end %>
-          </p>
-          <h3><%= link_to exhibition.title, exhibition %><br></h3>
-          <p><%= truncate exhibition.description, length: 675 %></p>
-          <p><%= link_to 'More About Exhibition', exhibition, class: "btn btn-primary" %>
-        </div>
-      </div>
-      <hr>
-    <% end %>
-  <% else %> 
-    <div class="row">
-      <div class="col-md-4 col-md-offset-1">
-      </div>
-      <div class="col-md-6">
-         <p>There are no scheduled exhibitions at this time.</p>
-      </div>
-    </div>
-  <% end %>
+    <!-- Tab panes -->
+    <div class="tab-content">
 
-</div>
-<div role="tabpanel" class="tab-pane" id="past">
-  <% if @past_exhibitions.any? %>
-    <% @past_exhibitions.each do |exhibition| %>
-      <div class="row">
-        <div class="col-md-5">
-          <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
-        </div>
-        <div class="col-md-7">
-          <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
-          <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
-          <h3><%= link_to exhibition.title, exhibition %><br></h3>
-          <p><%= truncate exhibition.description, length: 675 %></p>
-          <p><%= link_to 'More About Exhibition', exhibition, class: "btn btn-primary" %>
-        </div>
-      </div>
-      <hr>
-    <% end %>
-  <% else %>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-1">
-      </div>
-      <div class="col-md-6">
-         <p>There are no past exhibitions.</p>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-      </div>
-    </div>
-  <% end %>
-</div>
+      <div role="tabpanel" class="tab-pane active" id="current">
+      <% if @upcoming_exhibitions.any? %>
+        <% @upcoming_exhibitions.each do |exhibition| %>
+          <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+              <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
+            </div>
+            <div class="col-md-6">
+              <p class="date">
+                <% if exhibition.end_date > Date.today + 4.month %>
+                  Ongoing
+                <% else %> 
+                  <%= exhibition.start_date.try(:strftime, "%B %e") %> - <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %>
+                <% end %>
+              </p>
+              <h3><%= link_to exhibition.title, exhibition %><br></h3>
+              <p><%= truncate exhibition.description, length: 675 %></p>
+              <p><%= link_to 'More About Exhibition', exhibition, class: "btn btn-primary" %>
+            </div>
+          </div><!-- end row -->
+          <hr>
+        <% end %>
+      <% else %> 
+        <div class="row">
+          <div class="col-md-4 col-md-offset-1">
+          </div>
+          <div class="col-md-6">
+             <p>There are no scheduled exhibitions at this time.</p>
+          </div>
+        </div><!-- end row -->
+      <% end %>
+    </div><!-- end tabpanel -->
 
-</div>
-</div>
+    <div role="tabpanel" class="tab-pane" id="past">
+      <% if @past_exhibitions.any? %>
+        <% @past_exhibitions.each do |exhibition| %>
+          <div class="row">
+            <div class="col-md-5">
+              <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
+            </div>
+            <div class="col-md-7">
+              <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
+              <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
+              <h3><%= link_to exhibition.title, exhibition %><br></h3>
+              <p><%= truncate exhibition.description, length: 675 %></p>
+              <p><%= link_to 'More About Exhibition', exhibition, class: "btn btn-primary" %>
+            </div>
+          </div><!-- end row -->
+          <hr>
+        <% end %>
+      <% else %>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-1">
+          </div>
+          <div class="col-md-6">
+             <p>There are no past exhibitions.</p>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+          </div>
+        </div><!-- end row -->
+      <% end %>
+    </div><!-- end tabpanel -->
 
-<div class="container">
-<% if admin_signed_in? %>
-  <%= link_to "Add New Exhibition", new_exhibition_path(gallery_id: @gallery) %>
-<% end %>
-</div>
+  </div><!-- end tab-content -->
+    <p class="text-center">
+      <% if admin_signed_in? %>
+        <%= link_to "Add New Exhibition", new_exhibition_path(gallery_id: @gallery), class: "btn btn-warning" %>
+      <% end %>
+    </p>
+</div><!-- end container -->
   
-
+<br>
+<br>
 <p class="text-center">
   <% if admin_signed_in? %>
     <%= link_to 'Edit', edit_gallery_path(@gallery),class: "btn btn-warning" %>
