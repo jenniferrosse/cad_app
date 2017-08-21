@@ -72,7 +72,7 @@
         <% @galleries.each do |gallery| %>
           <div class="col-xs-4 col-sm-2">
             <div class="image-container">
-              <%= image_tag(gallery.thumbnail.url(:medium), class: "img-responsive same-size-img") %>
+              <%= image_tag(gallery.thumbnail.url(:medium), class: "img-responsive same-size-img events-border") %>
               <div class="overlay">
                 <h6 class="text-overlay"><%= link_to gallery.gallery_name, gallery %></h6>
               </div>
