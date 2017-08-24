@@ -95,7 +95,7 @@
               <h3 class="event-name"><%= link_to "#{event.title} - #{event.start_date.try(:strftime, "%B" )}", event %></h3>  
             </div>
             <div class="col-md-12">
-              <h4>Participating Galleries</h4>
+              <h4>Galleries That Participated</h4>
               <% event.galleries.each do |gallery| %>
                 <div class="col-xs-4 col-sm-3 col-md-2">
                   <div class="image-container">

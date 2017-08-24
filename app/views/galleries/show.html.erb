@@ -10,33 +10,37 @@
       <%= image_tag(@gallery.thumbnail.url(:medium), class: "img-responsive") %>
     </div>
     <div class="col-md-5">
+      
       <h1><%= @gallery.gallery_name %></h1>
         <p class="lead-text"><em><%= @gallery.medium %></em></p><br>
-        
+      <% if @gallery.current == true %>
         <h4><%= @gallery.address %><br>
         <%= @gallery.city %>, <%= @gallery.state %> <%= @gallery.zip %><br>
         <%= @gallery.phone %></h4>
         <br>
         <br>
-        <% unless @gallery.hours.blank? %>
-        
         <h5><strong>Owner/Operator:</strong><br>
         <%= @gallery.owner_operator %></h5>
+
+          <%= markdown(@gallery.hours) %></h5>
         <br>
         <h5><strong>Hours:</strong>
-        <%= markdown(@gallery.hours) %></h5>
+      <% else %>
+        <h3>Gallery Alumni </h3>
       <% end %>
+        
+  
     </div>
   </div><!-- end row-->
   <br>
   <br>
   <div class="row">
     <div class="col-md-10 col-md-offset-1"> 
-      <h4 class="text-center">About</h4>
+      <h2>About</h2>
       <p><%= markdown(@gallery.description) %></p>
       <br>
       <br>
-      <p class="text-center">
+      <p>
       <%= link_to "Visit Website", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>
         <%= link_to "Email Gallery", url_with_protocol(@gallery.website), class: "btn btn-success btn-sm sharp", :target => '_blank' %>
       </p>
@@ -46,12 +50,13 @@
 <br>
 <br>
 <div class="container gray-background">
-  <h2 class="text-center">Exhibitions</h1>
+  <h2>Exhibitions</h2>
 
       <!-- Nav tabs -->
-      <ul class="nav nav-pills gray centered" role="tablist">
+      <ul class="nav nav-pills gray" role="tablist">
         <li role="presentation" class="active"><a href="#current" aria-controls="home" role="tab" data-toggle="tab">Current & Upcoming</a></li>
         <li role="presentation"><a href="#past" aria-controls="profile" role="tab" data-toggle="tab">Past</a></li>
+
       </ul>
 
     <!-- Tab panes -->
@@ -82,10 +87,10 @@
         <% end %>
       <% else %> 
         <div class="row">
-          <div class="col-md-8 col-md-offset-2">
+          <div class="col-md-8">
             <br>
             <br>
-            <h4 class="text-center">There are no upcoming exhibitions scheduled at this time.</h4>
+            <h4>There are no upcoming exhibitions scheduled at this time.</h4>
             <br>
             <br>
           </div>
@@ -113,10 +118,10 @@
         <% end %>
       <% else %>
         <div class="row">
-          <div class="col-md-8 col-md-offset-2">
+          <div class="col-md-8">
             <br>
             <br>
-            <h4 class="text-center">There have been no past exhibitions.</h4>
+            <h4>There have been no past exhibitions.</h4>
             <br>
             <br>
           </div>
@@ -125,7 +130,7 @@
     </div><!-- end tabpanel -->
 
   </div><!-- end tab-content -->
-    <p class="text-center">
+    <p>
       <% if admin_signed_in? %>
         <br>
         <br>
@@ -140,6 +145,7 @@
 <br>
 <p class="text-center">
   <% if admin_signed_in? %>
+  <%= human_boolean@gallery.current %>
     <%= link_to 'Edit', edit_gallery_path(@gallery),class: "btn btn-warning" %>
   <% end %>
     <%= link_to 'All Galleries', galleries_path, class: "btn btn-primary" %>
