@@ -9,7 +9,7 @@
   <hr>
   <br>
   <div class="row">
-      <% @galleries.each do |gallery| %>
+      <% @alumni_galleries.each do |gallery| %>
         <div class="col-md-3 col-sm-4">
           <div class="thumbnail thumbnail-galleries">
             <%= link_to image_tag(gallery.thumbnail.url(:medium), class: "img-responsive aspect"), gallery %>
@@ -36,11 +36,8 @@
 
 <p class="text-center">
   <% if admin_signed_in? %>
-    <%= link_to 'New Gallery', new_gallery_path, class: "btn btn-warning" %>
-  <% end %>
-  <%= link_to 'Alumni Galleries', galleries_alumni_galleries_path, class: "btn btn-primary" %>
-</p>
-  
+    <%= link_to 'New Gallery', new_gallery_path, class: "btn btn-warning" %></p>
+    <% end %>
 
 
 

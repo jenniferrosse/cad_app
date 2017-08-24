@@ -5,7 +5,11 @@ class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
-    @galleries = Gallery.all.order('gallery_name ASC')
+    @galleries = Gallery.where(current: true).order('gallery_name ASC')
+    @alumni_galleries = Gallery.where(current: true).order('gallery_name ASC')
+  end
+  def alumni_galleries
+    @alumni_galleries = Gallery.where(current: false).order('gallery_name ASC')
   end
 
   # GET /galleries/1

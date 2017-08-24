@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'pages/calendar'
   get 'pages/calendar_all'
 
+  get 'galleries/alumni_galleries'
 
   resources :galleries 
   resources :exhibitions
