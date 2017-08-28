@@ -17,8 +17,8 @@
 @import "bootstrap";
 
 @font-face {
-  font-family: "Kaushan Script Regular";
-  src: url(/assets/Futura-Medium.otf) format("truetype");
+  font-family: "Futura Medium";
+  src: url(/assets/Futura-Medium.otf) format("opentype");
 }
 
 body, html {
@@ -26,8 +26,15 @@ body, html {
     margin: 0;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Josefin Sans', sans-serif;
+h1, h2 {
+  font-family: 'futura-pt',sans-serif;
+  font-weight: 300;
+  }
+
+h3, h4, h5 {
+  font-family: 'futura-pt', sans-serif !important;
+  font-style: normal;
+  font-weight: 300;
 }
 p {
   font-family: 'Raleway', sans-serif;
@@ -39,6 +46,13 @@ $bgDefault   : #FFFFFF;
 $bgHighlight : #FFFFFF;
 $colDefault  : #595959;
 $colHighlight: #AD3C3C;
+.navbar { 
+  font-family: 'futura-pt', sans-serif !important;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 125%;
+}
+
 .navbar-default {
   background-color: $bgDefault;
   border-color: $bgHighlight;
@@ -409,7 +423,7 @@ hr {
 }
 .events-container {
   h1 {
-  margin-bottom: -11px;
+  margin-bottom: -8px;
   color: #EAEAEA;
   }
 }
@@ -508,7 +522,7 @@ hr {
 }
 .exhibitions-container {
   h1 {
-  margin-bottom: -11px;
+  margin-bottom: -8px;
   color: #4A4A4A;
   }
 }

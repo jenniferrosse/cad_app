@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824142629) do
+ActiveRecord::Schema.define(version: 20170825142132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,18 @@ ActiveRecord::Schema.define(version: 20170824142629) do
     t.boolean  "current"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "exhibition_id"
+  end
+
+  add_index "images", ["exhibition_id"], name: "index_images_on_exhibition_id", using: :btree
+
   create_table "participations", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "gallery_id"
@@ -103,4 +115,5 @@ ActiveRecord::Schema.define(version: 20170824142629) do
 
   add_foreign_key "events", "exhibitions"
   add_foreign_key "exhibitions", "galleries"
+  add_foreign_key "images", "exhibitions"
 end
