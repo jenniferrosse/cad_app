@@ -19,10 +19,12 @@
         <%= @gallery.phone %></h4>
         <br>
         <br>
-        <h5><strong>Owner/Operator:</strong><br>
+        <h5><strong>Owner/Operator:</strong>
+        <br>
         <%= @gallery.owner_operator %></h5>
         <br>
         <h5><strong>Hours:</strong></h5>
+        <br>
           <%= markdown(@gallery.hours) %>
       <% else %>
         <h3>Gallery Alumni </h3>
