@@ -21,10 +21,9 @@
         <br>
         <h5><strong>Owner/Operator:</strong><br>
         <%= @gallery.owner_operator %></h5>
-
-          <%= markdown(@gallery.hours) %></h5>
         <br>
-        <h5><strong>Hours:</strong>
+        <h5><strong>Hours:</strong></h5>
+          <%= markdown(@gallery.hours) %>
       <% else %>
         <h3>Gallery Alumni </h3>
       <% end %>
