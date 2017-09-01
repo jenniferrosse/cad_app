@@ -29,18 +29,34 @@ body, html {
 h1, h2 {
   font-family: 'futura-pt',sans-serif;
   font-weight: 300;
+  color: #4A4A4A;
+  text-transform: uppercase;
   }
-h2 {
-  
-}
 
 h3, h4, h5 {
   font-family: 'futura-pt', sans-serif !important;
   font-style: normal;
   font-weight: 300;
+  color: #4A4A4A;
+  text-transform: uppercase;
 }
 p {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Droid Sans', sans-serif;
+}
+
+/* General
+------------------------- */
+
+
+p, a {
+  color: #4A4A4A;
+}
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #BFBFBF; /* Modern Browsers */
 }
 
 /* Navbar
@@ -119,23 +135,7 @@ $colHighlight: #AD3C3C;
   margin: 30px;
 }
 
-/* General
-------------------------- */
 
-h1, h2, h3, h4, h5 {
-  color: #4A4A4A;
-  text-transform: uppercase;
-}
-p, a {
-  color: #4A4A4A;
-}
-hr {
-    border: none;
-    height: 1px;
-    /* Set the hr color */
-    color: #333; /* old IE */
-    background-color: #BFBFBF; /* Modern Browsers */
-}
 .page-title {
 }
 .date {
