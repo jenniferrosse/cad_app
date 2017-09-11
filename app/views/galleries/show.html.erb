@@ -69,7 +69,7 @@
         <hr>
           <div class="row">
             <div class="col-md-4 col-md-offset-1">
-              <%= image_tag(exhibition.exhibition_thumbnail.url(:small), class: "img-responsive", width: "100%") %>
+              <%= image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive", width: "100%") %>
             </div>
             <div class="col-md-6">
               <p class="date">
@@ -146,7 +146,6 @@
 <br>
 <p class="text-center">
   <% if admin_signed_in? %>
-  <%= human_boolean@gallery.current %>
     <%= link_to 'Edit', edit_gallery_path(@gallery),class: "btn btn-warning" %>
   <% end %>
     <%= link_to 'All Galleries', galleries_path, class: "btn btn-primary" %>

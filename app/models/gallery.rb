@@ -9,8 +9,32 @@ class Gallery < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
 
+  require 'csv'
 
-  has_attached_file :thumbnail, styles: { large: "1000x1000#", medium: "500x500#", small: "200x200#", thumb: "100x100#", tiny: "75x75#", }
+  def self.to_csv (options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |gallery|
+        csv << gallery.attributes.values_at(*column_names)
+      end
+    end  
+  end
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+
+      gallery_hash = row.to_hash 
+      gallery = Gallery.where(id: gallery_hash["id"])
+
+      if gallery.count == 1
+        gallery.first.update_attributes(gallery_hash)
+      else
+        Gallery.create!(gallery_hash)
+      end # end if !winery.nil?
+    end # end CSV.foreach
+  end # end self.import(file)
+
+  has_attached_file :thumbnail, styles: { large: "1000x1000#", medium: "600x600#", small: "200x200#", thumb: "100x100#", tiny: "75x75#", }
   validates_attachment_content_type :thumbnail, content_type: /\Aimage\/.*\z/
   
 end

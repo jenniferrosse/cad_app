@@ -37,12 +37,23 @@
 <p class="text-center">
   <% if admin_signed_in? %>
     <%= link_to 'New Gallery', new_gallery_path, class: "btn btn-warning" %>
+
+    <h2>Import Galleries</h2>
+  
+    <%= form_tag import_galleries_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import CSV" %>
+    <% end %>
+
+    <p>
+    Download: 
+    <%= link_to "CSV", galleries_path(format: "csv") %> |
+    <%= link_to "Excel", galleries_path(format: "xls") %>
+    </p>
+
   <% end %>
   <%= link_to 'Alumni Galleries', galleries_alumni_galleries_path, class: "btn btn-primary" %>
 </p>
-  
-
-
 
 
 <div class="row">

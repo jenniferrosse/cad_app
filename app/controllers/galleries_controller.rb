@@ -7,7 +7,15 @@ class GalleriesController < ApplicationController
   def index
     @galleries = Gallery.where(current: true).order('gallery_name ASC')
     @alumni_galleries = Gallery.where(current: true).order('gallery_name ASC')
+    
+    respond_to do |format|
+      format.html
+      format.csv { render text: @galleries.to_csv }
+
+    end
   end
+
+
   def alumni_galleries
     @alumni_galleries = Gallery.where(current: false).order('gallery_name ASC')
   end
@@ -76,6 +84,11 @@ class GalleriesController < ApplicationController
       format.html { redirect_to galleries_url, notice: 'Gallery was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def import
+    Gallery.import(params[:file])
+    redirect_to root_url, notice: "Galleries imported."
   end
 
   private

@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   get 'galleries/alumni_galleries'
 
-  resources :galleries 
+  resources :galleries do
+    collection { post :import}
+  end 
   resources :exhibitions
   resources :events do
     member do
