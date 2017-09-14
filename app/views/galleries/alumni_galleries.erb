@@ -32,12 +32,20 @@
 <br>
 <br>
 
+<div class="row">
+  <p class="text-center">
+    <%= link_to 'Back to Galleries', galleries_path, class: "btn btn-primary" %>
+  </p>
+</div>
 
+<hr>
 
 <p class="text-center">
   <% if admin_signed_in? %>
-    <%= link_to 'New Gallery', new_gallery_path, class: "btn btn-warning" %></p>
-    <% end %>
+    <%= link_to 'New Gallery', new_gallery_path, class: "btn btn-warning" %>
+  <% end %>
+</p>
+
 
 
 

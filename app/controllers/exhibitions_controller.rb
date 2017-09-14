@@ -81,6 +81,11 @@ class ExhibitionsController < ApplicationController
     end
   end
 
+  def import
+    Exhibition.import(params[:file])
+    redirect_to root_url, notice: "Exhibitions imported."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
   

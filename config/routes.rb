@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   resources :galleries do
     collection { post :import}
   end 
-  resources :exhibitions
+  resources :exhibitions do
+    collection { post :import}
+  end
   resources :events do
     member do
       post :participation

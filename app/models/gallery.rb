@@ -24,6 +24,7 @@ class Gallery < ActiveRecord::Base
     CSV.foreach(file.path, headers: true) do |row|
 
       gallery_hash = row.to_hash 
+
       gallery = Gallery.where(id: gallery_hash["id"])
 
       if gallery.count == 1

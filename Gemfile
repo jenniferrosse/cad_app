@@ -28,6 +28,7 @@ gem 'paperclip', '~> 5.1'
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'devise', '~> 4.2'
 gem 'aws-sdk', '~> 2.6', '>= 2.6.14'
+gem 'seed_dump'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

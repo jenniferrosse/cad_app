@@ -134,11 +134,15 @@
       </div>
     </div><!-- end tab panel -->
   </div><!-- end tab content -->
+  <p class="text-center">
+  <% if admin_signed_in? %>
+  <%= link_to 'Create New Event', new_event_path, class: "btn btn-warning" %>
+  <% end %>
+</p>
+
 </div>
 
-<% if admin_signed_in? %>
-<%= link_to 'Create New Event', new_event_path, class: "btn btn-warning" %>
-<% end %>
+
 <script>
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};

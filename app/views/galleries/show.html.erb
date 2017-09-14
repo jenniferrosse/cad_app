@@ -16,7 +16,8 @@
       <% if @gallery.current == true %>
         <h4><%= @gallery.address %><br>
         <%= @gallery.city %>, <%= @gallery.state %> <%= @gallery.zip %><br>
-        <%= @gallery.phone %></h4>
+        <%= @gallery.phone %><br>
+        <%= link_to @gallery.website, "http://#{@gallery.website}" %></h4>
         <br>
         <br>
         <h5><strong>Owner/Operator:</strong></h5>

@@ -143,6 +143,7 @@
 
 <br>
 <br>
+<hr>
 <br>
 <p class="text-center">
     <% if admin_signed_in? %>
@@ -151,6 +152,30 @@
   </p>
 </div>
 
+
+
+
+
+<p class="text-center">
+  <% if admin_signed_in? %>
+    <%= link_to 'Create New Exhibition', galleries_url, class: "btn btn-warning" %>
+    <%= link_to 'New Gallery', new_gallery_path, class: "btn btn-warning" %>
+
+    <h2>Import Galleries</h2>
+  
+    <%= form_tag import_galleries_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import CSV" %>
+    <% end %>
+
+    <p>
+    Download: 
+    <%= link_to "CSV", galleries_path(format: "csv") %> |
+    <%= link_to "Excel", galleries_path(format: "xls") %>
+    </p>
+
+  <% end %>
+</p>
 <script>
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
