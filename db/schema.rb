@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825142132) do
+ActiveRecord::Schema.define(version: 20170919210053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,15 +44,11 @@ ActiveRecord::Schema.define(version: 20170825142132) do
     t.string   "event_thumbnail_content_type"
     t.integer  "event_thumbnail_file_size"
     t.datetime "event_thumbnail_updated_at"
-    t.text     "date_info"
     t.date     "end_date"
     t.time     "start_time"
     t.time     "end_time"
-    t.integer  "exhibition_id"
     t.string   "event_type"
   end
-
-  add_index "events", ["exhibition_id"], name: "index_events_on_exhibition_id", using: :btree
 
   create_table "exhibitions", force: :cascade do |t|
     t.string   "title"
@@ -113,7 +109,6 @@ ActiveRecord::Schema.define(version: 20170825142132) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "events", "exhibitions"
   add_foreign_key "exhibitions", "galleries"
   add_foreign_key "images", "exhibitions"
 end
