@@ -137,6 +137,20 @@
   <p class="text-center">
   <% if admin_signed_in? %>
   <%= link_to 'Create New Event', new_event_path, class: "btn btn-warning" %>
+
+  <h2>Import Events</h2>
+  
+    <%= form_tag import_events_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import CSV" %>
+    <% end %>
+
+    <p>
+    Download: 
+    <%= link_to "CSV", events_path(format: "csv") %> |
+    <%= link_to "Excel", events_path(format: "xls") %>
+    </p>
+
   <% end %>
 </p>
 

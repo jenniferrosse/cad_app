@@ -16,6 +16,13 @@ class EventsController < ApplicationController
     else
       @events = Event.where("start_date >= ?", Date.today).order('start_date ASC, title ASC')
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { render text: @past_events.to_csv }
+
+    end
+
   end
 
   # GET /events/1
@@ -31,7 +38,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new(exhibition_id: params[:exhibition_id])
+    @event = Event.new
   end
 
   # GET /events/1/edit
@@ -85,6 +92,11 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def import
+    Event.import(params[:file])
+    redirect_to root_url, notice: "Events imported."
   end
 
   private

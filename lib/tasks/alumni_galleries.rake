@@ -1,5 +1,5 @@
 namespace :seed do
-  desc "Populate images"
+  desc "Populate alumni galleries"
   task alumni_galleries: :environment do 
     Gallery.create!([
       {gallery_name: "11 Seventeen Studio", address: "626 W. 18th St.", latitude: 41.8577716, longitude: -87.6429968, phone: nil, website: nil, email: "11Seventeenstudio@gmail.com", owner_operator: "Paula Michelle", medium: nil, description: "11 Seventeen Studio is owned by Paula Michelle, a woman of many talents. Her vision for the studio is to not only foster and house the work of various artists, but to appreciate the process to which their work has created.", thumbnail: File.new("app/assets/images/galleries/11seventeen.jpg"), city: "Chicago", state: "IL", zip: "60616", hours: "By appointment only.", current: false},

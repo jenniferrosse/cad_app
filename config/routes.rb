@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     collection { post :import}
   end
   resources :events do
+    collection { post :import}
     member do
       post :participation
     end
