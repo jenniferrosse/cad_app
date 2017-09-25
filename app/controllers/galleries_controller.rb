@@ -18,6 +18,12 @@ class GalleriesController < ApplicationController
 
   def alumni_galleries
     @alumni_galleries = Gallery.where(current: false).order('gallery_name ASC')
+
+    respond_to do |format|
+      format.html
+      format.csv { render text: @alumni_galleries.to_csv }
+
+    end
   end
 
   # GET /galleries/1
