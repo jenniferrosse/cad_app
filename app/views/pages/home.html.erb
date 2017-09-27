@@ -85,16 +85,10 @@
                 </div>
                 <div class="row">
                   <br>
-                  <h3 class="events-name"><%= link_to event.title, event %><% if event.exhibition %>
-                    <span class="small-text">for</span> 
-                      <%= link_to event.exhibition.title, event.exhibition %>
-                    <% end %></h3>
+                  <h3 class="events-name"><%= link_to event.title, event %>
                   <p class="events-text"><%= truncate event.description, length: 400 %></p>
                   
                  <p><%= link_to 'About the Event', event, class: "btn btn-primary" %>
-                 <% if event.exhibition %>
-                   <%= link_to 'About the Exhibition', event.exhibition, class: "btn btn-primary-outline" %></p>
-                  <% end %>
                 </div>
                 <div class="row gallery-info">
                   <% if event.exhibition %>
