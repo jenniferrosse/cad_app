@@ -146,7 +146,7 @@ namespace :seed do
     #October 2017
       {event_id: 1, gallery_id: 22},
       {event_id: 1, gallery_id: 27},
-      {event_id: 1, gallery_id: 29},
+      {event_id: 1, gallery_id: 29}
     ])
   end
 end
