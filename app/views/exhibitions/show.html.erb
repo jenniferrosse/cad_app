@@ -64,43 +64,6 @@
     <div class="col-md-6 col-md-offset-3">
       <p><%= markdown(@exhibition.description) %></p>
     </div>
-    <div class="col-md-3">
-      <% if @upcoming_events.any? %>
-        <div class="date-column-background">
-          <div class="some-padding">
-            <h3>Upcoming Related Events</h3>
-            <% @upcoming_events.each do |event| %>
-              <p><b><%= link_to event.title, event %></b><br>
-              <%= event.start_date.try(:strftime, "%A, %B %e, %Y") %>
-                <% if event.end_date > event.start_date %>
-                  - <%= event.end_date.try(:strftime, "%B %e, %Y") %>
-                <% end %><br>
-              <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %>
-              </p>
-            <% end %>
-            <br>
-          </div>
-        </div>
-      <% end %>
-      <% if @past_events.any? %>
-      <div class="some-padding">
-        <h3>Past Related Events</h3>
-
-        <% @past_events.each do |event| %>
-          <p><b><%= link_to event.title, event %></b><br>
-            <%= event.start_date.try(:strftime, "%A, %B %e, %Y") %>
-              <% if event.end_date > event.start_date %>
-                - <%= event.end_date.try(:strftime, "%B %e, %Y") %>
-              <% end %><br>
-            <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %>
-            </p>
-        <% end %>
-      <% end %>
-      <% if admin_signed_in? %>
-        <%= link_to "Add New Event", new_event_path(exhibition_id: @exhibition),class: "btn btn-warning"  %>
-        <br>
-      <% end %> 
-    </div>
     </div>
   </div>
 </div>
