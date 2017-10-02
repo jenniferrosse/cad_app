@@ -3,11 +3,6 @@ class Exhibition < ActiveRecord::Base
 
   belongs_to :gallery
   validates :gallery, presence: true
-  
-  has_many :events, dependent: :destroy
-  accepts_nested_attributes_for :events
-
-
 
   scope :current_exhibitions, -> { where("? BETWEEN start_date AND end_date", Date.today) }
   scope :upcoming_exhibitions, -> { where("start_date > ?", Date.today) }
