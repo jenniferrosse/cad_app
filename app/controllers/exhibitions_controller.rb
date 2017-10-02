@@ -7,6 +7,7 @@ class ExhibitionsController < ApplicationController
   # GET /exhibitions.json
   def index
     # @current_exhibitions = Exhibition.where("? BETWEEN start_date AND end_date", Date.today).order('end_date ASC')
+    @exhibitions = Exhibition.all
     @current_upcoming_exhibitions = Exhibition.where("end_date >= ?", Date.today).order('end_date ASC')
     @upcoming_exhibitions = Exhibition.where("start_date > ?", Date.today).order('end_date ASC')
     @ongoing_exhibitions = Exhibition.where("end_date > ?", Date.today + 4.months).order('end_date ASC')
@@ -22,6 +23,14 @@ class ExhibitionsController < ApplicationController
       @exhibitions = Exhibition.past_exhibitions.order('end_date DESC')
     else
       @exhibitions = Exhibition.where("? BETWEEN start_date AND end_date", Date.today).order('end_date ASC')
+    end
+    
+    @exhibitions = Exhibition.all
+
+    respond_to do |format|
+      format.html
+      format.csv { render text: @exhibitions.to_csv }
+
     end
   end
 

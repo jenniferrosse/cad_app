@@ -91,12 +91,7 @@
                  <p><%= link_to 'About the Event', event, class: "btn btn-primary" %>
                 </div>
                 <div class="row gallery-info">
-                  <% if event.exhibition %>
-                    <h6 class="gallery-name"><%= link_to event.exhibition.gallery.try(:gallery_name), event.exhibition.gallery %></h6>
-                    <p class="gallery-address">
-                      <%= event.exhibition.gallery.address %><br>
-                      <%= event.exhibition.gallery.city %>, <%= event.exhibition.gallery.state %> <%= event.exhibition.gallery.zip %></p>
-                    <% end %>
+
                 </div>
               </div>
             </div>
