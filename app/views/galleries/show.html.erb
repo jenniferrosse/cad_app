@@ -70,18 +70,20 @@
         <hr>
           <div class="row">
             <div class="col-md-4 col-md-offset-1">
-              <%= image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive", width: "100%") %>
+              <%= image_tag(exhibition.exhibition_thumbnail.url(:square), class: "img-responsive", width: "100%") %>
             </div>
             <div class="col-md-6">
               <p class="date">
                 <% if exhibition.end_date > Date.today + 4.month %>
                   Ongoing
-                <% else %> 
+                <% elsif exhibition.end_date == exhibition.start_date %>
+                  <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %>
+                <% elsif %>
                   <%= exhibition.start_date.try(:strftime, "%B %e") %> - <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %>
                 <% end %>
               </p>
               <h3><%= link_to exhibition.title, exhibition %><br></h3>
-              <p><%= truncate exhibition.description, length: 675 %></p>
+              <p><%= truncate(markdown(exhibition.description), length: 675, escape: false )%></p>
               <p><%= link_to 'More About Exhibition', exhibition, class: "btn btn-primary" %>
             </div>
           </div><!-- end row -->
@@ -106,13 +108,20 @@
           <hr>
           <div class="row">
             <div class="col-md-5">
-              <%= image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive", width: "100%") %>
+              <%= image_tag(exhibition.exhibition_thumbnail.url(:square), class: "img-responsive", width: "100%") %>
             </div>
             <div class="col-md-7">
-              <p><%= exhibition.start_date.try(:strftime, "%B %e") %> - 
-              <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %></p>
+              <p>
+                <% if exhibition.end_date > Date.today + 4.month %>
+                  Ongoing
+                <% elsif exhibition.end_date == exhibition.start_date %>
+                  <%= exhibition.start_date.try(:strftime, "%b %e, %Y") %>
+                <% elsif %>
+                  <%= exhibition.start_date.try(:strftime, "%B %e") %> - <%= exhibition.end_date.try(:strftime, "%B %e, %Y") %>
+                <% end %>
+              </p>
               <h3><%= link_to exhibition.title, exhibition %><br></h3>
-              <p><%= truncate exhibition.description, length: 675 %></p>
+              <p><%= truncate(markdown(exhibition.description), length: 675, escape: false )%></p>
               <p><%= link_to 'More About Exhibition', exhibition, class: "btn btn-primary" %>
             </div>
           </div><!-- end row -->

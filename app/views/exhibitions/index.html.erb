@@ -24,7 +24,7 @@
             <% @current_upcoming_exhibitions.each do |exhibition| %>
               <div class="col-sm-4 col-md-3">
                 <div class="thumbnail thumbnail-exhibitions">
-                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
+                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:square), class: "img-responsive margin border"), exhibition %>
                   <div class="caption">
                     <div class="exhibitions-text1">
                       <p class="exhibitions-name"><%= link_to exhibition.title, exhibition %></p>
@@ -66,7 +66,7 @@
             <% @ongoing_exhibitions.each do |exhibition| %>
               <div class="col-sm-4 col-md-3">
                 <div class="thumbnail thumbnail-exhibitions">
-                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
+                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:square), class: "img-responsive margin border"), exhibition %>
                   <div class="caption">
                     <div class="exhibitions-text1">
                       <p class="exhibitions-name"><%= link_to exhibition.title, exhibition %></p>
@@ -107,7 +107,7 @@
             <% @past_exhibitions.each do |exhibition| %>
               <div class="col-sm-4 col-md-3">
                 <div class="thumbnail thumbnail-exhibitions">
-                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive margin border"), exhibition %>
+                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:square), class: "img-responsive margin border"), exhibition %>
                   <div class="caption">
                     <div class="exhibitions-text1">
                       <p class="exhibitions-name"><%= link_to exhibition.title, exhibition %></p>
