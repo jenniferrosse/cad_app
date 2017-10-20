@@ -41,6 +41,9 @@ class GalleriesController < ApplicationController
       @exhibitions = @gallery.exhibitions.where("end_date>=?", Date.today).order('end_date 
         ASC')
     end
+    @events = Event.all.where("start_date>=?", Date.today).order('start_date ASC')
+
+    @participations = @gallery.participations
   end
 
   # GET /galleries/new
@@ -107,6 +110,7 @@ class GalleriesController < ApplicationController
     def gallery_params
       params.require(:gallery).permit(:gallery_name, :address, :city, :state, :zip, :latitude, :longitude, :phone, :website, :email, :owner_operator, :medium, :description, :thumbnail, :hours, :current,
         :exhibitions_attributes => [:id, :title, :date, :description], 
-        :events_attributes => [:id, :title, :date, :description])
+        :events_attributes => [:id, :title, :date, :description],
+        :participations_attributes => [:id] )
     end
 end

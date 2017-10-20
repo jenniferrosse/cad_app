@@ -29,6 +29,8 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show 
     @galleries = @event.galleries
+    @exhibitions = Exhibition.all
+
     if params[:exhibition_id]
       @events = Exhibition.find(params[:exhibition_id]).events
     else

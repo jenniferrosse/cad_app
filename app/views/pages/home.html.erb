@@ -9,10 +9,8 @@
       <div class="col-md-6 col-sm-6 hidden-xs">
         <div class="text-box">
           <h2>Upcoming 2nd Fridays Gallery Night</h2>
-          <% @next_2nd_fridays.each do |event| %>
-            <h3><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %><br> 
-              <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></h3>
-          <% end %>
+            <h3><%= @next_2nd_fridays.start_date.try(:strftime, "%A, %B %e, %Y") %><br> 
+              <%= @next_2nd_fridays.start_time.try(:strftime, "%l:%M %p") %> - <%= @next_2nd_fridays.end_time.try(:strftime, "%l:%M %p") %></h3>
           <p><%= link_to 'Learn More', about_2nd_fridays_path, class: "btn btn-primary-outine-inverse" %></p>
         </div>
       </div>
@@ -24,10 +22,9 @@
   <div class="row">
     <div class="col-xs-12 hidden-lg hidden-md hidden-sm">
         <h2>Upcoming 2nd Fridays Gallery Night</h2>
-        <% @next_2nd_fridays.each do |event| %>
-            <h3><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %><br> 
-              <%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></h3>
-          <% end %>
+            <h3><%= @next_2nd_fridays.start_date.try(:strftime, "%A, %B %e, %Y") %><br> 
+              <%= @next_2nd_fridays.start_time.try(:strftime, "%l:%M %p") %> - <%= @next_2nd_fridays.end_time.try(:strftime, "%l:%M %p") %></h3>
+
 
         <p><%= link_to 'Learn More', about_2nd_fridays_path, class: "btn btn-primary" %>
         <br>
@@ -52,107 +49,83 @@
     </div>  
   </div>
 </div>
-
-
+  
 <!-- Carousel of Upcoming Events -->
 <div class="events-background">
   <div class="container events-container">
-    <h1>Current & Upcoming Events</h1>
-    <div class="container events-scroll">
+    <h2 class="uppercase">Current & Upcoming Events</h1>
+    <div class="events-scroll">
 
       <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <% @events.each_with_index do |event, index| %>
             <div class="item <%= index == 0 ? 'active' : '' %>">
-            <div class="row events-row">
-              <div class="col-xs-12 col-md-6 col-sm-6 events-image">
-                <% if event.event_thumbnail.present? %>
-                <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive pull-right"), event %>
-                <% else %>
-                <%= link_to image_tag(event.exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive pull-right"), event %>
-              <% end %>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6 events-info">
-                <div class="row">
-                  <div class="col-md-6 no-padding-left">
-                    <p class="events-date"><%= event.start_date.try(:strftime, "%A, %b %e, %Y") %></p>
-                    <p class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p>
-                  </div>
-                  <div class="col-md-6 no-padding-right">
-                    <%= link_to image_tag('2nd-fridays-link.jpg', height: '100', alt: '2nd Fridays'), events_path, title: '2nd Fridays', title: '2nd Fridays', rel: 'tooltip', relative: true, class: "pull-right" %>
-                  </div> 
+              <div class="row events-row">
+                <div class="col-md-6 events-image">
+                  <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive center-block"), event %>
                 </div>
-                <div class="row">
+                <div class="col-md-6 events-info">
+                  <p class="events-date"><%= event.start_date.try(:strftime, "%A, %b %e, %Y") %></p>
+                  <p class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p>
                   <br>
-                  <h3 class="events-name"><%= link_to event.title, event %>
+                  <h3 class="events-name"><%= link_to event.title, event %></h3>
                   <p class="events-text"><%= truncate event.description, length: 400 %></p>
-                  
-                 <p><%= link_to 'About the Event', event, class: "btn btn-primary" %>
-                </div>
-                <div class="row gallery-info">
-
+                  <p><%= link_to 'About the Event', event, class: "btn btn-primary" %></p>
                 </div>
               </div>
             </div>
+            <% end %>
           </div>
+          <% if @events.count > 1 %>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           <% end %>
-        </div>
-        <% if @events.count > 1 %>
-          <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        <% end %>
-      </div><!-- End Carousel -->
-    </div>
+        </div><!-- End Carousel -->
+
+      </div>
       <p class="text-center"><%= link_to "View All Events", events_path, class: "btn btn-primary btn-lg" %></p>
     </div>
-  </div>
-</div>
-<!-- End Carousel of Upcoming Exhibitions -->
+  </div><!-- End Carousel of Upcoming Events -->
 
-        
-
-
-    </div>
-  </div>
-</div>
 
 <div class="exhibitions-background">
   <div class="container exhibitions-container">
-    <h1>Current & Upcoming Exhibitions</h1>
-    <div class="container exhibitions-scroll">
+    <h2 class="uppercase">Current & Upcoming Exhibitions</h1>
+    <div class="exhibitions-scroll">
 
       <div id="myCarousel2" class="carousel slide" data-interval="false" data-ride="carousel">
-        
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <% @exhibitions.each_with_index do |exhibition, index| %>
             <div class="item <%= index == 0 ? 'active' : '' %>">
               <div class="row exhibitions-row">
-                <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-image">
-                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive pull-right"), exhibition %>
+                <div class="col-md-6 exhibitions-image">
+                  <%= link_to image_tag(exhibition.exhibition_thumbnail.url(:medium), class: "img-responsive center-block"), exhibition %>
                 </div>
-                <div class="col-xs-12 col-md-6 col-sm-6 exhibitions-info">
+                <div class="col-md-6 exhibitions-info">
                   <div class="row">
                     <p class="exhibitions-date-home">
                       <% if exhibition.end_date > Date.today + 4.month %>
-                        Ongoing
+                        Ongoing Exhibition
                       <% elsif %>
                         <%= exhibition.start_date.try(:strftime, "%b, %e %Y") %> - <%= exhibition.end_date.try(:strftime, "%b, %e %Y") %>
                       <% end %>
                       </p>
                     <h3 class="exhibitions-name"><%= link_to exhibition.title, exhibition %></h3>
-                    <p class="exhibitions-text"><%= truncate exhibition.description, length: 525 %>
+                    <p class="exhibitions-text"><%= truncate exhibition.description, length: 400 %>
                     <p><%= link_to 'About the Exhibition', exhibition, class: "btn btn-primary-outine-inverse" %></p>
                     </p>
                   </div>
+                  <br>
+                  <br>
                   <div class="row gallery-info">
                     <h6 class="gallery-name"><%= link_to exhibition.gallery.gallery_name, exhibition.gallery %></h6>
                     <p class="gallery-address"><%= exhibition.gallery.address %><br>

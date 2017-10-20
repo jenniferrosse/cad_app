@@ -15,54 +15,71 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
+
     <div role="tabpanel" class="tab-pane active" id="current_upcoming">
-      <div class="container-fluid">
       <% @current_and_upcoming_events.each do |event| %>
       <% if event.event_type == "Series" %>
-          <div class="row background-gray">
-            <div class="col-md-2 ">
-              <% if event.event_thumbnail.present? %>
-                <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive margin border"), event %>
-              <% end %>
+        <div class="container-fluid gray-background">
+          <div class="row">
+            <div class="col-md-3">
+              <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive img-border"), event %>
             </div>
-            <div class="col-md-10">
-              <span class="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></span>
-              <p class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p>
-              <h3 class="event-name"><%= link_to "#{event.title} - #{event.start_date.try(:strftime, "%B" )}", event %></h3>  
+            <div class="col-md-9 events-index-info">
+              <div class="row events-text1">
+                <p class="date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></p>
+                <h2><%= link_to "#{event.title} - #{event.start_date.try(:strftime, "%B" )}", event %></h2>
+                <br>
+                <p><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p>
+              </div>
+              <div class="row events-text2">
+                <br>
+                <br>
+                <br>
+                <br>
+                 <p class="gallery-name"><strong><%= link_to 'Information Center', about_2nd_fridays_path %></strong></p>
+                  <p class="gallery-address">1945 S. Halsted St.<br>
+                  Chicago, IL 60608</p>
+              </div>
             </div>
-            <div class="col-md-12">
+          </div>
+          <br>
+          <div class="row">  
+            <div class="col-md-3">
+              <h4 class="align-right">Participating<br>Galleries</h4>
+            </div>
+            <div class="col-md-9">
               <% if event.galleries.any? %>
-                <h4>Participating Galleries</h4>
-                <% event.galleries.each do |gallery| %>
-                  <div class="col-xs-4 col-sm-3 col-md-2">
-                    <div class="image-container">
-                      <%= image_tag(gallery.thumbnail.url(:medium), class: "img-responsive same-size-img") %>
-                      <div class="overlay">
-                        <h6 class="text-overlay"><%= link_to gallery.gallery_name, gallery %></h6>
+              <hr>
+              <% event.galleries.each do |gallery| %>
+                    <div class="col-md-2">
+                      <div class="image-container">
+                        <%= image_tag(gallery.thumbnail.url(:medium), class: "img-responsive same-size-img") %>
+                        <div class="overlay">
+                          <h6 class="text-overlay"><%= link_to gallery.gallery_name, gallery %></h6>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                <% end %>
-              <% else %>
-              <br>
-                 <h4>Participating Galleries will be announced soon! Sign up for updates!</h4>
-                 <div class="newsletter-signup-form"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Sign Up for Newsletter</button>
-                  </div>
-                 
               <% end %>
-            </div><!-- end col-md-12 -->
+              <% else %>
+               <p>Participating Galleries will be announced soon!<br>
+                Sign up for updates!</p>
+                <div class="newsletter-signup-form"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Sign Up for Newsletter</button>
+                  </div> 
+                  <br>
+            <% end %>
+            </div>
           </div><!-- end row -->
+        </div>
+
         <% else %>
           <div class="row events-information">
             <div class="col-md-2 ">
-            <% if event.event_thumbnail.present? %>
               <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive margin border"), event %>
-            <% end %>
             </div>
             <div class="col-md-10">
-              <span class="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></span>
-              <p class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p> 
-              <h3 class="event-name"><%= link_to event.title, event %></h3>
+              <p><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></p>
+              <p><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p> 
+              <h3><%= link_to event.title, event %></h3>
               <br>
               <% if event.event_type != "Series" %>
                 <% event.galleries.each do |gallery| %>
@@ -76,38 +93,63 @@
         <hr>
       <% end %>
 
-    </div>
+
   </div><!-- end tab panel -->
 
     <div role="tabpanel" class="tab-pane" id="past">
-      <div class="container">
       <% @past_events.each do |event| %>
         <% if event.event_type == "Series" %>
-          <div class="row background-gray">
-            <div class="col-md-2 ">
-              <% if event.event_thumbnail.present? %>
-                <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive margin border"), event %>
-              <% end %>
+        <div class="container-fluid gray-background">
+          <div class="row">
+            <div class="col-md-3">
+              <%= link_to image_tag(event.event_thumbnail.url(:medium), class: "img-responsive img-border"), event %>
             </div>
-            <div class="col-md-10">
-              <span class="events-date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></span>
-              <p class="events-time"><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p> 
-              <h3 class="event-name"><%= link_to "#{event.title} - #{event.start_date.try(:strftime, "%B" )}", event %></h3>  
+            <div class="col-md-9 events-index-info">
+              <div class="row events-text1">
+                <p class="date"><%= event.start_date.try(:strftime, "%A, %B %e, %Y") %></p>
+                <h2><%= link_to "#{event.title} - #{event.start_date.try(:strftime, "%B" )}", event %></h2>
+                <br>
+                <p><%= event.start_time.try(:strftime, "%l:%M %p") %> - <%= event.end_time.try(:strftime, "%l:%M %p") %></p>
+              </div>
+              <div class="row events-text2">
+                <br>
+                <br>
+                <br>
+                <br>
+                 <p class="gallery-name"><strong><%= link_to 'Information Center', about_2nd_fridays_path %></strong></p>
+                  <p class="gallery-address">1945 S. Halsted St.<br>
+                  Chicago, IL 60608</p>
+              </div>
             </div>
-            <div class="col-md-12">
-              <h4>Galleries That Participated</h4>
+          </div>
+          <br>
+          <div class="row">  
+            <div class="col-md-3">
+              <h4 class="align-right">Participating<br>Galleries</h4>
+            </div>
+            <div class="col-md-9">
+              <% if event.galleries.any? %>
+              <hr>
               <% event.galleries.each do |gallery| %>
-                <div class="col-xs-4 col-sm-3 col-md-2">
-                  <div class="image-container">
-                    <%= image_tag(gallery.thumbnail.url(:medium), class: "img-responsive same-size-img") %>
-                    <div class="overlay">
-                      <h6 class="text-overlay"><%= link_to gallery.gallery_name, gallery %></h6>
+                    <div class="col-md-2">
+                      <div class="image-container">
+                        <%= image_tag(gallery.thumbnail.url(:medium), class: "img-responsive same-size-img") %>
+                        <div class="overlay">
+                          <h6 class="text-overlay"><%= link_to gallery.gallery_name, gallery %></h6>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
               <% end %>
-            </div><!-- end col-md-12 -->
+              <% else %>
+               <p>Participating Galleries will be announced soon!<br>
+                Sign up for updates!</p>
+                <div class="newsletter-signup-form"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Sign Up for Newsletter</button>
+                  </div> 
+                  <br>
+            <% end %>
+            </div>
           </div><!-- end row -->
+        </div>
         <% else %>
           <div class="row events-information">
             <div class="col-md-2 ">

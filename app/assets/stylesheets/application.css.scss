@@ -26,11 +26,29 @@ body, html {
     margin: 0;
 }
 
+/* For Testing Layout
+------------------------- */
+.test-red {
+  border: 1px solid red;
+}
+.test-blue {
+  border: 1px solid blue;
+}
+.test-yellow {
+  border: 1px solid yellow;
+}
+.test-green {
+  border: 1px solid green;
+}
+
+/* General
+------------------------- */
+
 h1, h2 {
-  font-family: 'futura-pt',sans-serif;
+  font-family: futura-pt, sans-serif;
+  font-style: normal;
   font-weight: 300;
   color: #4A4A4A;
-  text-transform: uppercase;
   }
 
 h3, h4, h5 {
@@ -38,17 +56,12 @@ h3, h4, h5 {
   font-style: normal;
   font-weight: 300;
   color: #4A4A4A;
-  text-transform: uppercase;
 }
 p {
-  font-family: 'futura-pt', sans-serif;
-  font-size: 125%;
+  font-family: futura-pt, sans-serif;
+  font-style: normal;
   font-weight: 300;
 }
-
-/* General
-------------------------- */
-
 
 p, a {
   color: #4A4A4A;
@@ -59,6 +72,15 @@ hr {
     /* Set the hr color */
     color: #333; /* old IE */
     background-color: #BFBFBF; /* Modern Browsers */
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.date {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 115%;
+
 }
 
 /* Navbar
@@ -136,8 +158,6 @@ $colHighlight: #AD3C3C;
 .navbar btn-nav {
   margin: 30px;
 }
-
-
 .page-title {
 }
 .date {
@@ -300,27 +320,12 @@ $colHighlight: #AD3C3C;
   padding-bottom: 20px;
   }
 }
-.background-dark {
-  background-color: #4A4A4A;
-  padding: 70px;
-  margin: 0px;
-  h1, p {
-    color: #EAEAEA;
-    margin-top: 0px;
-    padding-top: 0px;
-  }
-  h1 {
-    margin-top: 0px;
-  }
-  p {
-    font-size: 130%;
-  }
-}
+
 .background-light {
   background-color: white;
-  padding: 70px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+
+  margin-top: 100px;
+  margin-bottom: 100px;
   h1, p {
     margin-top: 0px;
     padding-top: 0px;
@@ -331,42 +336,6 @@ $colHighlight: #AD3C3C;
   p {
     font-size: 130%;
   }
-}
-.carousel-control.right.hero-image, .carousel-control.left.hero-image {
-    background-image: none;
-    color: #FFF;
-    opacity:1 !important;
-}
-
-.carousel-caption {
-  top: 40%;
-  
-  h1, h2, h4 {
-  color: white;
-  text-transform: bold;
-  text-shadow: 0 0px 0px rgba(0, 0, 0, 0);
-  }
-}
-
-.parallax {
-    /* The image used */
-    background-image: url(artwalk3.jpg);
-
-    /* Full height */
-    height: 60%; 
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
-@media only screen and (max-device-width: 1024px) {
-    .parallax {
-        background-attachment: scroll;
-    }
 }
 
 .bg {
@@ -405,21 +374,6 @@ $colHighlight: #AD3C3C;
   height: 50%;
 }
 
-
-/* Home Page - Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -1px;
-}
-
 /* Home Page - Events Info
 ------------------------- */
 .events-background {
@@ -427,53 +381,38 @@ $colHighlight: #AD3C3C;
   background-color: #4A4A4A;
   padding-top: 75px;
   padding-bottom: 75px;
-}
-.events-container {
-  h1 {
-  margin-bottom: -8px;
-  color: #EAEAEA;
-  }
-}
-.events-scroll {
-  background-color: #EAEAEA;
-  margin-bottom: 75px;
-}
-.events-row {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  display: flex;
-}
-.events-image img {
-  max-height: 400px;
-}
-@media (max-width: 768px) {
-    .row .col-xs-12 > .pull-right {
-        float: none !important;
+  .events-container {
+    h2 {
+    margin-bottom: -7px;
+    color: #EAEAEA;
     }
+  }
+  .events-scroll {
+    background-color: #EAEAEA;
+    margin-bottom: 75px;
+  }
+  .events-row {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 80px;
+    margin-right: 80px;
+    .events-image img {
+      max-height: 400px;
+    }
+  }
 }
-
 .events-info {
-  padding-right: 125px;
-  position: relative;
-  .no-padding-left {
-    padding-left: 0px;
-  }
-  .no-padding-right {
-    padding-right: 0px;
-  }
   .events-date {
     color: #4A4A4A;
     font-size: 130%;
-    margin-top: 40px;
+    margin-top: 25px;
     margin-bottom: 0px;
     font-size: 110%;
     text-transform: uppercase;
-
   }
   .events-time {
     color: #4A4A4A;
     margin-top: 0px;
-
   }
   .events-name {
     color: #3CC0000;
@@ -486,16 +425,6 @@ $colHighlight: #AD3C3C;
   }
   .small-text {
     font-size: 60%;
-  }
-  .exhibition-card {
-    background-color: #4A4A4A;
-    padding: 5px;
-    .exhibition-name {
-      color: #EAEAEA;
-    }
-    p {
-      color: #EAEAEA;
-    }
   }
   .events-text {
     color: #4A4A4A;
@@ -526,34 +455,29 @@ $colHighlight: #AD3C3C;
   background-color: #EAEAEA;
   padding-top: 75px;
   padding-bottom: 75px;
-}
-.exhibitions-container {
-  h1 {
-  margin-bottom: -8px;
-  color: #4A4A4A;
+  .exhibitions-container {
+    h2 {
+      margin-bottom: -7px;
+      color: #4A4A4A;
+    }
+  }
+  .exhibitions-scroll {
+    background-color: #4A4A4A;
+    margin-bottom: 75px;
+  }
+  .exhibitions-row {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+  .exhibitions-image img {
+    max-height: 400px;
   }
 }
-.exhibitions-scroll {
-  background-color: #4A4A4A;
-  margin-bottom: 75px;
-}
-.exhibitions-row {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  display: flex;
-}
-.exhibitions-image img {
-  max-height: 400px;
-}
-@media (max-width: 768px) {
-    .row .col-sm > .pull-right {
-        float: none !important;
-    }
-}
 .exhibitions-info {
-  padding-right: 125px;
-  position: relative;
   .exhibitions-date-home {
+    margin-top: 15px;
     color: #EAEAEA;
     font-size: 110%;
     margin-bottom: -5px;
@@ -570,8 +494,6 @@ $colHighlight: #AD3C3C;
     color: #EAEAEA;
   }
   .gallery-info {
-    position: absolute;
-    bottom: 0;
     .gallery-name {
       text-transform: uppercase;
       color: #EAEAEA;
@@ -585,8 +507,6 @@ $colHighlight: #AD3C3C;
       color: #EAEAEA;
       text-transform: uppercase;
       font-size: 80%;
-      margin-bottom: 0px;
-      vertical-align: bottom;
     }
   }
 }
@@ -613,8 +533,6 @@ $colHighlight: #AD3C3C;
   display: inline-block;
 }
 
-e7e1d1
-
 .jumbotron-home-second {
     margin-bottom: 0px;
     background-color: gray;
@@ -640,69 +558,37 @@ e7e1d1
 
 /* Events - Index Page
 ------------------------- */
+
 .gray-background {
   background: #EAEAEA;
 }
-.background-gray {
-  background: #EAEAEA;
-  padding: 5px;
-  h4, h5, h6, p {
-    color: #4A4A4A;
-    text-transform: uppercase;
-  }
-  .event-name {
-    margin-top: 0px;
-  }
-  a {
-  color: #4A4A4A;
-  }
-  .events-date {
-    color: 4A4A4A;
-    margin-bottom: 25px;
-    font-size: 90%;
-    text-transform: uppercase;
-  }
+.img-border {
+  border: 1px solid #E6E6E6;
 }
-.events-information {
-  .exhibitions-text h4, h5, h6, p {
-    text-transform: uppercase;
-  }
-  .event-name {
-    margin-top: 0px;
-  }
-  a {
-  color: #4A4A4A;
-  }
-  a:hover{
-    text-decoration: none;
-  }
-  .exhibition-name {
-    text-transform: uppercase;
-     a {
-      color: #AD3C3C;
-     }
-  }
-  .events-date {
-    margin-bottom: 25px;
-    font-size: 90%;
-    text-transform: uppercase;
-  }
-  .events-time {
-    font-size: 90%;
-    padding-bottom: 10px;
+.align-right {
+  text-align: right;
+}
 
+.events-index-info {
+  padding:10px;
+}
+
+  .events-text1 {
+    min-height: 120px;
+    margin: 0 0 0 0px;
+  } 
+  .events-text2 {
+    min-height: 100px;
+    margin: 0 0 0 0px;
   }
   .gallery-name {
-    font-size: 73%;
+    font-size: 90%;
     margin-bottom: 0px;
-    text-align: bottom;
   }
   .gallery-address {
-    font-size: 70%;
-    margin-bottom: 0px;
+    font-size: 80%;
+    margin-bottom: 5px;
   }
-}
-
 
 /* Exhibitions - Index Page
 ------------------------- */

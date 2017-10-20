@@ -1,0 +1,14 @@
+<div class="container">
+  <h2><%= @participation.event.title %></h2>
+  <h4><%= @participation.event.start_date.try(:strftime, "%B, %e, %Y") %></h4>
+  <%= @participation.description %>
+
+
+   <p class="text-center">
+    <% if admin_signed_in? %>
+      <%= link_to 'Edit', edit_participation_path(@participation),class: "btn btn-warning" %>
+      <%= link_to 'Delete', @participation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    <% end %>
+  </p>
+
+</div>

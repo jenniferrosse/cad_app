@@ -1,5 +1,5 @@
-    <div class="container">
-      <hr>
+<div class="container">
+    <hr>
   <div class="row">
     <div class="col-md-5 col-md-offset-6">
       <p class="page-title">Gallery</p>
@@ -154,6 +154,30 @@
   
 <br>
 <br>
+<div class="container">
+
+    <% if admin_signed_in? %>
+    <p>Sign up for upcoming 2nd Fridays</p>
+      <% for event in @events %>
+     <p><strong><%= event.title %></strong><br>
+      <%= event.start_date.try(:strftime, "%A, %B %e, %Y") %><br>
+        <%= link_to 'Sign up', new_participation_path(gallery_id: @gallery, event_id: event) %>
+      <% end %>
+     </p> 
+    <% end %>
+
+    
+    <% @participations.each do |participation| %>
+      <p>
+        <%= link_to participation.event.title, participation %><br>
+        <%= participation.event.start_date.try(:strftime, "%B, %e, %Y") %><br>
+        <%= participation.description %><br>
+        <%= link_to 'Edit', edit_participation_path(@gallery) %>
+      </p>
+    <% end %>
+
+</div>
+
 <p class="text-center">
   <% if admin_signed_in? %>
     <%= link_to 'Edit', edit_gallery_path(@gallery),class: "btn btn-warning" %>

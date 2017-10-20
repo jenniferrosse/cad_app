@@ -1,0 +1,11 @@
+<div class="container">
+  <% @participations.each do |participation| %>
+  <p>
+    <%= participation.id %>, <%= participation.gallery_id %>
+  </p>
+
+  <p>
+    <%= participation.description %>
+  </p>
+  <% end %>
+</div>

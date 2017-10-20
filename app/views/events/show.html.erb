@@ -90,6 +90,32 @@
   <br>
 
 
+<!-- Third Container (Grid) -->
+<div class = "container">
+    <% if @event.event_type == "Series" %>
+      <h3 class="page-title">This Month's Participating Galleries</h3>
+      <hr>
+      <% if @event.galleries.any? %>  
+        <% @galleries.each do |gallery| %>
+          <%= link_to gallery.gallery_name, gallery %>
+          <%= image_tag(gallery.thumbnail.url(:thumb), class: "img-responsive same-size-img events-border") %>
+          <% if gallery.exhibitions.any? %>
+            <% gallery.exhibitions.each do |exhibition| %>
+              <%= exhibition.title %><br>
+            <% end %>
+          <% else %>
+            no
+          <% end %>
+          <hr>
+        <% end %>
+      <% end %>
+    <% end %>
+
+</div>
+
+
+
+
       <br>
     <p class="text-center">
       <% if admin_signed_in? %>
